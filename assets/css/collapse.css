@@ -1,0 +1,39 @@
+.table {
+  border: none;
+}
+
+.card-body {
+  background: rgba(136,255,219,0.1);
+}
+
+.qc td, .qc table th {
+  vertical-align: middle;
+  /*background-color: #dc3545;*/
+}
+
+.d-inline {
+  display: inline !important;
+}
+
+.subInjHeading {
+  border: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: #27b89b;
+  padding-top: 0.15rem;
+  padding-left: 0.25rem;
+  padding-bottom: 0.15rem;
+  background-color: rgba(39, 184, 155, 0.14);
+}
+
+.box-image {
+  position: relative;
+}
+
+.box-image image, .box-image button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

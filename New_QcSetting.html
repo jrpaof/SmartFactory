@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SmartFactory</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/new_css_jig.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/collapse.css">
+    <link rel="stylesheet" href="assets/css/DcPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="assets/css/fontSize.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/injPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/NavCustomStyle.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/new_css_mold.css">
+    <link rel="stylesheet" href="assets/css/qc.css">
+    <link rel="stylesheet" href="assets/css/ScrollBar.css">
+    <link rel="stylesheet" href="assets/css/SidePanel.css">
+    <link rel="stylesheet" href="assets/css/Stats-icons.css">
+    <link rel="stylesheet" href="assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+</head>
+
+<body id="page-top" style="font-family: Exo, sans-serif;">
+    <nav class="navbar navbar-light navbar-expand-xl mb-3 shadow nav-bar-top">
+        <div class="container-fluid"><div class="collapse navbar-collapse d-xl-flex justify-content-lg-end justify-content-xl-end p-1" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-xl-flex align-items-xl-center"><a class="nav-link nav-link" href="index.html"><i class="fa fa-home" style="font-size: 1.5em;color: lightcyan;"></i></a></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">BOM</span></a>
+                        <div class="dropdown-menu text-light shadow dropdown-menu-right animated--grow-in" style="background: rgb(123, 214, 187);"><a class="dropdown-item" href="BOMMain.html">&nbsp;BOM</a><a class="dropdown-item" href="BOMMaster.html">&nbsp;BOM Master Setting</a><a class="dropdown-item" href="AXMaster.html">AX Master Setting</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">PLAN</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionPlanning.html">Injection Planning</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="InjectionZoneSelect.html"><span class="d-inline mr-2">INJECTION</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionZoneSelect.html">Injection Zone</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center no-arrow m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">Name Surname</span><img class="border rounded-circle imgprofile" src="assets/img/201-user.svg"></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="index.html"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Home</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="Login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                </ul><input type="text" id="currentDateTime" readonly="" disabled="" style="text-align: center;margin-top: 0px;width: auto;">
+            </div>
+        </div>
+    </nav>
+    <div id="contentWrapper">
+        <div id="content">
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalDeleteConfirm">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Confirm Delete</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p>Are you sure to delete?</p>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalDiInspection">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Inspection Point</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div id="image_preview" class="mb-2 p-3 d-none"></div>
+                                        <div class="form-group"><label>Spec</label>
+                                            <div class="d-flex justify-content-start align-items-center"><input class="form-control" type="text"><input class="form-control-file d-none" type="file" id="input_spec_file" accept="image/png, image/jpeg, image/jpg"><span class="px-2">or</span><button class="btn btn-info" id="btn_upload_spec_file" type="button"><i class="fas fa-file-image"></i></button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label>Upper</label><input class="form-control" type="text"></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label>Lower</label><input class="form-control" type="text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalDiPartWeight">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Part Weight</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label>Part</label><input class="form-control" type="text"></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label>Weight</label><input class="form-control" type="text"></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label>Upper</label><input class="form-control" type="text"></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label>Lower</label><input class="form-control" type="text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalProblemDetail">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Rework INJ</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label>Topic</label><input class="form-control" type="text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalRework">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Problem</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label>Topic</label><input class="form-control" type="text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalProblemDetailEdit">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Problem</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="d-flex justify-content-between align-items-center p-1"><input class="form-control form-control-sm" type="text" placeholder="New Topic"><button class="btn btn-success btn-sm ml-2" type="button"><i class="fas fa-plus"></i></button></div>
+                                        <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                            <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                <thead class="text-center" style="background: rgb(226,252,255);">
+                                                    <tr>
+                                                        <th>Index</th>
+                                                        <th>Topic</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Assy Part</td>
+                                                        <td>
+                                                            <div class="btn-group btn-group-sm" role="group"><button class="btn btn-danger" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <h4 class="text-center py-2">Qc Injection Setting<button class="btn btn-info btn-sm float-left m-0 openbtn" type="button" onclick="openNav()" data-target="#qcsidepanel"><i class="fa fa-navicon mr-1"></i><span class="d-none d-lg-inline d-xl-inline">Qc Menu</span></button></h4>
+                <section id="Master" class="mt-2">
+                    <div class="row">
+                        <div class="col-md-12 col-xl-5 mb-md-2">
+                            <header class="text-left mb-2"></header>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Select Part</h4>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                <table class="table table-striped table-hover table-bordered table-select my-0" id="tablePart">
+                                                    <thead class="text-center" style="background: rgb(226,252,255);">
+                                                        <tr>
+                                                            <th>Index</th>
+                                                            <th>Customer</th>
+                                                            <th>Part Code</th>
+                                                            <th>Part Name</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="text-center">
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>KATOLEC</td>
+                                                            <td>D46B37</td>
+                                                            <td>POTTING CASE</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>KATOLEC</td>
+                                                            <td>D46B37</td>
+                                                            <td>POTTING CASE</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>KATOLEC</td>
+                                                            <td>D46B37</td>
+                                                            <td>POTTING CASE</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4</td>
+                                                            <td>KATOLEC</td>
+                                                            <td>D46B37</td>
+                                                            <td>POTTING CASE</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xl-7 mb-md-2">
+                            <div id="tabSetting" class="card shadow">
+                                <ul class="nav nav-tabs nav-fill text-nowrap card-header" role="tablist" style="padding-bottom: 0px;">
+                                    <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tabWorkStandardMaster">Working Standard Setting</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabInspectionSetting">Inspection Setting</a></li>
+                                </ul>
+                                <div class="tab-content card-body">
+                                    <div class="tab-pane fade show active" role="tabpanel" id="tabWorkStandardMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable m-0 mb-2" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="far fa-file-alt" style="margin-right: 12px;"></i>Working Standard Master</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center m-0">
+                                            <div class="col align-items-xl-center p-0 m-0">
+                                                <div id="tabSubSetting" class="card shadow">
+                                                    <ul class="nav nav-tabs nav-fill text-nowrap card-header" role="tablist" style="padding-bottom: 0px;">
+                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabWorkInstruction">Working Instruction</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabPacking">Packing</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tabAppearance">Appearance</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabDimesion">Dimension</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabTempPacking">Temp. Packing</a></li>
+                                                    </ul>
+                                                    <div class="tab-content card-body">
+                                                        <div class="tab-pane fade" role="tabpanel" id="tabWorkInstruction">
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col col-2 d-flex flex-column justify-content-between align-items-center">
+                                                                    <div class="d-flex flex-column justify-content-between align-items-center"><button class="btn btn-primary w-100 mb-3" type="button"><i class="fas fa-file-upload mb-1" style="font-size: 28px;"></i><br>UPLOAD</button><button class="btn btn-danger w-100" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" class="mb-1" style="font-size: 28px;">
+                                                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                                                <path d="M576 128c0-35.3-28.7-64-64-64H205.3c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7H512c35.3 0 64-28.7 64-64V128zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path>
+                                                                            </svg><br>REMOVE</button></div><button class="btn btn-secondary" type="button w-100">HISTORY</button>
+                                                                </div>
+                                                                <div class="col align-items-xl-center pr-0">
+                                                                    <div class="show-qc">
+                                                                        <section class="w-100 h-100"><img class="w-100" src="assets/img/exampleFile.png"></section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" role="tabpanel" id="tabPacking">
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col col-2 d-flex flex-column justify-content-between align-items-center">
+                                                                    <div class="d-flex flex-column justify-content-between align-items-center"><button class="btn btn-primary w-100 mb-3" type="button"><i class="fas fa-file-upload mb-1" style="font-size: 28px;"></i><br>UPLOAD</button><button class="btn btn-danger w-100" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" class="mb-1" style="font-size: 28px;">
+                                                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                                                <path d="M576 128c0-35.3-28.7-64-64-64H205.3c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7H512c35.3 0 64-28.7 64-64V128zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path>
+                                                                            </svg><br>REMOVE</button></div><button class="btn btn-secondary" type="button w-100">HISTORY</button>
+                                                                </div>
+                                                                <div class="col align-items-xl-center pr-0">
+                                                                    <div class="show-qc">
+                                                                        <section class="w-100 h-100"><img class="w-100" src="assets/img/exampleFile.png"></section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade show active" role="tabpanel" id="tabAppearance">
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col col-2 d-flex flex-column justify-content-between align-items-center">
+                                                                    <div class="d-flex flex-column justify-content-between align-items-center"><button class="btn btn-primary w-100 mb-3" type="button"><i class="fas fa-file-upload mb-1" style="font-size: 28px;"></i><br>UPLOAD</button><button class="btn btn-danger w-100" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" class="mb-1" style="font-size: 28px;">
+                                                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                                                <path d="M576 128c0-35.3-28.7-64-64-64H205.3c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7H512c35.3 0 64-28.7 64-64V128zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path>
+                                                                            </svg><br>REMOVE</button></div><button class="btn btn-secondary" type="button w-100">HISTORY</button>
+                                                                </div>
+                                                                <div class="col align-items-xl-center pr-0">
+                                                                    <div class="show-qc">
+                                                                        <section class="w-100 h-100"><img class="w-100" src="assets/img/exampleFile.png"></section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" role="tabpanel" id="tabDimesion">
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col col-2 d-flex flex-column justify-content-between align-items-center">
+                                                                    <div class="d-flex flex-column justify-content-between align-items-center"><button class="btn btn-primary w-100 mb-3" type="button"><i class="fas fa-file-upload mb-1" style="font-size: 28px;"></i><br>UPLOAD</button><button class="btn btn-danger w-100" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" class="mb-1" style="font-size: 28px;">
+                                                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                                                <path d="M576 128c0-35.3-28.7-64-64-64H205.3c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7H512c35.3 0 64-28.7 64-64V128zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path>
+                                                                            </svg><br>REMOVE</button></div><button class="btn btn-secondary" type="button w-100">HISTORY</button>
+                                                                </div>
+                                                                <div class="col align-items-xl-center pr-0">
+                                                                    <div class="show-qc">
+                                                                        <section class="w-100 h-100"><img class="w-100" src="assets/img/exampleFile.png"></section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" role="tabpanel" id="tabTempPacking">
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col col-2 d-flex flex-column justify-content-between align-items-center">
+                                                                    <div class="d-flex flex-column justify-content-between align-items-center"><button class="btn btn-primary w-100 mb-3" type="button"><i class="fas fa-file-upload mb-1" style="font-size: 28px;"></i><br>UPLOAD</button><button class="btn btn-danger w-100" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" class="mb-1" style="font-size: 28px;">
+                                                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                                                <path d="M576 128c0-35.3-28.7-64-64-64H205.3c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7H512c35.3 0 64-28.7 64-64V128zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path>
+                                                                            </svg><br>REMOVE</button></div><button class="btn btn-secondary" type="button w-100">HISTORY</button>
+                                                                </div>
+                                                                <div class="col align-items-xl-center pr-0">
+                                                                    <div class="show-qc">
+                                                                        <section class="w-100 h-100"><img class="w-100" src="assets/img/exampleFile.png"></section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tabInspectionSetting">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable m-0 mb-2" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fas fa-search" style="margin-right: 12px;"></i>Inspection Master</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center m-0">
+                                            <div class="col align-items-xl-center p-0 m-0">
+                                                <div id="tabSubSetting2" class="card shadow">
+                                                    <ul class="nav nav-tabs nav-fill text-nowrap card-header" role="tablist" style="padding-bottom: 0px;">
+                                                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tabInsAppearance">Appearance</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabInsDimesion">Dimension</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabInsRework">Rework INJ</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabInsDoubleCheck">Double Check</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabInsDocumentCtrl">Document Ctrl</a></li>
+                                                    </ul>
+                                                    <div class="tab-content card-body">
+                                                        <div class="tab-pane fade show active" role="tabpanel" id="tabInsAppearance">
+                                                            <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable m-0 mb-2" style="height: 2.5rem;">
+                                                                <div class="col align-items-xl-center">
+                                                                    <h5 class="m-0">Appearance Inspection</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-sm-flex justify-content-between align-items-center w-100 mb-2">
+                                                                <div class="d-flex">
+                                                                    <div class="d-flex justify-content-end align-items-center p-1"><span>Cycle:</span><select class="ml-1">
+                                                                            <option value="2 hour" selected="">2 hour</option>
+                                                                            <option value="3 hour">3 hour</option>
+                                                                            <option value="4 hour">4 hour</option>
+                                                                        </select></div>
+                                                                </div><button class="btn btn-info btn-sm" type="button">Save</button>
+                                                            </div>
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col-xl-6 px-1">
+                                                                    <div class="d-flex justify-content-between align-items-center p-1">
+                                                                        <h5 class="mb-0">Common Problem</h5><button class="btn btn-success btn-sm" type="button" data-toggle="modal" data-target="#modalProblemDetail"><i class="fas fa-plus"></i></button>
+                                                                    </div>
+                                                                    <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                        <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                                <tr>
+                                                                                    <th>Index</th>
+                                                                                    <th>Topic</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-center">
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>Sink Mark</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalProblemDetailEdit"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>2</td>
+                                                                                    <td>Sink Mark</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalProblemDetailEdit"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>3</td>
+                                                                                    <td>Sink Mark</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalProblemDetailEdit"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>4</td>
+                                                                                    <td>Sink Mark</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalProblemDetailEdit"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 px-1">
+                                                                    <div class="d-flex justify-content-between align-items-center p-1">
+                                                                        <h5 class="mb-0">Optional Problem</h5><button class="btn btn-success btn-sm" type="button" data-toggle="toggle" data-target="#modalProblemDetail"><i class="fas fa-plus"></i></button>
+                                                                    </div>
+                                                                    <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                        <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                                <tr>
+                                                                                    <th>Index</th>
+                                                                                    <th>Topic</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-center">
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>Assy Part</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalProblemDetailEdit"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>2</td>
+                                                                                    <td>Other</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalProblemDetailEdit"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" role="tabpanel" id="tabInsDimesion">
+                                                            <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable m-0 mb-2" style="height: 2.5rem;">
+                                                                <div class="col align-items-xl-center">
+                                                                    <h5 class="m-0">Dimension Inspection</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex justify-content-between align-items-center w-100 mb-2">
+                                                                <div class="d-flex justify-content-between align-items-center">
+                                                                    <div class="d-flex justify-content-star align-items-center p-1"><span>Repeat:</span><input type="text" class="ml-1" style="width: 40px;"></div>
+                                                                    <div class="d-flex justify-content-end align-items-center p-1"><span>Cycle:</span><select class="ml-1">
+                                                                            <option value="2 Shift" selected="">2 Shift</option>
+                                                                            <option value="3 Shift">3 Shift</option>
+                                                                            <option value="4 Shift">4 Shift</option>
+                                                                        </select></div>
+                                                                </div><button class="btn btn-info btn-sm" type="button">Save</button>
+                                                            </div>
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col-xl-6 px-2">
+                                                                    <div class="d-flex justify-content-between align-items-center p-1">
+                                                                        <h5 class="mb-0">Inspection Point</h5><button class="btn btn-success btn-sm" type="button" data-toggle="modal" data-target="#modalDiInspection"><i class="fas fa-plus"></i></button>
+                                                                    </div>
+                                                                    <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                        <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                                <tr>
+                                                                                    <th>Point</th>
+                                                                                    <th>Spec</th>
+                                                                                    <th>Lower</th>
+                                                                                    <th>Upper</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-center">
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>16.10 +/-&nbsp; &nbsp;0.075</td>
+                                                                                    <td>16.025</td>
+                                                                                    <td>16.175</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDiInspection"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>2</td>
+                                                                                    <td>16.10 +/-&nbsp; &nbsp;0.075</td>
+                                                                                    <td>16.025</td>
+                                                                                    <td>16.175</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDiInspection"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>3</td>
+                                                                                    <td>16.10 +/-&nbsp; &nbsp;0.075</td>
+                                                                                    <td>16.025</td>
+                                                                                    <td>16.175</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDiInspection"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>4</td>
+                                                                                    <td>16.10 +/-&nbsp; &nbsp;0.075</td>
+                                                                                    <td>16.025</td>
+                                                                                    <td>16.175</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDiInspection"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 px-1">
+                                                                    <div class="d-flex justify-content-between align-items-center p-1">
+                                                                        <h5 class="mb-0">Part Weight</h5><button class="btn btn-success btn-sm" type="button" data-toggle="modal" data-target="#modalDiPartWeight"><i class="fas fa-plus"></i></button>
+                                                                    </div>
+                                                                    <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                        <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                                <tr>
+                                                                                    <th>No</th>
+                                                                                    <th>Part</th>
+                                                                                    <th>Weight</th>
+                                                                                    <th>Lower</th>
+                                                                                    <th>Upper</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-center">
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>CAV.A1</td>
+                                                                                    <td>24.55 +/- 0.50</td>
+                                                                                    <td>24.05</td>
+                                                                                    <td>25.05</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDiPartWeight"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>2</td>
+                                                                                    <td>CAV.A1</td>
+                                                                                    <td>24.55 +/- 0.50</td>
+                                                                                    <td>24.05</td>
+                                                                                    <td>25.05</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDiPartWeight"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" role="tabpanel" id="tabInsRework">
+                                                            <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable m-0 mb-2" style="height: 2.5rem;">
+                                                                <div class="col align-items-xl-center">
+                                                                    <h5 class="m-0">Rework Injection Inspection</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col-xl-12 px-2">
+                                                                    <div class="d-flex justify-content-between align-items-center p-1">
+                                                                        <h5 class="mb-0">Inspection Point</h5>
+                                                                        <div class="input-group input-group-sm" style="width: 250px;">
+                                                                            <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0">New Topic:&nbsp;&nbsp;</span></div><input class="form-control" type="text">
+                                                                            <div class="input-group-append"><button class="btn btn-success" type="button"><i class="fas fa-plus"></i></button></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                        <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                                <tr>
+                                                                                    <th>Index</th>
+                                                                                    <th>Topic</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-center">
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>สลิปกับชิ้นงานถูกต้อง</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>2</td>
+                                                                                    <td>จำนวนงานกับสลิปถูกต้อง</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" role="tabpanel" id="tabInsDoubleCheck">
+                                                            <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable m-0 mb-2" style="height: 2.5rem;">
+                                                                <div class="col align-items-xl-center">
+                                                                    <h5 class="m-0">Double Check Inspection</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col-xl-6 px-2 mb-3">
+                                                                    <div class="p-1">
+                                                                        <h5 class="mb-2">Packing</h5>
+                                                                        <div class="d-flex justify-content-end w-100 mb-1">
+                                                                            <div class="input-group input-group-sm" style="width: 75%;">
+                                                                                <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0">New Topic :&nbsp;&nbsp;</span></div><input class="form-control" type="text">
+                                                                                <div class="input-group-append"><button class="btn btn-success" type="button"><i class="fas fa-plus"></i></button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                        <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                                <tr>
+                                                                                    <th>Index</th>
+                                                                                    <th>Topic</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-center">
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>บรรจุภัณท์มีสภาพใช้งานได้</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>2</td>
+                                                                                    <td>มี Label ชี้บ่งชัดเจน</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 px-2 mb-3">
+                                                                    <div class="p-1">
+                                                                        <h5 class="mb-2">Printing Condition</h5>
+                                                                        <div class="d-flex justify-content-end w-100 mb-1">
+                                                                            <div class="input-group input-group-sm" style="width: 75%;">
+                                                                                <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0">New Topic :&nbsp;&nbsp;</span></div><input class="form-control" type="text">
+                                                                                <div class="input-group-append"><button class="btn btn-success" type="button"><i class="fas fa-plus"></i></button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                        <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                                <tr>
+                                                                                    <th>Index</th>
+                                                                                    <th>Topic</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-center">
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>Poor Screen</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>2</td>
+                                                                                    <td>Position Out</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 px-2 mb-3">
+                                                                    <div class="p-1">
+                                                                        <h5 class="mb-2">Coating Condition</h5>
+                                                                        <div class="d-flex justify-content-end w-100 mb-1">
+                                                                            <div class="input-group input-group-sm" style="width: 75%;">
+                                                                                <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0">New Topic :&nbsp;&nbsp;</span></div><input class="form-control" type="text">
+                                                                                <div class="input-group-append"><button class="btn btn-success" type="button"><i class="fas fa-plus"></i></button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                        <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                                <tr>
+                                                                                    <th>Index</th>
+                                                                                    <th>Topic</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-center">
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>Original Color Out</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>2</td>
+                                                                                    <td>Over Spray</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 px-2 mb-3">
+                                                                    <div class="p-1">
+                                                                        <h5 class="mb-2">Ass'y Condition</h5>
+                                                                        <div class="d-flex justify-content-end w-100 mb-1">
+                                                                            <div class="input-group input-group-sm" style="width: 75%;">
+                                                                                <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0">New Topic :&nbsp;&nbsp;</span></div><input class="form-control" type="text">
+                                                                                <div class="input-group-append"><button class="btn btn-success" type="button"><i class="fas fa-plus"></i></button></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                        <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                                <tr>
+                                                                                    <th>Index</th>
+                                                                                    <th>Topic</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody class="text-center">
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>Ass'y (Fitting)</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>2</td>
+                                                                                    <td>Warp (Bending)</td>
+                                                                                    <td>
+                                                                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalRework"><i class="fas fa-edit"></i></button><button class="btn btn-danger ml-1" type="button" style="width: 35px;" data-toggle="modal" data-target="#modalDeleteConfirm"><i class="fas fa-times"></i></button></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" role="tabpanel" id="tabInsDocumentCtrl">
+                                                            <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable m-0 mb-3" style="height: 2.5rem;">
+                                                                <div class="col d-flex justify-content-between align-items-xl-center">
+                                                                    <h5 class="m-0">Document Control No.</h5><button class="btn btn-info btn-sm" type="button">Apply</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row m-0 w-100">
+                                                                <div class="col-xl-6 px-2 mb-3">
+                                                                    <h6 class="mb-2 font-weight-bold">Inspection Process Document</h6>
+                                                                    <div class="input-group input-group-sm mb-2">
+                                                                        <div class="input-group-prepend" style="width: 55%;"><span class="input-group-text bg-transparent border-0">Start Up Run Inspection&nbsp;&nbsp;</span></div><input class="form-control form-control-sm text-center" type="text" value="TS-FMQA-023-03" style="font-size: 13px;">
+                                                                        <div class="input-group-append"></div>
+                                                                    </div>
+                                                                    <div class="input-group input-group-sm mb-2">
+                                                                        <div class="input-group-prepend" style="width: 55%;"><span class="input-group-text bg-transparent border-0">Appearance Inspection&nbsp;&nbsp;</span></div><input class="form-control form-control-sm text-center" type="text" value="TS-FMQA-023-03" style="font-size: 13px;">
+                                                                        <div class="input-group-append"></div>
+                                                                    </div>
+                                                                    <div class="input-group input-group-sm mb-2">
+                                                                        <div class="input-group-prepend" style="width: 55%;"><span class="input-group-text bg-transparent border-0">Dimension Inspection&nbsp;&nbsp;</span></div><input class="form-control form-control-sm text-center" type="text" value="TS-FMQA-023-03" style="font-size: 13px;">
+                                                                        <div class="input-group-append"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-6 px-2 mb-3">
+                                                                    <h6 class="mb-2 font-weight-bold">Recall Part Process Document</h6>
+                                                                    <div class="input-group input-group-sm mb-2">
+                                                                        <div class="input-group-prepend" style="width: 65%;"><span class="input-group-text bg-transparent border-0" style="font-size: 13px;">Nonconforming Product Report</span></div><input class="form-control form-control-sm text-center" type="text" value="TS-FMQA-023-03" style="font-size: 13px;">
+                                                                        <div class="input-group-append"></div>
+                                                                    </div>
+                                                                    <div class="input-group input-group-sm mb-2">
+                                                                        <div class="input-group-prepend" style="width: 65%;"><span class="input-group-text bg-transparent border-0" style="font-size: 13px;">Rework Injection Inspection</span></div><input class="form-control form-control-sm text-center" type="text" value="TS-FMQA-023-03" style="font-size: 13px;">
+                                                                        <div class="input-group-append"></div>
+                                                                    </div>
+                                                                    <div class="input-group input-group-sm mb-2">
+                                                                        <div class="input-group-prepend" style="width: 65%;"><span class="input-group-text bg-transparent border-0" style="font-size: 13px;">Double Check Inspection</span></div><input class="form-control form-control-sm text-center" type="text" value="TS-FMQA-023-03" style="font-size: 13px;">
+                                                                        <div class="input-group-append"></div>
+                                                                    </div>
+                                                                    <div class="input-group input-group-sm mb-2">
+                                                                        <div class="input-group-prepend" style="width: 65%;"><span class="input-group-text bg-transparent border-0" style="font-size: 13px;">Nonconforming Product Inspection</span></div><input class="form-control form-control-sm text-center" type="text" value="TS-FMQA-023-03" style="font-size: 13px;">
+                                                                        <div class="input-group-append"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer mt-2">
+            <div class="container my-auto">
+            </div>
+        </footer>
+        <div class="sidehide sidepanel rounded shadow-lg" id="qcsidepanel"><button class="btn btn-link float-right p-0 closebtn" type="button" onclick="closeNav()"><i class="fa fa-close"></i></button>
+            <h6 class="m-3">Qc Menu</h6>
+            <div class="container"><a class="mb-1" href="New_QcInjection.html"><i class="fa fa-list-alt mr-2"></i>Qc Injection Overview</a><span class="text-black-50">Setting</span><a class="mb-1" href="New_QcSetting.html"><i class="fa fa-wrench mr-2"></i>Qc Injection Setting</a></div>
+        </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="assets/js/Chart_Dashboard.js"></script>
+    <script src="assets/js/Chart_Machine.js"></script>
+    <script src="assets/js/Datepicker.js"></script>
+    <script src="assets/js/DateTime.js"></script>
+    <script src="assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="assets/js/Imgpreview.js"></script>
+    <script src="assets/js/InjectionProduction_btn.js"></script>
+    <script src="assets/js/SidePanel.js"></script>
+    <script src="assets/js/sortTable.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/new_js_jig.js"></script>
+    <script src="assets/js/uploadBtn.js"></script>
+    <script src="assets/js/AddImageRepairIssue.js"></script>
+    <script src="assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="assets/js/MoldFunction.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+</body>
+
+</html>

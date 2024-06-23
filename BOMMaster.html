@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SmartFactory</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/DcPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://jspreadsheet.com/v8/jspreadsheet.css">
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css">
+    <link rel="stylesheet" href="assets/css/InjectionMCStatus.css">
+    <link rel="stylesheet" href="assets/css/injPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/NavCustomStyle.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/ScrollBar.css">
+    <link rel="stylesheet" href="assets/css/SidePanel.css">
+    <link rel="stylesheet" href="assets/css/Stats-icons.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+    <link rel="stylesheet" href="assets/css/wipSheetStyle.css">
+</head>
+
+<body id="page-top" style="font-family: Exo, sans-serif;">
+    <nav class="navbar navbar-light navbar-expand-xl mb-3 shadow nav-bar-top">
+        <div class="container-fluid"><div class="collapse navbar-collapse d-xl-flex justify-content-lg-end justify-content-xl-end p-1" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-xl-flex align-items-xl-center"><a class="nav-link nav-link" href="index.html"><i class="fa fa-home" style="font-size: 1.5em;color: lightcyan;"></i></a></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">BOM</span></a>
+                        <div class="dropdown-menu text-light shadow dropdown-menu-right animated--grow-in" style="background: rgb(123, 214, 187);"><a class="dropdown-item" href="BOMMain.html">&nbsp;BOM</a><a class="dropdown-item" href="BOMMaster.html">&nbsp;BOM Master Setting</a><a class="dropdown-item" href="AXMaster.html">AX Master Setting</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">PLAN</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionPlanning.html">Injection Planning</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="InjectionZoneSelect.html"><span class="d-inline mr-2">INJECTION</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionZoneSelect.html">Injection Zone</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center no-arrow m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">Name Surname</span><img class="border rounded-circle imgprofile" src="assets/img/201-user.svg"></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="index.html"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Home</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="Login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                </ul><input type="text" id="currentDateTime" readonly="" disabled="" style="text-align: center;margin-top: 0px;width: auto;">
+            </div>
+        </div>
+    </nav>
+    <div id="contentWrapper">
+        <header class="text-center">
+            <h4 class="text-center d-inline"><i class="fa fa-list-alt mx-3"></i>BOM Master Setting</h4><a class="float-right border rounded mx-3" href="AXMaster.html" style="background: var(--cyan);color: var(--white);">AX Master</a><a class="float-right border rounded mx-3" href="BOMMain.html" style="background: var(--cyan);color: var(--white);">BOM Main</a>
+        </header>
+        <div id="content">
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalDeleteConfirm">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Confirm Delete</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p>Are you sure to delete?</p><input type="text" readonly="" disabled="">
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalPartMaster">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formPartMaster" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddPart">Add Part:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row my-2">
+                                    <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Part Code:&nbsp;</span></div>
+                                    <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpPartCode" style="width: 100%;" required=""></div>
+                                </div>
+                                <div class="form-row my-2">
+                                    <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Part Name:&nbsp;</span></div>
+                                    <div class="col-xl-8 d-xl-flex align-items-xl-center" id="M_RecpCookCnt-1"><input class="form-control" type="text" id="modalInpPartName" style="width: 100%;" required=""></div>
+                                </div>
+                                <div class="form-row my-2">
+                                    <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Supplier:&nbsp;</span></div>
+                                    <div class="col-xl-8 d-xl-flex align-items-xl-center" id="M_RecpCookCnt-5"><input class="form-control" type="text" id="modalInpSupplier" style="width: 100%;" required=""></div>
+                                </div>
+                                <div class="form-row my-2">
+                                    <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Supply Material:&nbsp;</span></div>
+                                    <div class="col-xl-8 d-xl-flex align-items-xl-center" id="M_RecpCookCnt-3"><input class="form-control" type="text" id="modalInpSupplyMat" style="width: 100%;" required=""></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSavePart" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalMoldMaster">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formMoldMaster" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddMold">Add Mold:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="MoldDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Basic Mold:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpBasicMold" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>AX Mold No.:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center" id="M_RecpCookCnt-2"><input class="form-control" type="text" id="modalInpAXMoldNo" style="width: 100%;"></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Die No.:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center" id="M_RecpCookCnt-5"><input class="form-control" type="text" id="modalInpDieNo" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Manpower.:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center" id="M_RecpCookCnt-4"><input class="form-control" type="text" id="modalInpManPower" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col text-center"><button class="btn btn-info" id="modalSaveMold" type="button" style="width: 90%;">Save</button></div>
+                                    </div>
+                                </section>
+                                <section id="JigInformation" class="border p-2 rounded my-2 modalsection">
+                                    <div class="form-row">
+                                        <div class="col"><span>Jig No.:&nbsp;</span><input class="form-control" type="text" id="modalInpJig"><button class="btn btn-info m-1" type="button">Add</button><button class="btn btn-danger m-1" type="button">Del</button></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col d-xl-flex align-items-xl-center">
+                                            <div class="table-responsive" style="font-size: 13px;">
+                                                <table class="table table-hover table-bordered table-sm" id="modalTableJigNo">
+                                                    <thead>
+                                                        <tr class="text-center">
+                                                            <th>Index</th>
+                                                            <th>Jig No.</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="Selected">
+                                                            <td>1</td>
+                                                            <td>JL-1573-04-16-00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>JL-1592-07-16-00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section id="MCInformation" class="border p-2 rounded my-2 modalsection">
+                                    <div class="form-row">
+                                        <div class="col"><span>Approve M/C No.:&nbsp;</span><select class="form-control" id="modalInpMachineSelect">
+                                                <option value="13">I-55</option>
+                                                <option value="14">I-56</option>
+                                            </select><button class="btn btn-info m-1" type="button">Add</button><button class="btn btn-danger m-1" type="button">Del</button></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col d-xl-flex align-items-xl-center">
+                                            <div class="table-responsive" style="font-size: 13px;">
+                                                <table class="table table-hover table-bordered table-sm" id="modalTableMachineRelation">
+                                                    <thead class="text-center">
+                                                        <tr>
+                                                            <th class="text-left">Index</th>
+                                                            <th>M/C No.</th>
+                                                            <th>M/C Size (Ton)</th>
+                                                            <th>Default</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="Selected">
+                                                            <td>1</td>
+                                                            <td>I-55</td>
+                                                            <td>150</td>
+                                                            <td class="text-center"><input type="checkbox"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>I-67</td>
+                                                            <td>150</td>
+                                                            <td class="text-center"><input type="checkbox"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSubmitMold" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalMachineMaster">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formMachineMaster" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddMachine">Add Machine:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="MachineDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Zone:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control">
+                                                <option value="1" selected="">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Machine No:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpMachineNo-1" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Machine Size:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"></div><input class="form-control" type="number" id="modalInpMachineSize">
+                                                <div class="input-group-append"><span class="input-group-text">Ton</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Standard Mold Change Time:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"></div><input class="form-control" type="number" id="modalInpMachineSize-1">
+                                                <div class="input-group-append"><span class="input-group-text">min</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSaveMachine" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalInkMaster">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formInkMaster" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddInk">Add Ink:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="InkDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>&nbsp;Ink Size:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpMachineNo" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Ink/Tray:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"></div><input class="form-control" type="number" id="modalInpMachineSize">
+                                                <div class="input-group-append"><span class="input-group-text">g</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSaveInk" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalColorMaster">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formColorMaster" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddColor">Add Color:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="ColorDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>&nbsp;Ink No:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpInkNo" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Supply Material:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control" id="modalColorSupplySelect">
+                                                <option value="1" selected="">-</option>
+                                                <option value="2">-</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>AX Item Number:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control selectpicker" id="modalColorAXNumber" data-live-search="true" data-stylebase="border" data-style="border" required="">
+                                                <option value="1" selected="">-</option>
+                                                <option value="2">-</option>
+                                            </select></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSaveColor" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalThinnerMaster">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formThinnerMaster" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddThinner">Add Thinner:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="ThinnerDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Thinner:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpThinner" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Supply Material:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control" id="modalThinnerSupplySelect">
+                                                <option value="1" selected="">-</option>
+                                                <option value="2">-</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>AX Item Number:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control selectpicker" id="modalThinnerAXNumber" data-live-search="true" data-stylebase="border" data-style="border" required="">
+                                                <option value="1" selected="">-</option>
+                                                <option value="2">-</option>
+                                            </select></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSaveThinner" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalHardenerMaster">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formHardenerMaster" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddHardener">Add Hardener:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="HardenerDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Hardener:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpHardener" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Supply Material:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control" id="modalHardenerSupplySelect">
+                                                <option value="1" selected="">-</option>
+                                                <option value="2">-</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>AX Item Number:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control selectpicker" id="modalHardenerAXNumber" data-live-search="true" data-stylebase="border" data-style="border" required="">
+                                                <option value="1" selected="">-</option>
+                                                <option value="2">-</option>
+                                            </select></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSaveHardener" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalInjectionMatMaster">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formInjectionMatMaster" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddInjectionMat">Add Injection Mat:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="InjectionMatDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>MFG:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpInjMatMFG" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Grade:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpInjMatGrade" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Code:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpInjMatCode" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Color:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpInjMatColor" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Supply Material:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control" id="modalInjMatSupplySelect" required="">
+                                                <option value="1" selected="">-</option>
+                                                <option value="2">-</option>
+                                            </select></div>
+                                    </div>
+                                </section>
+                                <section id="AXDetailSection" class="border p-2 rounded my-2 modalsection">
+                                    <div class="form-row">
+                                        <div class="col text-center"><span style="font-weight: bold;">AX Item Number</span></div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col d-flex justify-content-between"><span style="font-weight: bold;">FOR VIRGIN</span><span style="font-weight: bold;">TYPE : TSM&nbsp;BUY</span></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Domestic:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control selectpicker" id="modalBuyVirginDoAX" data-live-search="true" data-stylebase="border" data-style="border" required="">
+                                                <option value="1" selected="">-</option>
+                                            </select></div>
+                                        <div class="col">
+                                            <div class="form-row my-2">
+                                                <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Export:&nbsp;</span></div>
+                                                <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control selectpicker" id="modalBuyVirginExAX" data-live-search="true" data-stylebase="border" data-style="border" required="">
+                                                        <option value="1" selected="">-</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col d-flex justify-content-end"><span style="font-weight: bold;">TYPE : CUSTOMER SUPPORT</span></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col">
+                                            <div class="form-row my-2">
+                                                <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Domestic/Export:&nbsp;</span></div>
+                                                <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control selectpicker" id="modalSupVirginDoEx" data-live-search="true" data-stylebase="border" data-style="border" required="">
+                                                        <option value="1" selected="">-</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col d-flex justify-content-between"><span style="font-weight: bold;">FOR REGRIND/RECYCLE</span></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col">
+                                            <div class="form-row my-2">
+                                                <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Domestic/Export:&nbsp;</span></div>
+                                                <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control selectpicker" id="modalRecycleAx" data-live-search="true" data-stylebase="border" data-style="border" required="">
+                                                        <option value="1" selected="">-</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <div class="form-group m-0">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="MasterBatchEnable"><label class="form-check-label font-weight-bold" for="formCheck-1">Master Batch Enable</label></div>
+                                </div>
+                                <section id="MasterBatchSection" class="border p-2 rounded my-2 modalsection">
+                                    <div class="form-row">
+                                        <div class="col text-center"><span style="font-weight: bold;">Master Batch Detail</span></div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col d-flex justify-content-between justify-content-lg-center align-items-lg-center"><span style="font-weight: bold;">Ratio</span></div>
+                                        <div class="col text-center"><span style="font-weight: bold;">Material</span><input class="form-control" type="number"></div>
+                                        <div class="col-auto text-center d-lg-flex align-items-lg-center"><span style="font-weight: bold;">:</span></div>
+                                        <div class="col text-center"><span style="font-weight: bold;">Masterbatch</span><input class="form-control" type="number"></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col">
+                                            <div class="form-row my-2">
+                                                <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Master Batch AX Number</span></div>
+                                                <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control selectpicker" id="modalRecycleAx-1" data-live-search="true" data-stylebase="border" data-style="border" required="">
+                                                        <option value="1" selected="">-</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSaveInjectionMat" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalHotStampMatMaster">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formInjectionMatMaster" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddInjectionMat">Add Hot Stamp Material:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="HotStampMatDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>MFG:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpHotMatMFG" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Code:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpHotMatCode" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Supply Material:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control" id="modalHotMatSupplySelect" required="">
+                                                <option value="1" selected="">-</option>
+                                                <option value="2">-</option>
+                                            </select></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSaveHotStampMat" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalCustomer">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formCustomerName" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderAddCustomer">Add Customer:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="CustomerDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Customer Name:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpCustomerName" style="width: 100%;" required=""></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSaveCustomerName" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalCustomerLine">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form id="formCustomerLine" action="/Setting/AddEditRecpName">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalHeaderCustomerLine">Add Customer Line:</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <section id="CustomerLineDetail">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Line Name:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" id="modalInpLineName" style="width: 100%;" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Customer Name:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><select class="form-control selectpicker" required="" data-live-search="true" data-stylebase="border" data-style="border">
+                                                <option value="12" selected="">-</option>
+                                                <option value="13">-</option>
+                                                <option value="14">-</option>
+                                            </select></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" id="modalSaveCustomerLine" type="submit">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <section id="Master" class="mt-2">
+                    <div class="row">
+                        <div class="col">
+                            <div id="tabSetting" class="card shadow">
+                                <ul class="nav nav-tabs nav-fill text-nowrap card-header" role="tablist" style="padding-bottom: 0px;">
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabPartMaster">Part</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabMachineMaster">Machine</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabInkMaster">Ink</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabColorMaster">Color</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabThinnerMaster">Thinner</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabHardenerMaster">Hardener</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabHotStampMatMaster">Hot Stamp Mat'l</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tabCustomerMaster">Customer</a></li>
+                                </ul>
+                                <div class="tab-content card-body">
+                                    <div class="tab-pane fade" role="tabpanel" id="tabPartMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-stack-overflow" style="margin-right: 12px;"></i>Part Master</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addPart" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalPartMaster">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>Part Code</th>
+                                                                <th>Part Name</th>
+                                                                <th>Supplier</th>
+                                                                <th>Supply Mat'l</th>
+                                                                <th>AX Part No.</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-<br></td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-<br></td>
+                                                                <td class="d-xl-flex justify-content-xl-center p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalPartMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>-<br></td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-<br></td>
+                                                                <td class="d-xl-flex justify-content-xl-center p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalPartMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tabMoldMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-inbox" style="margin-right: 12px;"></i>Mold Master</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addMold" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalMoldMaster">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tableMold">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>Basic Mold</th>
+                                                                <th>Die No.</th>
+                                                                <th>Jig No,</th>
+                                                                <th>Approve M/C No.</th>
+                                                                <th>Manpower</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-<br></td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalMoldMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>-<br></td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-<br></td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalMoldMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button><br></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tabMachineMaster">
+                                        <div class="row">
+                                            <div class="col-auto mx-1 collapse collapse-horizontal" id="zoneSetting">
+                                                <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                                    <div class="col align-items-xl-center">
+                                                        <h4 class="m-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="margin-right: 12px;">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4H18C18.5523 4 19 4.44772 19 5V8H5V5C5 4.44772 5.44771 4 6 4ZM19 19V10H5V19C5 19.5523 5.44772 20 6 20H18C18.5523 20 19 19.5523 19 19ZM3 5C3 3.34315 4.34315 2 6 2H18C19.6569 2 21 3.34315 21 5V19C21 20.6569 19.6569 22 18 22H6C4.34315 22 3 20.6569 3 19V5ZM7 5C6.44772 5 6 5.44772 6 6C6 6.55228 6.44772 7 7 7H9C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5H7ZM14 7C14.5523 7 15 6.55228 15 6C15 5.44772 14.5523 5 14 5C13.4477 5 13 5.44772 13 6C13 6.55228 13.4477 7 14 7ZM18 6C18 6.55228 17.5523 7 17 7C16.4477 7 16 6.55228 16 6C16 5.44772 16.4477 5 17 5C17.5523 5 18 5.44772 18 6ZM14 15C14 16.1046 13.1046 17 12 17C10.8954 17 10 16.1046 10 15C10 13.8954 10.8954 13 12 13C13.1046 13 14 13.8954 14 15ZM16 15C16 17.2091 14.2091 19 12 19C9.79086 19 8 17.2091 8 15C8 12.7909 9.79086 11 12 11C14.2091 11 16 12.7909 16 15Z" fill="currentColor"></path>
+                                                            </svg>Zone Setting</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addZone" type="button" style="width: 5rem;">Add</button></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                            <table class="table table-striped table-hover table-bordered my-0 display" id="tableMachine">
+                                                                <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                    <tr>
+                                                                        <th>Zone</th>
+                                                                        <th style="width: 15%;">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="text-center">
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td class="p-0"><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2<br></td>
+                                                                        <td class="p-0"><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button><br></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col mx-1">
+                                                <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                                    <div class="col align-items-xl-center">
+                                                        <h4 class="m-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="margin-right: 12px;">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4H18C18.5523 4 19 4.44772 19 5V8H5V5C5 4.44772 5.44771 4 6 4ZM19 19V10H5V19C5 19.5523 5.44772 20 6 20H18C18.5523 20 19 19.5523 19 19ZM3 5C3 3.34315 4.34315 2 6 2H18C19.6569 2 21 3.34315 21 5V19C21 20.6569 19.6569 22 18 22H6C4.34315 22 3 20.6569 3 19V5ZM7 5C6.44772 5 6 5.44772 6 6C6 6.55228 6.44772 7 7 7H9C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5H7ZM14 7C14.5523 7 15 6.55228 15 6C15 5.44772 14.5523 5 14 5C13.4477 5 13 5.44772 13 6C13 6.55228 13.4477 7 14 7ZM18 6C18 6.55228 17.5523 7 17 7C16.4477 7 16 6.55228 16 6C16 5.44772 16.4477 5 17 5C17.5523 5 18 5.44772 18 6ZM14 15C14 16.1046 13.1046 17 12 17C10.8954 17 10 16.1046 10 15C10 13.8954 10.8954 13 12 13C13.1046 13 14 13.8954 14 15ZM16 15C16 17.2091 14.2091 19 12 19C9.79086 19 8 17.2091 8 15C8 12.7909 9.79086 11 12 11C14.2091 11 16 12.7909 16 15Z" fill="currentColor"></path>
+                                                            </svg>Machine Setting</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col d-xl-flex justify-content-between"><a class="btn btn-primary m-2" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="zoneSetting" data-target="#zoneSetting">Zone</a><button class="btn btn-success m-2" id="addMachine" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalMachineMaster">Add</button></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                            <table class="table table-striped table-hover table-bordered my-0 display" id="tableMachine">
+                                                                <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                    <tr>
+                                                                        <th>Index</th>
+                                                                        <th>Zone</th>
+                                                                        <th>Machine No.</th>
+                                                                        <th>Machine Size</th>
+                                                                        <th>Std Mold Change Time (min)</th>
+                                                                        <th style="width: 15%;">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="text-center">
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>-</td>
+                                                                        <td>-</td>
+                                                                        <td>-</td>
+                                                                        <td>-</td>
+                                                                        <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalMachineMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td>-<br></td>
+                                                                        <td>-<br></td>
+                                                                        <td>-</td>
+                                                                        <td>-</td>
+                                                                        <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalMachineMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button><br></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tabInkMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-tint" style="margin-right: 12px;"></i>Ink Master</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addInk" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalInkMaster">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tableInk">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>Size</th>
+                                                                <th>Ink/Tray(g)</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalInkMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>-<br></td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button><br></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tabColorMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-adjust" style="margin-right: 12px;"></i>Color Master</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addColor" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalColorMaster">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tableColor">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>Ink No.</th>
+                                                                <th>Supply Material</th>
+                                                                <th>AX Item Number</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalColorMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>-<br></td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalColorMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button><br></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tabThinnerMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-paint-brush" style="margin-right: 12px;"></i>Thinner Master</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addThinner" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalThinnerMaster">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tableThinner">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>Thinner</th>
+                                                                <th>Supply Material</th>
+                                                                <th>AX Item Number</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalThinnerMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tabHardenerMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-shield" style="margin-right: 12px;"></i>HardenerMaster</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addHardener" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalHardenerMaster">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tableHardener">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>Hardener</th>
+                                                                <th>Supply Material</th>
+                                                                <th>AX Part Number</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalThinnerMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade show active" role="tabpanel" id="tabInjectionMatMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-align-center" style="margin-right: 12px;"></i>Injection Material</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addInjectionMat" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalInjectionMatMaster">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tableInjectionMat">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>MFG</th>
+                                                                <th>Grade</th>
+                                                                <th>Code</th>
+                                                                <th>Color</th>
+                                                                <th>Supply Material</th>
+                                                                <th>AX Item Number(Virgin Do)</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalInjectionMatMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td> -</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-<br></td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalInjectionMatMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tabHotStampMatMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-fire" style="margin-right: 12px;"></i>Hot Stamp Material</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addHotStampMat" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalHotStampMatMaster">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tableHotStampMat">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>MFG</th>
+                                                                <th>Code</th>
+                                                                <th>Supply Material</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalHotStampMatMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>-</td>
+                                                                <td> -</td>
+                                                                <td>-</td>
+                                                                <td class="p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalHotStampMatMaster" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" role="tabpanel" id="tabCustomerMaster">
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-user" style="margin-right: 12px;"></i>Customer Master</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addCustomer" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalCustomer">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tableCustomer">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>Customer Name</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-<br></td>
+                                                                <td class="d-xl-flex justify-content-xl-center p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalCustomer" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>-<br></td>
+                                                                <td class="d-xl-flex justify-content-xl-center p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalCustomer" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex d-xl-flex align-items-center align-items-xl-center subtable" style="height: 3rem;">
+                                            <div class="col align-items-xl-center">
+                                                <h4 class="m-0"><i class="fa fa-wrench" style="margin-right: 12px;"></i>Customer Line</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-xl-flex justify-content-xl-end"><button class="btn btn-success m-2" id="addCustomerLine" type="button" style="width: 5rem;" data-toggle="modal" data-target="#modalCustomerLine">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>Line Name</th>
+                                                                <th>Customer</th>
+                                                                <th style="width: 15%;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>-<br></td>
+                                                                <td>-<br></td>
+                                                                <td class="d-xl-flex justify-content-xl-center p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalCustomerLine" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>-<br></td>
+                                                                <td>-<br></td>
+                                                                <td class="d-xl-flex justify-content-xl-center p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalCustomerLine" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3</td>
+                                                                <td>-<br></td>
+                                                                <td>-<br></td>
+                                                                <td class="d-xl-flex justify-content-xl-center p-0"><button class="btn btn-primary p-1 m-2" data-toggle="modal" data-target="#modalCustomerLine" style="width: 2rem;"><i class="fa fa-pencil-square-o"></i></button><button class="btn btn-danger p-1 m-2" data-toggle="modal" data-target="#modalDeleteConfirm" style="width: 2rem;"><i class="fa fa-remove"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer mt-2">
+            <div class="container my-auto">
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/BOMshowhidetab.js"></script>
+    <script src="assets/js/Datepicker.js"></script>
+    <script src="assets/js/DateTime.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="assets/js/Imgpreview.js"></script>
+    <script src="assets/js/SidePanel.js"></script>
+    <script src="assets/js/sortTable.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

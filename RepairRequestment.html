@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SmartFactory</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/new_css_jig.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/collapse.css">
+    <link rel="stylesheet" href="assets/css/DcPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="assets/css/fontSize.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/injPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/NavCustomStyle.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/new_css_mold.css">
+    <link rel="stylesheet" href="assets/css/qc.css">
+    <link rel="stylesheet" href="assets/css/ScrollBar.css">
+    <link rel="stylesheet" href="assets/css/SidePanel.css">
+    <link rel="stylesheet" href="assets/css/Stats-icons.css">
+    <link rel="stylesheet" href="assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+</head>
+
+<body id="page-top" style="font-family: Exo, sans-serif;">
+    <nav class="navbar navbar-light navbar-expand-xl mb-3 shadow nav-bar-top">
+        <div class="container-fluid"><div class="collapse navbar-collapse d-xl-flex justify-content-lg-end justify-content-xl-end p-1" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-xl-flex align-items-xl-center"><a class="nav-link nav-link" href="index.html"><i class="fa fa-home" style="font-size: 1.5em;color: lightcyan;"></i></a></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">BOM</span></a>
+                        <div class="dropdown-menu text-light shadow dropdown-menu-right animated--grow-in" style="background: rgb(123, 214, 187);"><a class="dropdown-item" href="BOMMain.html">&nbsp;BOM</a><a class="dropdown-item" href="BOMMaster.html">&nbsp;BOM Master Setting</a><a class="dropdown-item" href="AXMaster.html">AX Master Setting</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">PLAN</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionPlanning.html">Injection Planning</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="InjectionZoneSelect.html"><span class="d-inline mr-2">INJECTION</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionZoneSelect.html">Injection Zone</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center no-arrow m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">Name Surname</span><img class="border rounded-circle imgprofile" src="assets/img/201-user.svg"></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="index.html"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Home</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="Login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                </ul><input type="text" id="currentDateTime" readonly="" disabled="" style="text-align: center;margin-top: 0px;width: auto;">
+            </div>
+        </div>
+    </nav>
+    <div id="contentWrapper">
+        <div id="content">
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalDeleteConfirm">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Confirm Delete</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p>Are you sure to delete?</p>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalIssueDetail">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Requestment Repair Report</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row m-0 mb-2">
+                                    <div class="col-12 m-0">
+                                        <h5 class="font-weight-bold m-0">Requestment</h5>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Machine</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <option value="12" selected="">Injection</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Machine No</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <option value="12" selected="">I-1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 130px;"><span class="input-group-text bg-transparent border-0">Machine Model</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <option value="12" selected="">S2000i 50B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Requested By</span></div><input class="form-control" type="text" value="นายสมพร สมศักดิ๋">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 130px;"><span class="input-group-text bg-transparent border-0">Time</span></div><input class="form-control" type="datetime-local">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 60px;"><span class="input-group-text bg-transparent border-0">Shift</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <option value="12" selected="">D</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Feature of complaint</span></div><input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0" style="font-size: 14px;">
+                                    <div class="col-12 d-flex m-0 mb-2">
+                                        <div class="text-right" style="width: 150px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Type</span></div>
+                                        <div class="d-flex justify-content-start align-items-center px-1">
+                                            <div class="form-check mr-2"><input class="form-check-input" type="radio" id="formCheck-1" name="repairType"><label class="form-check-label" for="formCheck-1">PM</label></div>
+                                            <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="repairType"><label class="form-check-label" for="formCheck-2">Service</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0" style="font-size: 14px;">
+                                    <div class="col-12 d-flex justify-content-end m-0">
+                                        <div class="text-right" style="padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">TS-FM-EM-030-03</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-danger" type="button">Close</button><button class="btn btn-primary" type="button">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalRequestmentEdit">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <h4 class="modal-title mr-2">Requestment Repair Report</h4>
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <div class="input-group-prepend"><span class="input-group-text">NO</span></div><input class="form-control" type="text" value="230512001">
+                                    </div>
+                                </div><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body modal-scroll" style="font-size: 14px;">
+                                <div class="form-row m-0 mb-2">
+                                    <div class="col-12 m-0">
+                                        <h5 class="font-weight-bold m-0">Requestment</h5>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Customer</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">Injection</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Machine</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">I-1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Zone</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Basic Mold</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">Injection</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Mold Name</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">I-1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Die No</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">STD Cav.</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Actual Cav.</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Problem Type</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">Slide</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Problem</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">Slide ไหม้</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Feature of complaint</span></div><input class="form-control form-control-sm border-radius" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0" style="font-size: 14px;">
+                                    <div class="col-12 d-flex m-0 mb-2">
+                                        <div class="text-right" style="width: 150px;padding: 4px 8px;text-align: left;"><span class="text-left input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Attachment</span></div>
+                                        <div class="d-flex justify-content-start align-items-center px-1 card">
+                                            <div class="form-row">
+                                                <div class="col-xl-4">
+                                                    <div class="form-check m-2"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-4">ตัวอย่างชิ้นงาน</label></div>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <div class="form-check m-2"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3">ตัวอย่างชิ้นงาน</label></div>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <div class="form-check justify-content-start m-2 d-flex"><input class="form-check-input" type="checkbox" id="formCheck-8"><label class="form-check-label d-flex justify-content-start" for="formCheck-8"><span>Other</span><input class="form-control form-control-sm border-radius ml-2" type="text"></label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0" style="font-size: 14px;">
+                                    <div class="col-12 d-flex m-0 mb-2">
+                                        <div class="text-right" style="width: 161px;padding: 4px 8px;text-align: left;"><span class="text-left input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Occur Time</span></div>
+                                        <div class="d-flex justify-content-start px-1 card">
+                                            <div class="form-row">
+                                                <div class="col-xl-4">
+                                                    <div class="form-check m-2"><input class="form-check-input" type="checkbox" id="formCheck-6"><label class="form-check-label" for="formCheck-6">QC Start Up Run</label></div>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <div class="form-check m-2"><input class="form-check-input" type="checkbox" id="formCheck-7"><label class="form-check-label" for="formCheck-7">Set Up แม่พิมพ์</label></div>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <div class="form-check m-2"><input class="form-check-input" type="checkbox" id="formCheck-17"><label class="form-check-label" for="formCheck-17">ปรับ Condition</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-xl-6">
+                                                    <div class="form-check justify-content-start m-2 d-flex"><input class="form-check-input" type="checkbox" id="formCheck-5"><label class="form-check-label d-flex justify-content-start" for="formCheck-5"><span>ระหว่างการผลิต</span><input class="form-control form-control-sm border-radius ml-2" type="text" style="width: 25%;"><span class="ml-2">shot</span></label></div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="form-check justify-content-start m-2 d-flex"><input class="form-check-input" type="checkbox" id="formCheck-16"><label class="form-check-label d-flex justify-content-start" for="formCheck-16"><span>จบการผลิต</span><input class="form-control form-control-sm border-radius ml-2" type="text" style="width: 60%;"></label></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-xl-4">
+                                                    <div class="form-check justify-content-start m-2 d-flex"><input class="form-check-input" type="checkbox" id="formCheck-13"><label class="form-check-label d-flex justify-content-start" for="formCheck-13"><span>Other</span><input class="form-control form-control-sm border-radius ml-2" type="text"></label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0" style="font-size: 14px;">
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Requested By</span></div><input class="form-control border-radius" type="text" style="width: 87px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Time</span></div><input class="form-control border-radius">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Section</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">Injection</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0 mb-2 py-2 border-top border-bottom">
+                                    <div class="col-12 d-flex justify-content-between align-items-center m-0 mb-2">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <h5 class="font-weight-bold m-0 mr-3">Repair Plan &amp; Actual Time</h5>
+                                        </div>
+                                        <div class="btn-group" role="group"><button class="btn btn-primary btn-sm" type="button">Repair</button><button class="btn btn-info btn-sm ml-2" type="button">Save</button></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-row m-0">
+                                            <div class="col">
+                                                <div class="table-responsive text-nowrap table" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-hover table-bordered my-0 display" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th></th>
+                                                                <th>Process</th>
+                                                                <th>Est Time<br>(minute)</th>
+                                                                <th>Act Time<br>(minute)</th>
+                                                                <th class="text-center">Cost</th>
+                                                                <th class="text-center">Start</th>
+                                                                <th>Finish</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td><input type="checkbox"></td>
+                                                                <td class="text-left">Take out (การถอด)</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="checkbox"></td>
+                                                                <td class="text-left">Assembly (ประกอบ)</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="checkbox"></td>
+                                                                <td class="text-left">Polishing (การขัด)</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="checkbox"></td>
+                                                                <td class="text-left">Welding (การเชื่อม)</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="checkbox"></td>
+                                                                <td class="text-left">EDM (อีดีเอ็ม)</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="checkbox"></td>
+                                                                <td class="text-left">Wirecut (วายคัท)</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input type="checkbox"></td>
+                                                                <td class="text-left">Other (อื่นๆ)</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                                <td><input class="form-control form-control-sm" type="date"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td class="text-left">Total (เวลารวม)</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row m-0">
+                                            <div class="col-12 col-lg-6 m-0 mb-2">
+                                                <div class="input-group input-group-sm w-100">
+                                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Plan Start Time</span></div><input class="form-control form-control-sm" type="date">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-6 m-0 mb-2">
+                                                <div class="input-group input-group-sm w-100">
+                                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Plan Finish Time</span></div><input class="form-control form-control-sm" type="date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row m-0">
+                                            <div class="col-12 col-lg-6 m-0 mb-2">
+                                                <div class="input-group input-group-sm w-100">
+                                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Actual Start Time</span></div><input class="form-control form-control-sm" type="date">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-6 m-0 mb-2">
+                                                <div class="input-group input-group-sm w-100">
+                                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Actual Finish Time</span></div><input class="form-control form-control-sm" type="date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row m-0">
+                                            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column m-0 mb-2"><span class="input-group-text-sm bg-transparent border-0 mb-2" style="color: rgb(73,80,87);">Before</span>
+                                                <div class="box-image"><img class="w-100" src="assets/img/201-image.svg"><button class="btn btn-primary" type="button"><i class="fas fa-image"></i></button></div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column m-0 mb-2"><span class="input-group-text-sm bg-transparent border-0 mb-2" style="color: rgb(73,80,87);">After</span>
+                                                <div class="box-image"><img class="w-100" src="assets/img/201-image.svg"><button class="btn btn-primary" type="button"><i class="fas fa-image"></i></button></div>
+                                            </div>
+                                            <div class="col-lg-6 m-0 mb-2">
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend text-right d-flex justify-content-end align-items-center" style="width: 140px;"><span class="input-group-text bg-transparent border-0">Start Time</span></div><input class="form-control border-radius" type="datetime-local">
+                                                </div>
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend text-right d-flex justify-content-end align-items-center" style="width: 140px;"><span class="input-group-text bg-transparent border-0">End Time</span></div><input class="form-control border-radius" type="datetime-local">
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-start mb-2">
+                                                    <div class="text-right" style="width: 140px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Result of Repair</span></div>
+                                                    <div class="d-flex flex-column justify-content-center align-items-start px-1 mr-1">
+                                                        <div class="form-check mr-2 mb-1"><input class="form-check-input" type="radio" id="formCheck-9" name="repairResult"><label class="form-check-label" for="formCheck-9">OK</label></div>
+                                                        <div class="form-check d-flex justify-content-start align-items-center"><input class="form-check-input" type="radio" id="formCheck-10" name="repairResult"><label class="form-check-label d-flex justify-content-start align-items-center" for="formCheck-10">รออะไหล่&nbsp;&nbsp;<input class="form-control form-control-sm border-radius" type="date" style="font-size: 14px;width: 130px;">่</label></div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-start mb-2">
+                                                    <div class="text-right" style="width: 140px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Repair By</span></div>
+                                                    <div class="d-flex justify-content-center align-items-start px-1 mr-1"><input class="form-control form-control-sm border-radius" type="text">
+                                                        <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="username"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="password"></div>
+                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0 mb-2">
+                                    <div class="col-12 d-flex justify-content-between align-items-center m-0">
+                                        <h5 class="font-weight-bold m-0">Service / Parts Cost</h5>
+                                        <div class="dropleft m-0"><button class="btn btn-success btn-sm" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;"><i class="fas fa-plus"></i></button>
+                                            <div class="dropdown-menu dropdown-menu-right p-2">
+                                                <div class="bg-white p-2 mb-2" style="width: 30vw;">
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Description</span></div><select class="form-control mr-3">
+                                                            <optgroup label="This is a group">
+                                                                <option value="12" selected="">This is item 1</option>
+                                                                <option value="13">This is item 2</option>
+                                                                <option value="14">This is item 3</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Qty</span></div><input class="form-control mr-3 border-radius" type="text">
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Unit Price</span></div><input class="form-control mr-3 border-radius" type="text" disabled="">
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Amount (Baht)</span></div><input class="form-control mr-3 border-radius" type="text" disabled="">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Submit</button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 mb-2">
+                                        <div class="table-responsive text-nowrap table" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                            <table class="table table-hover table-bordered my-0 display" id="tablePart">
+                                                <thead class="text-center" style="background: rgb(226,252,255);">
+                                                    <tr>
+                                                        <th>Item</th>
+                                                        <th>Description</th>
+                                                        <th>Qty</th>
+                                                        <th>Unit Price</th>
+                                                        <th>Amount (Baht)</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;width: 30px;height: 30px;"><i class="fas fa-times"></i></button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;width: 30px;height: 30px;"><i class="fas fa-times"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-8 col-sm-5 col-lg-3 ml-auto mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center"><span class="input-group-text bg-transparent border-0">Total Costs</span></div><input class="form-control border-radius" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row p-3">
+                                    <div class="col-12 mb-2">
+                                        <h6 class="font-weight-bold m-0">Certified the Job</h6>
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <div class="d-flex justify-content-end align-items-center mb-2">
+                                            <div class="text-right" style="width: 140px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Request Signature</span></div>
+                                            <div class="d-flex justify-content-center align-items-start"><input class="form-control form-control-sm border-radius" type="text">
+                                                <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                        <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="username"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="password"></div>
+                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <div class="d-flex justify-content-end align-items-center mb-2">
+                                            <div class="text-right" style="width: 140px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Repair Checker</span></div>
+                                            <div class="d-flex justify-content-center align-items-start"><input class="form-control form-control-sm border-radius" type="text">
+                                                <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                        <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="username"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="password"></div>
+                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ml-auto mb-2">
+                                        <div class="d-flex justify-content-end align-items-center mb-2">
+                                            <div class="text-right" style="width: 140px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Repair Approver</span></div>
+                                            <div class="d-flex justify-content-center align-items-start"><input class="form-control form-control-sm border-radius" type="text">
+                                                <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                        <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="username"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="password"></div>
+                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-danger" type="button">Close</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalRework">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Problem</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label>Topic</label><input class="form-control" type="text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <h4 class="text-center py-2">Repair Requestment<button class="btn btn-info btn-sm float-left m-0 openbtn" type="button" onclick="openNav()" data-target="#maintenancesidepanel"><i class="fa fa-navicon mr-1"></i><span class="d-none d-lg-inline d-xl-inline">Maintenance Menu</span></button></h4>
+                <section id="Master" class="mt-2">
+                    <div class="row">
+                        <div class="col-12 mb-md-2">
+                            <div class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="true" aria-controls="collapseInspection" href="#collapseInspection" role="button">Repair Issue</a>
+                                <div class="collapse show" id="collapseInspection">
+                                    <div class="card mb-3 shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col d-flex justify-content-between align-items-center">
+                                                    <h5 class="m-0">Please Select Repair Issue</h5>
+                                                    <div class="d-flex justify-content-start align-items-center"><span class="text-nowrap mr-1">Show Status:</span><select class="form-control-sm form-control mr-3">
+                                                            <option value="12" selected="">All</option>
+                                                        </select><button class="btn btn-primary btn-sm" type="button" data-target="#modalIssueDetail" data-toggle="modal">Issue</button></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="table-responsive table mt-2 qc" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                        <table class="table table-hover table-bordered my-0 display qc" id="tablePart">
+                                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                <tr>
+                                                                    <th>Index</th>
+                                                                    <th>Status</th>
+                                                                    <th>Machine</th>
+                                                                    <th>Sent Time</th>
+                                                                    <th>Waiting Time</th>
+                                                                    <th>Complete Time</th>
+                                                                    <th>Issue</th>
+                                                                    <th>Result</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody class="text-center">
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td><span class="status status-danger">ISSUE</span></td>
+                                                                    <td>I-62</td>
+                                                                    <td>2023-05-16 12:30</td>
+                                                                    <td>-</td>
+                                                                    <td>-</td>
+                                                                    <td>เครื่องติดขัด</td>
+                                                                    <td>-</td>
+                                                                    <td><button class="btn btn-dark btn-sm" type="button" style="font-size: 14px;" data-target="#modalRequestmentEdit" data-toggle="modal"><i class="fa fa-search"></i></button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>2</td>
+                                                                    <td><span class="status status-danger">ISSUE</span></td>
+                                                                    <td>I-63</td>
+                                                                    <td>2023-05-16 12:30</td>
+                                                                    <td>-</td>
+                                                                    <td>-</td>
+                                                                    <td>เครื่องติดขัด</td>
+                                                                    <td>-</td>
+                                                                    <td><button class="btn btn-dark btn-sm" type="button" style="font-size: 14px;" data-target="#modalRequestmentEdit" data-toggle="modal"><i class="fa fa-search"></i></button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>3</td>
+                                                                    <td><span class="status status-warning">REPAIR</span></td>
+                                                                    <td>I-64</td>
+                                                                    <td>2023-05-16 12:30</td>
+                                                                    <td>2023-05-16 13:30</td>
+                                                                    <td>-</td>
+                                                                    <td>เครื่องติดขัด</td>
+                                                                    <td>-</td>
+                                                                    <td><button class="btn btn-dark btn-sm" type="button" style="font-size: 14px;" data-target="#modalRequestmentEdit" data-toggle="modal"><i class="fa fa-search"></i></button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>4</td>
+                                                                    <td><span class="status status-success">COMPLETE</span></td>
+                                                                    <td>I-65</td>
+                                                                    <td>2023-05-16 12:30</td>
+                                                                    <td>2023-05-16 13:30</td>
+                                                                    <td>2023-05-16 16:30</td>
+                                                                    <td>เครื่องติดขัด</td>
+                                                                    <td>แก้ไขเรียบร้อย</td>
+                                                                    <td><button class="btn btn-dark btn-sm" type="button" style="font-size: 14px;" data-target="#modalRequestmentEdit" data-toggle="modal"><i class="fa fa-search"></i></button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5</td>
+                                                                    <td><span class="status status-success">COMPLETE</span></td>
+                                                                    <td>I-66</td>
+                                                                    <td>2023-05-16 12:30</td>
+                                                                    <td>2023-05-16 13:30</td>
+                                                                    <td>2023-05-16 16:30</td>
+                                                                    <td>เครื่องติดขัด</td>
+                                                                    <td>แก้ไขเรียบร้อย</td>
+                                                                    <td><button class="btn btn-dark btn-sm" type="button" style="font-size: 14px;" data-target="#modalRequestmentEdit" data-toggle="modal"><i class="fa fa-search"></i></button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>6</td>
+                                                                    <td><span class="status status-success">COMPLETE</span></td>
+                                                                    <td>I-67</td>
+                                                                    <td>2023-05-16 12:30</td>
+                                                                    <td>2023-05-16 13:30</td>
+                                                                    <td>2023-05-16 16:30</td>
+                                                                    <td>เครื่องติดขัด</td>
+                                                                    <td>แก้ไขเรียบร้อย</td>
+                                                                    <td><button class="btn btn-dark btn-sm" type="button" style="font-size: 14px;" data-target="#modalRequestmentEdit" data-toggle="modal"><i class="fa fa-search"></i></button></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>7</td>
+                                                                    <td><span class="status status-success">COMPLETE</span></td>
+                                                                    <td>I-68</td>
+                                                                    <td>2023-05-16 12:30</td>
+                                                                    <td>2023-05-16 13:30</td>
+                                                                    <td>2023-05-16 16:30</td>
+                                                                    <td>เครื่องติดขัด</td>
+                                                                    <td>แก้ไขเรียบร้อย</td>
+                                                                    <td><button class="btn btn-dark btn-sm" type="button" style="font-size: 14px;" data-target="#modalRequestmentEdit" data-toggle="modal"><i class="fa fa-search"></i></button></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer mt-2">
+            <div class="container my-auto">
+            </div>
+        </footer>
+        <div class="sidehide sidepanel rounded shadow-lg" id="maintenancesidepanel"><button class="btn btn-link float-right p-0 closebtn" type="button" onclick="closeNav()"><i class="fa fa-close"></i></button>
+            <h6 class="m-3">Maintenance Menu</h6>
+            <div class="container"><a class="mb-1" href="MaintenanceDashboard.html"><i class="fa fa-bar-chart mr-2"></i>Maintenance Dashboard</a><a class="mb-1" href="Maintenance.html"><i class="fa fa-list-alt mr-2"></i>Maintenance Overview</a><a class="mb-1" href="RepairRequestment.html"><i class="fa fa-exclamation-circle mr-2"></i>Repair Overview</a><a class="mb-1" href="Mold/MoldRunPlan.html"><i class="fa fa-forward mr-2"></i>Machine Run Plan</a><a class="mb-1" href="PMPlan.html"><i class="fa fa-calendar-check-o mr-2"></i>PM Plan</a><a class="mb-1" href="SparePartStorage.html"><i class="fa fa-cubes mr-2"></i>Spare Part</a><span class="text-black-50">Setting</span><a class="mb-1" href="MaintenanceSetting.html"><i class="fa fa-wrench mr-2"></i>Maintenance Setting</a></div>
+        </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="assets/js/Chart_Dashboard.js"></script>
+    <script src="assets/js/Chart_Machine.js"></script>
+    <script src="assets/js/Datepicker.js"></script>
+    <script src="assets/js/DateTime.js"></script>
+    <script src="assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="assets/js/Imgpreview.js"></script>
+    <script src="assets/js/InjectionProduction_btn.js"></script>
+    <script src="assets/js/SidePanel.js"></script>
+    <script src="assets/js/sortTable.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/new_js_jig.js"></script>
+    <script src="assets/js/uploadBtn.js"></script>
+    <script src="assets/js/AddImageRepairIssue.js"></script>
+    <script src="assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="assets/js/MoldFunction.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+</body>
+
+</html>

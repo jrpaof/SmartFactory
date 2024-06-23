@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SmartFactory</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/new_css_jig.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/collapse.css">
+    <link rel="stylesheet" href="assets/css/DcPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="assets/css/fontSize.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/injPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/NavCustomStyle.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/new_css_mold.css">
+    <link rel="stylesheet" href="assets/css/qc.css">
+    <link rel="stylesheet" href="assets/css/ScrollBar.css">
+    <link rel="stylesheet" href="assets/css/SidePanel.css">
+    <link rel="stylesheet" href="assets/css/Stats-icons.css">
+    <link rel="stylesheet" href="assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+</head>
+
+<body id="page-top" style="font-family: Exo, sans-serif;">
+    <nav class="navbar navbar-light navbar-expand-xl mb-3 shadow nav-bar-top">
+        <div class="container-fluid"><div class="collapse navbar-collapse d-xl-flex justify-content-lg-end justify-content-xl-end p-1" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-xl-flex align-items-xl-center"><a class="nav-link nav-link" href="index.html"><i class="fa fa-home" style="font-size: 1.5em;color: lightcyan;"></i></a></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">BOM</span></a>
+                        <div class="dropdown-menu text-light shadow dropdown-menu-right animated--grow-in" style="background: rgb(123, 214, 187);"><a class="dropdown-item" href="BOMMain.html">&nbsp;BOM</a><a class="dropdown-item" href="BOMMaster.html">&nbsp;BOM Master Setting</a><a class="dropdown-item" href="AXMaster.html">AX Master Setting</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">PLAN</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionPlanning.html">Injection Planning</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="InjectionZoneSelect.html"><span class="d-inline mr-2">INJECTION</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionZoneSelect.html">Injection Zone</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center no-arrow m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">Name Surname</span><img class="border rounded-circle imgprofile" src="assets/img/201-user.svg"></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="index.html"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Home</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="Login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                </ul><input type="text" id="currentDateTime" readonly="" disabled="" style="text-align: center;margin-top: 0px;width: auto;">
+            </div>
+        </div>
+    </nav>
+    <div id="contentWrapper">
+        <div class="sidehide sidepanel rounded shadow-lg" id="injsidepanel"><button class="btn btn-link float-right p-0 closebtn" type="button" onclick="closeNav()"><i class="fa fa-close"></i></button>
+            <h6 class="m-3">Injection Menu</h6>
+            <div class="container"><a class="mb-1" href="InjectionZoneSelect.html"><i class="fa fa-forward mr-2"></i>Injection Operation</a><a class="mb-1" href="InjectionSupplyDetail.html"><i class="fa fa-cubes mr-2"></i>Supply Detail</a><span class="text-black-50">Supply Confirm</span><a class="mb-1" href="StoreInjectionConfirm.html"><i class="fa fa-th-large mr-2"></i>Store Confirm</a><a class="mb-1" href="Mold/MoldInjectionReceive.html"><i class="fa fa-cog mr-2"></i>Mold Injection Receive</a><a class="mb-1" href="/Jig/JigInjReceive.html"><i class="fa fa-cog mr-2"></i>Jig Injection Receive</a><span class="text-black-50">Setting</span><a class="mb-1" href="InjectionSetting.html"><i class="fa fa-wrench mr-2"></i>Injection Setting</a></div>
+        </div>
+        <div id="content">
+            <div class="modal fade" role="dialog" tabindex="-1" id="modal_Authorize">
+                <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Authorize</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group"><label>Username</label><input class="form-control" type="text" placeholder="Username" required=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group"><label>Password</label><input class="form-control" type="password" placeholder="Password" required=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modal_Login">
+                <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Log-in</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group"><label>Operatior ID</label><input class="form-control" type="text" placeholder="ID" required=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group"><label>Position</label><select class="form-control">
+                                                    <option value="" selected="">Leader</option>
+                                                    <option value="13">Sub Leader</option>
+                                                    <option value="14">Supervisor</option>
+                                                    <option value="">Senior Technician</option>
+                                                    <option value="">Technician</option>
+                                                </select></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalInjectionPlanAdd">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form id="FormInjectionPlanAdd" action="/Setting/AddEditRecpName">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="M_RecpNameHeader">Add New Injection Plan</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-row my-2">
+                                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"><span>Planning No.:&nbsp;</span></div>
+                                        <div class="col-xl-8 d-xl-flex align-items-xl-center"><input class="form-control" type="text" value="" required=""></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col"><span>Customer :&nbsp;</span><select class="form-control" required="">
+                                                <option value="12" selected="">Schneider</option>
+                                                <option value="13">Denso</option>
+                                                <option value="14">This is item 3</option>
+                                            </select></div>
+                                        <div class="col"><span>Part Code:&nbsp;</span><select class="form-control" required="">
+                                                <option value="12" selected="">-</option>
+                                            </select></div>
+                                        <div class="col"><span>Part Name:&nbsp;</span><input class="form-control" type="text" readonly="" value="-"></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col"><span>Basic Mold:&nbsp;</span><input class="form-control" type="text" readonly="" value="-"></div>
+                                        <div class="col"><span>Die No.:&nbsp;</span><select class="form-control">
+                                                <option value="12" selected="">-</option>
+                                                <option value="">-</option>
+                                                <option value="">-</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col"><span>Material:&nbsp;</span><select class="form-control">
+                                                <option value="12" selected="">-</option>
+                                            </select></div>
+                                        <div class="col"><span>Color:&nbsp;</span><input class="form-control" type="text" readonly="" value="-"></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col"><span>Cycle Time:&nbsp;</span><input class="form-control" type="text" readonly="" value="-"></div>
+                                        <div class="col"><span>Cavity:&nbsp;</span><input class="form-control" type="text" readonly="" value="1"></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col"><span>Virgin(%):&nbsp;</span><input class="form-control" type="number" value="100" required=""></div>
+                                        <div class="col"><span>Remark:&nbsp;</span><select class="form-control">
+                                                <option value="1" selected="">Domestic</option>
+                                                <option value="2">Export</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-row my-2">
+                                        <div class="col"><span>Delivery:&nbsp;</span><select class="form-control">
+                                                <option value="1" selected="">Direct</option>
+                                                <option value="2">Decoration</option>
+                                            </select></div>
+                                        <div class="col"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" id="M_RecpNameSavebtn" type="submit">Save</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalDeleteConfirm">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Confirm Delete</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p>Are you sure to delete?</p><input type="text" readonly="" disabled="">
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                        </div>
+                    </div>
+                </div>
+                <header>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="text-center card-title">Production Summary<button class="btn btn-info btn-sm float-left m-0 openbtn" type="button" onclick="openNav()"><i class="fa fa-navicon mr-1"></i><span class="d-none d-lg-inline d-xl-inline">Injection Menu</span></button></h4>
+                            <form>
+                                <div class="form-row row-cols-1 row-cols-md-3">
+                                    <div class="col">
+                                        <h1>Zone: 8</h1>
+                                    </div>
+                                    <div class="col"><span>Production Issue Date Select</span><input class="form-control" type="date" value="8/29/2021"></div>
+                                    <div class="col"><button class="btn btn-success m-2" id="btnSelectPlan" type="button" style="width: 5rem;">Select</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </header>
+                <div class="row">
+                    <div class="col">
+                        <div id="collapsePlanSelect" class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="false" aria-controls="contentPlanSelect" href="#contentPlanSelect" role="button"><i class="fa fa-th-list mx-1"></i>Machine Select</a>
+                            <div class="collapse" id="contentPlanSelect">
+                                <div class="card mb-3 shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-auto"><a class="btn btn-primary mb-2" role="button" href="InjectionProduction.html">I-Machine</a></div>
+                                            <div class="col-auto"><a class="btn btn-primary mb-2" role="button" href="InjectionProduction.html">I-Machine</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div id="collapsePlanSelect-1" class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="true" aria-controls="contentPlanSelect-1" href="#contentPlanSelect-1" role="button"><i class="fa fa-th-list mx-1"></i>Production Summary</a>
+                            <div class="collapse show" id="contentPlanSelect-1">
+                                <div class="card mb-3 shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col"><span>Show Status:</span><select class="form-control-sm d-inline-flex mx-2">
+                                                    <option value="" selected="">Running</option>
+                                                    <option value="">Waiting</option>
+                                                    <option value="">Complete</option>
+                                                    <option value="">Revised</option>
+                                                    <option value="">All</option>
+                                                </select><button class="btn btn-success float-right" type="button">Confirm</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive text-nowrap table mt-2" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-sm my-0 display" id="tbReceiveMat">
+                                                        <thead style="background: rgb(226,252,255);">
+                                                            <tr class="text-center">
+                                                                <th>Index</th>
+                                                                <th>Revised</th>
+                                                                <th>Machine</th>
+                                                                <th>Sequence</th>
+                                                                <th>Status</th>
+                                                                <th>Date</th>
+                                                                <th>Pl No.</th>
+                                                                <th>Customer</th>
+                                                                <th>Part Name</th>
+                                                                <th>Part Code</th>
+                                                                <th>Cycle Time</th>
+                                                                <th>Cavity</th>
+                                                                <th>Order No.</th>
+                                                                <th>Order Plan</th>
+                                                                <th>Order Balance</th>
+                                                                <th>Qc</th>
+                                                                <th>Confirm</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr class="table-success">
+                                                                <td>1</td>
+                                                                <td><i class="fa fa-info-circle text-danger" style="font-size: 1.5em;"></i></td>
+                                                                <td><a class="btn btn-primary btn-sm" role="button" href="InjectionProduction.html">I-Machine</a><br></td>
+                                                                <td>1</td>
+                                                                <td>Complete</td>
+                                                                <td>2021-09-08</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><input type="checkbox" checked=""></td>
+                                                            </tr>
+                                                            <tr class="table-info">
+                                                                <td>2</td>
+                                                                <td></td>
+                                                                <td><a class="btn btn-primary btn-sm" role="button" href="InjectionProduction.html">I-Machine</a></td>
+                                                                <td>2</td>
+                                                                <td>Running</td>
+                                                                <td>2021-09-08<br></td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td><input type="checkbox"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div id="collapsePlanSelect-2" class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="true" aria-controls="contentPlanSelect-2" href="#contentPlanSelect-2" role="button"><i class="fa fa-th-list mx-1"></i>Leader Login</a>
+                            <div class="collapse show" id="contentPlanSelect-2">
+                                <div class="card mb-3 shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col p-2">
+                                                <h6 class="font-weight-bold">Day Shift</h6>
+                                                <div class="table-responsive text-left border mb-2" style="font-size: 0.75em;">
+                                                    <table class="table table-striped table-hover table-bordered table-sm">
+                                                        <thead class="text-light bg-info">
+                                                            <tr class="text-center">
+                                                                <th>No.</th>
+                                                                <th>Position</th>
+                                                                <th>Operator</th>
+                                                                <th>Log in</th>
+                                                                <th>Log out</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Sub leader</td>
+                                                                <td>Mr.A</td>
+                                                                <td>8:00</td>
+                                                                <td>17:00</td>
+                                                                <td><button class="btn btn-danger btn-sm text-" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>Leader</td>
+                                                                <td>Mr.B</td>
+                                                                <td>8:00</td>
+                                                                <td>17:00</td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3</td>
+                                                                <td>Technician</td>
+                                                                <td>Mr.T</td>
+                                                                <td>8;00</td>
+                                                                <td>17:00</td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>4</td>
+                                                                <td>Senior Technician</td>
+                                                                <td>Mr.S</td>
+                                                                <td>8:00</td>
+                                                                <td>17:00</td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>5</td>
+                                                                <td>Supervisor</td>
+                                                                <td>Mr.W</td>
+                                                                <td>8:00</td>
+                                                                <td>17:00</td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div><button class="btn btn-info mx-1" data-toggle="modal" data-target="#modal_Login" type="button"><i class="fas fa-sign-out-alt mr-1"></i>Login</button>
+                                            </div>
+                                            <div class="col p-2">
+                                                <h6 class="font-weight-bold">Night Shift</h6>
+                                                <div class="table-responsive text-left border mb-2" style="font-size: 0.75em;">
+                                                    <table class="table table-striped table-hover table-bordered table-sm">
+                                                        <thead class="text-light bg-info">
+                                                            <tr class="text-center">
+                                                                <th>No.</th>
+                                                                <th>Position</th>
+                                                                <th>Operator</th>
+                                                                <th>Log in</th>
+                                                                <th>Log out</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Sub leader</td>
+                                                                <td>Mr.A</td>
+                                                                <td>20:00</td>
+                                                                <td>4:00</td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>Leader</td>
+                                                                <td>Mr.B</td>
+                                                                <td>20:00</td>
+                                                                <td>5:00</td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3</td>
+                                                                <td>Technician</td>
+                                                                <td>Mr.T</td>
+                                                                <td>20:00</td>
+                                                                <td>5:00</td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>4</td>
+                                                                <td>Senior Technician</td>
+                                                                <td>Mr.S</td>
+                                                                <td>20:00</td>
+                                                                <td>5:00</td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>5</td>
+                                                                <td>Supervisor</td>
+                                                                <td>Mr.W</td>
+                                                                <td>20:00</td>
+                                                                <td>5:00</td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button"><i class="fa fa-sign-out"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div><button class="btn btn-info mx-1" data-toggle="modal" data-target="#modal_Login" type="button"><i class="fas fa-sign-out-alt mr-1"></i>Login</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer mt-2">
+            <div class="container my-auto">
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="assets/js/Chart_Dashboard.js"></script>
+    <script src="assets/js/Chart_Machine.js"></script>
+    <script src="assets/js/Datepicker.js"></script>
+    <script src="assets/js/DateTime.js"></script>
+    <script src="assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="assets/js/Imgpreview.js"></script>
+    <script src="assets/js/InjectionProduction_btn.js"></script>
+    <script src="assets/js/SidePanel.js"></script>
+    <script src="assets/js/sortTable.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/new_js_jig.js"></script>
+    <script src="assets/js/uploadBtn.js"></script>
+    <script src="assets/js/AddImageRepairIssue.js"></script>
+    <script src="assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="assets/js/MoldFunction.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+</body>
+
+</html>

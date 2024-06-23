@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SmartFactory</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/new_css_jig.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/collapse.css">
+    <link rel="stylesheet" href="../assets/css/DcPlanStyle.css">
+    <link rel="stylesheet" href="../assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="../assets/css/fontSize.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="../assets/css/injPlanStyle.css">
+    <link rel="stylesheet" href="../assets/css/NavCustomStyle.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../assets/css/new_css_mold.css">
+    <link rel="stylesheet" href="../assets/css/qc.css">
+    <link rel="stylesheet" href="../assets/css/ScrollBar.css">
+    <link rel="stylesheet" href="../assets/css/SidePanel.css">
+    <link rel="stylesheet" href="../assets/css/Stats-icons.css">
+    <link rel="stylesheet" href="../assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+</head>
+
+<body id="page-top" style="font-family:Exo, sans-serif;"><nav class="navbar navbar-light navbar-expand-xl mb-3 shadow nav-bar-top">
+        <div class="container-fluid"><div class="collapse navbar-collapse d-xl-flex justify-content-lg-end justify-content-xl-end p-1" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-xl-flex align-items-xl-center"><a class="nav-link nav-link" href="../index.html"><i class="fa fa-home" style="font-size: 1.5em;color: lightcyan;"></i></a></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">BOM</span></a>
+                        <div class="dropdown-menu text-light shadow dropdown-menu-right animated--grow-in" style="background: rgb(123, 214, 187);"><a class="dropdown-item" href="BOMMain.html">&nbsp;BOM</a><a class="dropdown-item" href="BOMMaster.html">&nbsp;BOM Master Setting</a><a class="dropdown-item" href="AXMaster.html">AX Master Setting</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">PLAN</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionPlanning.html">Injection Planning</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="../InjectionZoneSelect.html"><span class="d-inline mr-2">INJECTION</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="../InjectionZoneSelect.html">Injection Zone</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center no-arrow m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">Name Surname</span><img class="border rounded-circle imgprofile" src="assets/img/201-user.svg"></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="../index.html"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Home</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="Login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                </ul><input type="text" id="currentDateTime" readonly="" disabled="" style="text-align: center;margin-top: 0px;width: auto;">
+            </div>
+        </div>
+    </nav>
+    <div id="contentWrapper">
+        <div id="content">
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalDeleteConfirm">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Confirm Delete</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p>Are you sure to delete?</p>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalIssueDetail">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Requestment Repair Report</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row m-0 mb-2">
+                                    <div class="col-12 m-0">
+                                        <h5 class="font-weight-bold m-0">Requestment</h5>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Machine</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <option value="12" selected="">Injection</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Machine No</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <option value="12" selected="">I-1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 130px;"><span class="input-group-text bg-transparent border-0">Machine Model</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <option value="12" selected="">S2000i 50B</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Requested By</span></div><input class="form-control" type="text" value="-">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 130px;"><span class="input-group-text bg-transparent border-0">Time</span></div><input class="form-control" type="datetime-local">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-2 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 60px;"><span class="input-group-text bg-transparent border-0">Shift</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <option value="12" selected="">D</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Feature of complaint</span></div><input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0" style="font-size: 14px;">
+                                    <div class="col-12 d-flex m-0 mb-2">
+                                        <div class="text-right" style="width: 150px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Type</span></div>
+                                        <div class="d-flex justify-content-start align-items-center px-1">
+                                            <div class="form-check mr-2"><input class="form-check-input" type="radio" id="formCheck-1" name="repairType"><label class="form-check-label" for="formCheck-1">PM</label></div>
+                                            <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2" name="repairType"><label class="form-check-label" for="formCheck-2">Service</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0" style="font-size: 14px;">
+                                    <div class="col-12 d-flex justify-content-end m-0">
+                                        <div class="text-right" style="padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">-</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-danger" type="button">Close</button><button class="btn btn-primary" type="button">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalPredictive">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <div class="d-lg-flex justify-content-start align-items-center">
+                                    <h4 class="modal-title text-nowrap mr-2">PM</h4>
+                                </div><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body d-flex justify-content-center align-items-center py-5 fs-px-15">
+                                <div><button class="btn btn-primary btn-lg mr-4" type="button" style="width: 155px;" data-target="#modalPredictiveCheckSheet" data-toggle="modal">Start PM</button><button class="btn btn-primary btn-lg" type="button" style="width: 155px;" data-target="#modalPredictiveCheckSheet" data-toggle="modal">View History</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalPredictiveCheckSheet">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <div class="d-lg-flex justify-content-start align-items-center">
+                                    <h4 class="modal-title text-nowrap mr-2">Jig Preventive Maintenance</h4>
+                                </div><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body modal-scroll" style="font-size: 15px;">
+                                <div class="card mb-3">
+                                    <div class="card-body bg-transparent" style="font-size: 15px;">
+                                        <h5 class="card-title font-weight-bold">Jig Detail</h5>
+                                        <div class="form-row m-0 p-0 mb-1">
+                                            <div class="col-3"><input type="text" class="w-100 border-0 px-0" value="Schneider"></div>
+                                            <div class="col-3"><input type="text" class="w-100 border-0 px-0" value="HRB075392195"></div>
+                                            <div class="col-3"><input type="text" class="w-100 border-0 px-0" value="Easy9Cast/Cover #5"></div>
+                                            <div class="col-3"><input type="text" class="w-100 border-0 px-0" value="Assembly"></div>
+                                        </div>
+                                        <div class="form-row m-0 p-0 mb-2 font-weight-bold">
+                                            <div class="col-3 mb-2"><span>M/C No.</span></div>
+                                            <div class="col-3 mb-2"><span>Jig No</span></div>
+                                            <div class="col-3 mb-2"><span>Part Code</span></div>
+                                            <div class="col-3 mb-2"><span>Jig Type</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="d-flex justify-content-start align-items-center mr-3">
+                                        <h5 class="text-center m-0 mr-2">Predictive Detail</h5><button class="btn btn-primary btn-sm btn-repair-report" type="button" data-target="#modalRequestmentEdit" data-toggle="modal">Repair Report</button>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center"><span class="mr-2">History</span><select class="form-control form-control-sm form-control" style="width: 160px;">
+                                            <option value="12" selected="">2023-05-05 16:30</option>
+                                        </select></div>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="mr-3">Jig Status</span>
+                                    <div class="form-check mr-3"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">เครื่องจักรผลิตงาน</label></div>
+                                    <div class="form-check mr-3"><input class="form-check-input" type="radio" id="formCheck-3"><label class="form-check-label" for="formCheck-3">เครื่องจักรไม่ผลิตงาน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label class="form-check-label" for="formCheck-2">เครื่องจักรไม่ทำงานอยู่ในพื้นที่จัดเก็บ</label></div>
+                                </div>
+                                <div class="table-responsive text-nowrap table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                    <table class="table table-hover table-bordered my-0 display" id="tablePart">
+                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                            <tr>
+                                                <th>O</th>
+                                                <th>X</th>
+                                                <th>Topic</th>
+                                                <th>Std</th>
+                                                <th>Act</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-left">
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>1. แรงดันลม (Mpa.)</td>
+                                                <td><input class="form-control form-control-sm" type="text"></td>
+                                                <td><input class="form-control form-control-sm" type="text"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>2. ความสะอาดของตัวเครื่อง</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>3. สภาพของสายไฟ, สายลมต้องไม่ขาด, รั่ว</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>4. สภาพของ Jig ต้องไม่หลุด, หลวม, โยก</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>5. ตรวจสอบจุด MARK สีของชิ้นส่วนต่างๆ</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>6. สภาพขอบปาก Jig ต้องไม่แตก, หักเสียหาย</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>7. การทำงานของ Solenoid Value อยู่ในสภาพปกติ</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>8. Leed switch อยู่ในตำแหน่งที่กำหนด</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="input-group input-group-sm mb-2">
+                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 200px;"><span class="input-group-text bg-transparent border-0">Remark</span></div><input class="form-control mr-5" type="text">
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 200px;"><span class="input-group-text bg-transparent border-0">Inspect By</span></div><input class="form-control" type="text">
+                                        <div class="input-group-append">
+                                            <div class="dropdown btn-group m-0 mr-3" role="group"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                <div class="dropdown-menu dropdown-menu-right p-1">
+                                                    <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="Employee ID"></div>
+                                                    <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group input-group-sm" style="width: 35%;">
+                                        <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0">Date</span></div><input class="form-control mr-5" value="2023-05-12 16:30" type="datetime-local">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 200px;"><span class="input-group-text bg-transparent border-0">Confirm By</span></div><input class="form-control" type="text">
+                                        <div class="input-group-append">
+                                            <div class="dropdown btn-group m-0 mr-3" role="group"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                <div class="dropdown-menu dropdown-menu-right p-1">
+                                                    <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="Employee ID"></div>
+                                                    <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group input-group-sm" style="width: 35%;">
+                                        <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0">Date</span></div><input class="form-control mr-5" value="2023-05-12 16:30" type="datetime-local">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-3">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 200px;"><span class="input-group-text bg-transparent border-0">Approve By</span></div><input class="form-control" type="text">
+                                        <div class="input-group-append">
+                                            <div class="dropdown btn-group m-0 mr-3" role="group"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                <div class="dropdown-menu dropdown-menu-right p-1">
+                                                    <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="Employee ID"></div>
+                                                    <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group input-group-sm" style="width: 35%;">
+                                        <div class="input-group-prepend"><span class="input-group-text bg-transparent border-0">Date</span></div><input class="form-control mr-5" value="2023-05-12 16:30" type="datetime-local">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end align-items-center mb-2"><span class="mr-3">TS-FM-EM-025-03</span></div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-danger" type="button">Close</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalRequestmentEdit">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <h4 class="modal-title mr-2">Requestment Repair Report</h4>
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <div class="input-group-prepend"><span class="input-group-text">NO</span></div><input class="form-control" type="text" value="230512001">
+                                    </div>
+                                </div><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body modal-scroll" style="font-size: 14px;">
+                                <div class="form-row m-0 mb-2">
+                                    <div class="col-12 m-0">
+                                        <h5 class="font-weight-bold m-0">Requestment</h5>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Customer</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">Injection</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Jig No</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">I-1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 100px;"><span class="input-group-text bg-transparent border-0">Jig Type</span></div><input class="form-control border-radius" type="text" value="-">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Part No</span></div><input class="form-control border-radius" type="text" value="-">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 100px;"><span class="input-group-text bg-transparent border-0">Lot No</span></div><input class="form-control border-radius" type="text" value="-">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Problem Type</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">Slide</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 100px;"><span class="input-group-text bg-transparent border-0">Problem</span></div><select class="form-control border-radius">
+                                                <option value="12" selected="">Slide ไหม้</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Feature of complaint</span></div><input class="form-control form-control-sm border-radius" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Requested By</span></div><input class="form-control border-radius" type="text" value="-">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 100px;"><span class="input-group-text bg-transparent border-0">Time</span></div><input class="form-control border-radius" type="datetime-local">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 60px;"><span class="input-group-text bg-transparent border-0">Section</span></div><select class="form-control border-radius">
+                                                <option value="Injection" selected="">Injection</option>
+                                                <option value="DC">DC</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0 mb-2 py-2 border-top border-bottom">
+                                    <div class="col-12 d-flex justify-content-between align-items-center m-0 mb-2">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <h5 class="font-weight-bold m-0 mr-3">Detail of Repair</h5><button class="btn btn-primary btn-sm mr-1" type="button">Start</button>
+                                            <div class="dropright m-0"><button class="btn btn-dark btn-sm" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Technician</button>
+                                                <div class="dropdown-menu dropdown-menu-right text-nowrap p-2">
+                                                    <div class="text-nowrap d-flex justify-content-between align-items-center w-100 mb-2"><input class="form-control form-control-sm mr-1 form-control" type="text" style="font-size: 12px;" placeholder="Employee ID"><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign</button></div>
+                                                    <div class="bg-white">
+                                                        <div class="table-responsive text-nowrap table" role="grid" aria-describedby="dataTable_info" style="font-size: 12px;">
+                                                            <table class="table table-hover table-bordered my-0" id="tablePart">
+                                                                <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                    <tr>
+                                                                        <th>index</th>
+                                                                        <th>Technician</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="text-center">
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>User 1</td>
+                                                                        <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 11px;"><i class="fas fa-times"></i></button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td>User 2</td>
+                                                                        <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 11px;"><i class="fas fa-times"></i></button></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><button class="btn btn-info btn-sm" type="button"><i class="fas fa-save"></i></button>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-row m-0">
+                                            <div class="col-12 m-0 mb-2">
+                                                <div class="input-group input-group-sm w-100">
+                                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Detail of Repair</span></div><input class="form-control border-radius" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 m-0 mb-2">
+                                                <div class="input-group input-group-sm w-100">
+                                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Fix Detail</span></div><input class="form-control border-radius" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 m-0 mb-2">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <div class="text-right" style="width: 151px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Test Dummy Result</span></div>
+                                                    <div class="d-flex justify-content-center align-items-start px-1 mr-1">
+                                                        <div class="form-check form-check-inline mr-3"><input class="form-check-input" type="radio" id="formCheck-3" name="repairResult"><label class="form-check-label" for="formCheck-3">OK</label></div>
+                                                        <div class="form-check form-check-inline d-flex justify-content-start align-items-center"><input class="form-check-input" type="radio" id="formCheck-4" name="repairResult"><label class="form-check-label d-flex justify-content-start align-items-center" for="formCheck-4">NG</label></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-0 mb-2">
+                                                <div class="input-group input-group-sm w-100">
+                                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Start Time</span></div><input class="form-control border-radius" type="datetime-local" disabled="">
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-0 mb-2">
+                                                <div class="input-group input-group-sm w-100">
+                                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Finish Time</span></div><input class="form-control border-radius" type="datetime-local" disabled="">
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-0 mb-2">
+                                                <div class="d-flex justify-content-start align-items-start">
+                                                    <div class="text-right" style="width: 150px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Repair By</span></div>
+                                                    <div class="d-flex justify-content-center align-items-start px-1 mr-1"><input class="form-control form-control-sm border-radius" type="text">
+                                                        <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-0 mb-2">
+                                                <div class="d-flex justify-content-start align-items-start">
+                                                    <div class="text-right" style="width: 150px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Approve By</span></div>
+                                                    <div class="d-flex justify-content-center align-items-start px-1 mr-1"><input class="form-control form-control-sm border-radius" type="text">
+                                                        <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0 mb-2">
+                                    <div class="col-12 d-flex justify-content-between align-items-center m-0">
+                                        <h5 class="font-weight-bold m-0">Service / Parts Cost</h5>
+                                        <div class="dropleft m-0"><button class="btn btn-success btn-sm" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;"><i class="fas fa-plus"></i></button>
+                                            <div class="dropdown-menu dropdown-menu-right p-2">
+                                                <div class="bg-white p-2 mb-2" style="width: 30vw;">
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Description</span></div><select class="form-control mr-3">
+                                                            <optgroup label="This is a group">
+                                                                <option value="12" selected="">This is item 1</option>
+                                                                <option value="13">This is item 2</option>
+                                                                <option value="14">This is item 3</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Qty</span></div><input class="form-control mr-3 border-radius" type="text">
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Unit Price</span></div><input class="form-control mr-3 border-radius" type="text" disabled="">
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Amount (Baht)</span></div><input class="form-control mr-3 border-radius" type="text" disabled="">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Submit</button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 mb-2">
+                                        <div class="table-responsive text-nowrap table" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                            <table class="table table-hover table-bordered my-0 display" id="tablePart">
+                                                <thead class="text-center" style="background: rgb(226,252,255);">
+                                                    <tr>
+                                                        <th>Item</th>
+                                                        <th>Reuse</th>
+                                                        <th>Description</th>
+                                                        <th>Qty</th>
+                                                        <th>Unit Price</th>
+                                                        <th>Amount (Baht)</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td><input type="checkbox"></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;width: 30px;height: 30px;"><i class="fas fa-times"></i></button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td><input type="checkbox"></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;width: 30px;height: 30px;"><i class="fas fa-times"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-8 col-sm-5 col-lg-3 ml-auto mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center"><span class="input-group-text bg-transparent border-0">Total Costs</span></div><input class="form-control border-radius" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0 pt-2 border-top">
+                                    <div class="col-12 mb-2">
+                                        <h6 class="font-weight-bold m-0">Result of Repair (for Request Section)</h6>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <div class="text-right" style="width: 151px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Result of Repair</span></div>
+                                            <div class="d-flex justify-content-center align-items-start px-3 mr-1">
+                                                <div class="form-check form-check-inline mr-3"><input class="form-check-input" type="radio" id="formCheck-5" name="repairResult"><label class="form-check-label" for="formCheck-5">OK</label></div>
+                                                <div class="form-check form-check-inline d-flex justify-content-start align-items-center"><input class="form-check-input" type="radio" id="formCheck-6" name="repairResult"><label class="form-check-label d-flex justify-content-start align-items-center" for="formCheck-6">NG</label></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 150px;"><span class="input-group-text bg-transparent border-0">Receive Time</span></div><input class="form-control border-radius" type="datetime-local">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <div class="d-flex justify-content-end align-items-center mb-2">
+                                            <div class="text-right" style="width: 150px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Received</span></div>
+                                            <div class="d-flex justify-content-center align-items-start"><input class="form-control form-control-sm border-radius" type="text">
+                                                <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                        <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <div class="d-flex justify-content-end align-items-center mb-2">
+                                            <div class="text-right" style="width: 150px;padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">Approved By</span></div>
+                                            <div class="d-flex justify-content-center align-items-start"><input class="form-control form-control-sm border-radius" type="text">
+                                                <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                        <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end m-0">
+                                        <div class="text-right" style="padding: 4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color: rgb(73,80,87);">-</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-danger" type="button">Close</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <h4 class="text-center py-2">Jig<button class="btn btn-info btn-sm float-left m-0 openbtn" type="button" onclick="openNav()" data-target="#maintenancesidepanel"><i class="fa fa-navicon mr-1"></i><span class="d-none d-lg-inline d-xl-inline">Jig Menu</span></button></h4>
+                <section id="Master" class="mt-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row m-0 p-0">
+                                <div class="col-12 col-lg-4 p-0">
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12 col-md-6 col-lg-12 m-0 p-0 pr-md-2 pb-2">
+                                            <div class="card">
+                                                <div class="card-body bg-white"><img class="w-100" src="assets/img/201-image.svg"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-12 p-0 pr-lg-2 pb-2 pb-lg-0">
+                                            <div class="card card-dashboard">
+                                                <div class="card-body bg-transparent" style="font-size: 14px;">
+                                                    <div class="text-right d-md-flex justify-content-between align-items-center mb-2">
+                                                        <h5 class="font-weight-bold m-0">Specification</h5>
+                                                    </div>
+                                                    <div class="row m-0 p-0">
+                                                        <div class="col px-2"><input type="text" class="w-100 border-0 px-0" value="Jig" disabled=""></div>
+                                                        <div class="col px-2"><input type="text" class="w-100 border-0 px-0" value="-"></div>
+                                                    </div>
+                                                    <div class="row m-0 p-0 mb-3 font-weight-bold">
+                                                        <div class="col px-2"><span>Jig No.</span></div>
+                                                        <div class="col px-2"><span>Part Code</span></div>
+                                                    </div>
+                                                    <div class="row m-0 p-0">
+                                                        <div class="col-6 px-2"><input type="text" class="w-100 border-0 px-0" value="-" disabled=""></div>
+                                                        <div class="col px-2"><input type="text" class="w-100 border-0 px-0" value="PRINTING / PAD" disabled=""></div>
+                                                    </div>
+                                                    <div class="row m-0 p-0 mb-3 font-weight-bold">
+                                                        <div class="col-6 px-2"><span>Part Name</span></div>
+                                                        <div class="col px-2"><span>Jig Type</span></div>
+                                                    </div>
+                                                    <div class="row m-0 p-0">
+                                                        <div class="col-6 px-2"><input type="text" class="w-100 border-0 px-0" value="-" disabled=""></div>
+                                                        <div class="col-6 px-2"><input type="text" class="w-100 border-0 px-0" value="-" disabled=""></div>
+                                                    </div>
+                                                    <div class="row m-0 p-0 mb-3 font-weight-bold">
+                                                        <div class="col-6 px-2"><span>Customer</span></div>
+                                                        <div class="col-6 px-2"><span>Asset</span></div>
+                                                    </div>
+                                                    <div class="row m-0 p-0">
+                                                        <div class="col-6 px-2"><input type="text" class="w-100 border-0 px-0" value="05/08/2009" disabled=""></div>
+                                                        <div class="col-6 px-2"><input type="text" class="w-100 border-0 px-0" value="DC" disabled=""></div>
+                                                    </div>
+                                                    <div class="row m-0 p-0 mb-3 font-weight-bold">
+                                                        <div class="col-6 px-2"><span>Receive Date</span></div>
+                                                        <div class="col-6 px-2"><span>Use In</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-lg-8 p-0 pl-lg-2">
+                                    <div class="text-right d-md-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-start align-items-center mb-2">
+                                            <h5 class="font-weight-bold m-0 mr-3">History</h5><select class="form-control-sm form-control mr-3" style="width: 160px;">
+                                                <option value="12" selected="">Service</option>
+                                            </select><button class="btn btn-secondary btn-sm" type="button" style="width: 40px;" data-target="#modalPredictive" data-toggle="modal">PM</button>
+                                        </div><button class="btn btn-primary btn-sm mb-2" type="button" data-target="#modalIssueDetail" data-toggle="modal">Issue</button>
+                                    </div>
+                                    <div class="table-responsive text-nowrap table mb-3" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                        <table class="table table-hover table-bordered my-0 display" id="tablePart">
+                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                <tr>
+                                                    <th>Item</th>
+                                                    <th>Problem Type</th>
+                                                    <th>Problem</th>
+                                                    <th>Spare Part Used</th>
+                                                    <th>Cost</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-center">
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Heater ( พลาสติกลีค)</td>
+                                                    <td>R MOLD ไม่ได้</td>
+                                                    <td>HEATER 40X50,THERMO หางปลากลม, THERMO 5X25</td>
+                                                    <td>1200</td>
+                                                    <td><button class="btn btn-dark btn-sm" type="button" style="font-size: 14px;" data-target="#modalRequestmentEdit" data-toggle="modal"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="d-flex justify-content-start align-items-center mb-2">
+                                        <h5 class="font-weight-bold m-0 mr-3">Summary</h5><select class="form-control-sm form-control mr-3" style="width: 160px;">
+                                            <option value="12" selected="">Maintenance &amp; Repair Cost</option>
+                                        </select><span class="mr-1">Year</span><input class="form-control-sm form-control" type="month" style="width: fit-content;">
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body bg-white">
+                                            <div id="MachineChart"><canvas data-bss-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;,&quot;July&quot;,&quot;August&quot;,&quot;September&quot;,&quot;October&quot;,&quot;November&quot;,&quot;December&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;PM&quot;,&quot;backgroundColor&quot;:&quot;#19AADE&quot;,&quot;borderColor&quot;:&quot;#19AADE&quot;,&quot;data&quot;:[&quot;2400&quot;,&quot;3000&quot;,&quot;2700&quot;,&quot;3500&quot;,&quot;1200&quot;,&quot;2500&quot;,&quot;1900&quot;,&quot;2000&quot;,&quot;3700&quot;,&quot;2600&quot;,&quot;2100&quot;,&quot;1800&quot;]},{&quot;label&quot;:&quot;Service&quot;,&quot;backgroundColor&quot;:&quot;#C02323&quot;,&quot;borderColor&quot;:&quot;#C02323&quot;,&quot;borderWidth&quot;:&quot;0&quot;,&quot;data&quot;:[&quot;1200&quot;,&quot;950&quot;,&quot;1400&quot;,&quot;1800&quot;,&quot;500&quot;,&quot;1600&quot;,&quot;1250&quot;,&quot;1350&quot;,&quot;2000&quot;,&quot;850&quot;,&quot;1750&quot;,&quot;1600&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:true,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;position&quot;:&quot;right&quot;,&quot;reverse&quot;:true},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;bold&quot;,&quot;display&quot;:false,&quot;position&quot;:&quot;top&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;drawTicks&quot;:true,&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;drawTicks&quot;:true,&quot;drawOnChartArea&quot;:true},&quot;ticks&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}]}}}"></canvas></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer mt-2">
+            <div class="container my-auto">
+            </div>
+        </footer>
+        <div class="sidehide sidepanel rounded shadow-lg" id="jigsidepanel"><button class="btn btn-link float-right p-0 closebtn" type="button" onclick="closeNav()"><i class="fa fa-close"></i></button>
+            <h6 class="m-3">Jig Menu</h6>
+            <div class="container"><a class="mb-1" href="JigDashboard.html"><i class="fa fa-bar-chart mr-2"></i>Jig Dashboard</a><a class="mb-1" href="Jig.html"><i class="fa fa-list-alt mr-2"></i>Jig Overview</a><a class="mb-1" href="JigCreation.html"><i class="fas fa-screwdriver mr-2"></i>Jig Creation</a><a class="mb-1" href="JigRepairRequestment.html"><i class="fa fa-exclamation-circle mr-2"></i>Repair Overview</a><a class="mb-1" href="JigSparePartStorage.html"><i class="fa fa-cubes mr-2"></i>Spare Part</a><a class="mb-1" href="JigInjPrepare.html"><i class="fa fa-cog mr-2"></i>Jig Prepare</a><span class="text-black-50">Setting</span><a class="mb-1" href="JigSetting.html"><i class="fa fa-wrench mr-2"></i>Jig Setting</a></div>
+        </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="assets/js/Chart_Dashboard.js"></script>
+    <script src="assets/js/Chart_Machine.js"></script>
+    <script src="assets/js/Datepicker.js"></script>
+    <script src="assets/js/DateTime.js"></script>
+    <script src="assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="assets/js/Imgpreview.js"></script>
+    <script src="assets/js/InjectionProduction_btn.js"></script>
+    <script src="assets/js/SidePanel.js"></script>
+    <script src="assets/js/sortTable.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/uploadBtn.js"></script>
+    <script src="assets/js/Button.js"></script>
+    <script src="assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="assets/js/new_js_jig.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="../assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="../assets/js/Chart_Dashboard.js"></script>
+    <script src="../assets/js/Chart_Machine.js"></script>
+    <script src="../assets/js/Datepicker.js"></script>
+    <script src="../assets/js/DateTime.js"></script>
+    <script src="../assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="../assets/js/Imgpreview.js"></script>
+    <script src="../assets/js/InjectionProduction_btn.js"></script>
+    <script src="../assets/js/SidePanel.js"></script>
+    <script src="../assets/js/sortTable.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/new_js_jig.js"></script>
+    <script src="../assets/js/uploadBtn.js"></script>
+    <script src="../assets/js/AddImageRepairIssue.js"></script>
+    <script src="../assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="../assets/js/MoldFunction.js"></script>
+    <script src="../assets/js/tooltip.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SmartFactory</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/new_css_jig.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/collapse.css">
+    <link rel="stylesheet" href="assets/css/DcPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="assets/css/fontSize.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/injPlanStyle.css">
+    <link rel="stylesheet" href="assets/css/NavCustomStyle.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/new_css_mold.css">
+    <link rel="stylesheet" href="assets/css/qc.css">
+    <link rel="stylesheet" href="assets/css/ScrollBar.css">
+    <link rel="stylesheet" href="assets/css/SidePanel.css">
+    <link rel="stylesheet" href="assets/css/Stats-icons.css">
+    <link rel="stylesheet" href="assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+</head>
+
+<body id="page-top" style="font-family: Exo, sans-serif;">
+    <nav class="navbar navbar-light navbar-expand-xl mb-3 shadow nav-bar-top">
+        <div class="container-fluid"><div class="collapse navbar-collapse d-xl-flex justify-content-lg-end justify-content-xl-end p-1" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-xl-flex align-items-xl-center"><a class="nav-link nav-link" href="index.html"><i class="fa fa-home" style="font-size: 1.5em;color: lightcyan;"></i></a></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">BOM</span></a>
+                        <div class="dropdown-menu text-light shadow dropdown-menu-right animated--grow-in" style="background: rgb(123, 214, 187);"><a class="dropdown-item" href="BOMMain.html">&nbsp;BOM</a><a class="dropdown-item" href="BOMMaster.html">&nbsp;BOM Master Setting</a><a class="dropdown-item" href="AXMaster.html">AX Master Setting</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">PLAN</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionPlanning.html">Injection Planning</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="InjectionZoneSelect.html"><span class="d-inline mr-2">INJECTION</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionZoneSelect.html">Injection Zone</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center no-arrow m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">Name Surname</span><img class="border rounded-circle imgprofile" src="assets/img/201-user.svg"></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="index.html"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Home</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="Login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                </ul><input type="text" id="currentDateTime" readonly="" disabled="" style="text-align: center;margin-top: 0px;width: auto;">
+            </div>
+        </div>
+    </nav>
+    <div id="contentWrapper">
+        <div class="sidehide sidepanel rounded shadow-lg" id="injsidepanel"><button class="btn btn-link float-right p-0 closebtn" type="button" onclick="closeNav()"><i class="fa fa-close"></i></button>
+            <h6 class="m-3">Injection Menu</h6>
+            <div class="container"><a class="mb-1" href="InjectionZoneSelect.html"><i class="fa fa-forward mr-2"></i>Injection Operation</a><a class="mb-1" href="InjectionSupplyDetail.html"><i class="fa fa-cubes mr-2"></i>Supply Detail</a><span class="text-black-50">Supply Confirm</span><a class="mb-1" href="StoreInjectionConfirm.html"><i class="fa fa-th-large mr-2"></i>Store Confirm</a><a class="mb-1" href="Mold/MoldInjectionReceive.html"><i class="fa fa-cog mr-2"></i>Mold Injection Receive</a><a class="mb-1" href="/Jig/JigInjReceive.html"><i class="fa fa-cog mr-2"></i>Jig Injection Receive</a><span class="text-black-50">Setting</span><a class="mb-1" href="InjectionSetting.html"><i class="fa fa-wrench mr-2"></i>Injection Setting</a></div>
+        </div>
+        <div id="content">
+            <div class="container-fluid">
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalreport">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form id="FormStatus" action="/Setting/AddEditRecpName">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Report Select</h4><button type="button" class="close"
+                                        data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <h5>Select report/ เลือกชนิดรายงาน</h5>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <div class="form-check "><input class="form-check-input" type="radio"
+                                                        id="formCheck-1" name="reporttype" value="InjReport" checked ><label
+                                                        class="form-check-label" for="formCheck-1">Inj Report</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <div class="form-check"><input class="form-check-input" type="radio"
+                                                        id="formCheck-2" name="reporttype" value="AssyReport"><label
+                                                        class="form-check-label" for="formCheck-2">Assy Report</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <div class="form-check"><input class="form-check-input" type="radio"
+                                                        id="formCheck-3" name="reporttype" value="MatReport"><label
+                                                        class="form-check-label" for="formCheck-3">Mat Report</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <div class="form-check"><input class="form-check-input" type="radio"
+                                                        id="formCheck-4" name="reporttype" value="MCStatusReport"><label
+                                                        class="form-check-label" for="formCheck-4">MC Status</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <div class="form-check"><input class="form-check-input" type="radio"
+                                                        id="formCheck-5" name="reporttype" value="SummaryReport"><label
+                                                        class="form-check-label" for="formCheck-5">Summary</label></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row justify-content-center">
+                                        <div class="col timeselectgroup InjReport show" >
+
+                                        </div>
+                                        <div class="col timeselectgroup AssyReport">
+                                         
+                                        </div>
+                                        <div class="col timeselectgroup MatReport">
+                                      
+                                        </div>
+                                        <div class="col timeselectgroup MCStatusReport">
+                                           
+                                        </div>
+                                        <div class="col timeselectgroup SummaryReport">
+                                            <div class="form-group">
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <h5>Select time/ เลือกช่วงเวลา</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col"><span>From Date</span><input class="form-control"
+                                                            id="FromDateSummary" type="date"></div>
+                                                    <div class="col"><span>To Date</span><input class="form-control"
+                                                        id="ToDateSummary" type="date"></div>
+                                                        <div class="col"><span>MC No.</span><select
+                                                            class="form-control selectpicker"
+                                                            data-size="8" data-live-search="true"
+                                                            data-stylebase="border" data-style="border" required=""
+                                                            id="machineSummary" style="width: 10em;">
+    
+                                                        </select></div>
+                                                </div>
+                                                <div class="form-row mt-2">
+                                                    <div class="col-12">
+                                                        <span>Part</span>
+                                                        <select class="form-control selectpicker" data-size="8" data-live-search="true"
+                                                            data-stylebase="border" data-style="border" required=""
+                                                            id="partSummary" style="width: 10em;" multiple>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <span>Customer</span>
+                                                        <select
+                                                            class="form-control selectpicker"
+                                                            data-size="8" data-live-search="true"
+                                                            data-stylebase="border" data-style="border" required=""
+                                                            id="customerSummary" style="width: 10em;">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary"
+                                    id="btnExportReport" type="button">Export</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalDeleteConfirm">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Confirm Delete</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p>Are you sure to delete?</p><input type="text" readonly="" disabled="">
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h3 class="text-center"><button class="btn btn-info btn-sm float-left m-0 openbtn" type="button" onclick="openNav()"><i class="fa fa-navicon mr-1"></i><span class="d-none d-lg-inline d-xl-inline">Injection Menu</span></button>&nbsp;Injection Zone Select</h3>
+                        <div id="collapsePlanSelect" class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a class="btn btn-info" data-toggle="collapse" aria-expanded="true" aria-controls="contentPlanSelect" href="#contentPlanSelect" role="button"><i class="fa fa-th-list mx-1"></i>Zone</a>
+                            </div>
+                            <div class="collapse show" id="contentPlanSelect">
+                                <div class="card mb-3 shadow">
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-row justify-content-center">
+                                                <div class="col-auto d-xl-flex justify-content-xl-center"><a class="btn btn-info btn-lg d-xl-flex justify-content-xl-center align-items-xl-center m-2" role="button" style="width: 100px;height: 100px;font-weight: bold;font-size: 2rem;" href="InjectionZone.html">1</a></div>
+                                                <div class="col-auto d-xl-flex justify-content-xl-center"><a class="btn btn-info btn-lg d-xl-flex justify-content-xl-center align-items-xl-center m-2" role="button" style="width: 100px;height: 100px;font-weight: bold;font-size: 2rem;" href="InjectionZone.html">2</a></div>
+                                                <div class="col-auto d-xl-flex justify-content-xl-center"><a class="btn btn-info btn-lg d-xl-flex justify-content-xl-center align-items-xl-center m-2" role="button" style="width: 100px;height: 100px;font-weight: bold;font-size: 2rem;" href="InjectionZone.html">3</a></div>
+                                                <div class="col-auto d-xl-flex justify-content-xl-center"><a class="btn btn-info btn-lg d-xl-flex justify-content-xl-center align-items-xl-center m-2" role="button" style="width: 100px;height: 100px;font-weight: bold;font-size: 2rem;" href="InjectionZone.html">4</a></div>
+                                                <div class="col-auto d-xl-flex justify-content-xl-center"><a class="btn btn-info btn-lg d-xl-flex justify-content-xl-center align-items-xl-center m-2" role="button" style="width: 100px;height: 100px;font-weight: bold;font-size: 2rem;" href="InjectionZone.html">5</a></div>
+                                                <div class="col-auto d-xl-flex justify-content-xl-center"><a class="btn btn-info btn-lg d-xl-flex justify-content-xl-center align-items-xl-center m-2" role="button" style="width: 100px;height: 100px;font-weight: bold;font-size: 2rem;" href="InjectionZone.html">6</a></div>
+                                                <div class="col-auto d-xl-flex justify-content-xl-center"><a class="btn btn-info btn-lg d-xl-flex justify-content-xl-center align-items-xl-center m-2" role="button" style="width: 100px;height: 100px;font-weight: bold;font-size: 2rem;" href="InjectionZone.html">7</a></div>
+                                                <div class="col-auto d-xl-flex justify-content-xl-center"><a class="btn btn-info btn-lg d-xl-flex justify-content-xl-center align-items-xl-center m-2" role="button" style="width: 100px;height: 100px;font-weight: bold;font-size: 2rem;" href="InjectionZone.html">8</a></div>
+                                                <div class="col-auto d-xl-flex justify-content-xl-center"><a class="btn btn-info btn-lg d-xl-flex justify-content-xl-center align-items-xl-center m-2" role="button" style="width: 100px;height: 100px;font-weight: bold;font-size: 2rem;" href="InjectionZone.html">9</a></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer mt-2">
+            <div class="container my-auto">
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="assets/js/Chart_Dashboard.js"></script>
+    <script src="assets/js/Chart_Machine.js"></script>
+    <script src="assets/js/Datepicker.js"></script>
+    <script src="assets/js/DateTime.js"></script>
+    <script src="assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="assets/js/Imgpreview.js"></script>
+    <script src="assets/js/InjectionProduction_btn.js"></script>
+    <script src="assets/js/SidePanel.js"></script>
+    <script src="assets/js/sortTable.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/new_js_jig.js"></script>
+    <script src="assets/js/uploadBtn.js"></script>
+    <script src="assets/js/AddImageRepairIssue.js"></script>
+    <script src="assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="assets/js/MoldFunction.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+</body>
+
+</html>

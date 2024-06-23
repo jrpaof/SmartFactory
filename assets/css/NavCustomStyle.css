@@ -1,0 +1,86 @@
+.navbar-nav > .nav-item {
+  /*height: 10vh;*/
+}
+
+@media (min-width: 577px) {
+  .navbar-text {
+    font-size: x-large;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidenavtext {
+    /*font-size: medium;*/
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-text {
+    font-size: smaller;
+  }
+}
+
+.navbar-nav > .nav-item > .nav-link.active {
+  /*border-radius: 2px;*/
+  /*border-right: 8px groove var(--cyan);*/
+  /*background-color: rgb(39,184,155);*/
+}
+
+.nav-tabs > .nav-item > a:not(active) {
+  color: var(--light);
+}
+
+.card-header {
+  background: var(--teal);
+}
+
+.modal-header {
+  background: rgb(0,44,62);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.modal-title {
+  color: var(--light);
+}
+
+.row.subtable {
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgba(82,247,68,0.35);
+}
+
+.table {
+  border: none;
+}
+
+.border.rounded-circle.imgprofile {
+  width: 2rem;
+  height: 2rem;
+}
+
+.nav-item.d-xl-flex.align-items-xl-center.sidenavitem {
+  height: 10vh;
+}
+
+.nav-bar-top {
+  border-top: 5px solid #006663;
+  background-color: rgb(39,184,155);
+}
+
+.card-body {
+  background: rgba(136,255,219,0.1);
+}
+
+.dropdown-menu.show.shadow.dropdown-menu-right.animated--grow-in {
+  background-color: #7bd6bb;
+}
+
+.dropdown-menu > .dropdown-item {
+  color: lightcyan;
+}
+
+.feat-icon {
+  color: teal;
+}
+

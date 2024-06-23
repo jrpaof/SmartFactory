@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SmartFactory</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/new_css_jig.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/collapse.css">
+    <link rel="stylesheet" href="../assets/css/DcPlanStyle.css">
+    <link rel="stylesheet" href="../assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="../assets/css/fontSize.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="../assets/css/injPlanStyle.css">
+    <link rel="stylesheet" href="../assets/css/NavCustomStyle.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../assets/css/new_css_mold.css">
+    <link rel="stylesheet" href="../assets/css/qc.css">
+    <link rel="stylesheet" href="../assets/css/ScrollBar.css">
+    <link rel="stylesheet" href="../assets/css/SidePanel.css">
+    <link rel="stylesheet" href="../assets/css/Stats-icons.css">
+    <link rel="stylesheet" href="../assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+</head>
+
+<body id="page-top" style="font-family:Exo, sans-serif;"><nav class="navbar navbar-light navbar-expand-xl mb-3 shadow nav-bar-top">
+        <div class="container-fluid"><div class="collapse navbar-collapse d-xl-flex justify-content-lg-end justify-content-xl-end p-1" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-xl-flex align-items-xl-center"><a class="nav-link nav-link" href="../index.html"><i class="fa fa-home" style="font-size: 1.5em;color: lightcyan;"></i></a></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">BOM</span></a>
+                        <div class="dropdown-menu text-light shadow dropdown-menu-right animated--grow-in" style="background: rgb(123, 214, 187);"><a class="dropdown-item" href="BOMMain.html">&nbsp;BOM</a><a class="dropdown-item" href="BOMMaster.html">&nbsp;BOM Master Setting</a><a class="dropdown-item" href="AXMaster.html">AX Master Setting</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">PLAN</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionPlanning.html">Injection Planning</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="../InjectionZoneSelect.html"><span class="d-inline mr-2">INJECTION</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="../InjectionZoneSelect.html">Injection Zone</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center no-arrow m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">Name Surname</span><img class="border rounded-circle imgprofile" src="assets/img/201-user.svg"></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="../index.html"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Home</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="Login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                </ul><input type="text" id="currentDateTime" readonly="" disabled="" style="text-align: center;margin-top: 0px;width: auto;">
+            </div>
+        </div>
+    </nav>
+    <div id="contentWrapper">
+        <div id="content">
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalDeleteConfirm">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Confirm Delete</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p>Are you sure to delete?</p>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalSparePartRestock">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Spare Part Restock</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-row m-0 mb-3">
+                                    <div class="col-12 d-flex justify-content-between align-items-center m-0 mb-2">
+                                        <h5 class="font-weight-bold m-0">Restock Detail</h5>
+                                        <div class="input-group input-group-sm w-50">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center"><span class="input-group-text bg-transparent border-0">ดูประวัติรับสินค้า</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <optgroup label="This is a group">
+                                                    <option value="12" selected="">This is item 1</option>
+                                                    <option value="13">This is item 2</option>
+                                                    <option value="14">This is item 3</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 135px;"><span class="input-group-text bg-transparent border-0">Type</span></div><select class="form-control" id="select_inModal_restockType" style="border-radius: 3.2px;">
+                                                <option value="1" selected="">รับจากซื้อ</option>
+                                                <option value="2">รับคืนภายใน</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2"></div>
+                                    <div class="col-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 135px;"><span class="input-group-text bg-transparent border-0">Receive Date</span></div><input class="form-control" style="border-radius: 3.2px;" type="date">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100 input-buy">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 100px;"><span class="input-group-text bg-transparent border-0">Supplier</span></div><select class="form-control" style="border-radius: 3.2px;">
+                                                <option value="" selected="">-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2 input-buy">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 135px;"><span class="input-group-text bg-transparent border-0">PR No</span></div><input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2 input-buy">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 100px;"><span class="input-group-text bg-transparent border-0">PO No</span></div><input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2 input-buy">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center input-buy" style="width: 135px;"><span class="input-group-text bg-transparent border-0">Invoice No</span></div><input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2 input-buy"></div>
+                                    <div class="col-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 135px;"><span class="input-group-text bg-transparent border-0">Qty</span></div><input class="form-control" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 100px;"><span class="input-group-text bg-transparent border-0">Unit Price</span></div><input class="form-control" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 135px;"><span class="input-group-text bg-transparent border-0">Amount</span></div><input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width: 100px;"><span class="input-group-text bg-transparent border-0">ผู้รับ</span></div><input class="form-control" type="text">
+                                            <div class="input-group-append">
+                                                <div class="dropdown btn-group m-0" role="group"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="border-radius: 3.2px;">Sign</button>
+                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                        <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-danger" type="button">Close</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <h4 class="text-center py-2">Spare Part Storage<button class="btn btn-info btn-sm float-left m-0 openbtn" type="button" onclick="openNav()" data-target="#maintenancesidepanel"><i class="fa fa-navicon mr-1"></i><span class="d-none d-lg-inline d-xl-inline">Jig Menu</span></button></h4>
+                <section id="Master" class="mt-2">
+                    <div class="row">
+                        <div class="col-12 mb-md-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-end align-items-center mb-2"><span class="mr-1">Category</span><select class="form-control-sm form-control mr-3" style="width: 160px;">
+                                            <option value="12" selected="">All</option>
+                                            <option value="">Fitting</option>
+                                            <option value="">Fuse</option>
+                                            <option value="">Heater</option>
+                                            <option value="">Thermo</option>
+                                            <option value="">Housing</option>
+                                            <option value="">Insert</option>
+                                            <option value="">Jumper</option>
+                                            <option value="">Magnetic</option>
+                                        </select><span class="mr-1">Month</span><input class="form-control" style="width: fit-content;" type="month"></div>
+                                    <div class="tooltip bs-tooltip-top" role="tooltip">
+                                        <div class="arrow"></div>
+                                        <div class="tooltip-inner"></div>
+                                    </div>
+                                    <div class="table-responsive text-nowrap table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                        <table class="table table-hover table-bordered my-0 display" id="tablePart">
+                                            <thead class="text-center" style="background: rgb(226,252,255);">
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Spare Part</th>
+                                                    <th>AX Code</th>
+                                                    <th>Min</th>
+                                                    <th>Max</th>
+                                                    <th>Price</th>
+                                                    <th>B/F</th>
+                                                    <th>Purchase</th>
+                                                    <th>Received</th>
+                                                    <th>Balance</th>
+                                                    <th>1</th>
+                                                    <th>2</th>
+                                                    <th>3</th>
+                                                    <th>4</th>
+                                                    <th>5</th>
+                                                    <th>6</th>
+                                                    <th>7</th>
+                                                    <th>8</th>
+                                                    <th>9</th>
+                                                    <th>10</th>
+                                                    <th>11</th>
+                                                    <th>12</th>
+                                                    <th>13</th>
+                                                    <th>14</th>
+                                                    <th>15</th>
+                                                    <th>16</th>
+                                                    <th>17</th>
+                                                    <th>18</th>
+                                                    <th>19</th>
+                                                    <th>20</th>
+                                                    <th>21</th>
+                                                    <th>22</th>
+                                                    <th>23</th>
+                                                    <th>24</th>
+                                                    <th>25</th>
+                                                    <th>26</th>
+                                                    <th>27</th>
+                                                    <th>28</th>
+                                                    <th>29</th>
+                                                    <th>30</th>
+                                                    <th>31</th>
+                                                    <th>Restock</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-center">
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td class="text-left">SpartPart</td>
+                                                    <td></td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>997</td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td data-toggle="tooltip" data-placement="bottom" data-html="true" title="<p class=&quot;m-0&quot;>Used by: Akkachai</p><p class=&quot;m-0&quot;>Date: 2023/10/08</p>">5</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td class="text-left">SpartPart</td>
+                                                    <td></td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>997</td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td data-toggle="tooltip" data-placement="bottom" title="<p class=&quot;m-0&quot;>Used by: Akkachai</p><p class=&quot;m-0&quot;>Date: 2023/10/08</p>" data-html="true">5</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td class="text-left">SpartPart</td>
+                                                    <td></td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>997</td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td class="text-left">SpartPart</td>
+                                                    <td></td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>997</td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="max-spare">5</td>
+                                                    <td class="text-left max-spare">SpartPart</td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare">1</td>
+                                                    <td class="max-spare">2</td>
+                                                    <td class="max-spare">997</td>
+                                                    <td class="max-spare">0</td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare">0</td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"></td>
+                                                    <td class="max-spare"><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td class="text-left">SpartPart</td>
+                                                    <td></td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>997</td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td class="text-left">SpartPart</td>
+                                                    <td></td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>997</td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="min-spare">8</td>
+                                                    <td class="text-left min-spare">SpartPart</td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare">1</td>
+                                                    <td class="min-spare">2</td>
+                                                    <td class="min-spare">997</td>
+                                                    <td class="min-spare">2</td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare">2</td>
+                                                    <td class="min-spare">4</td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"></td>
+                                                    <td class="min-spare"><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td class="text-left">SpartPart</td>
+                                                    <td></td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>997</td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td class="text-left">SpartPart</td>
+                                                    <td></td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>997</td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>2</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-primary btn-sm" type="button" style="font-size: 14px;" data-target="#modalSparePartRestock" data-toggle="modal"><i class="fas fa-edit"></i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer mt-2">
+            <div class="container my-auto">
+            </div>
+        </footer>
+        <div class="sidehide sidepanel rounded shadow-lg" id="jigsidepanel"><button class="btn btn-link float-right p-0 closebtn" type="button" onclick="closeNav()"><i class="fa fa-close"></i></button>
+            <h6 class="m-3">Jig Menu</h6>
+            <div class="container"><a class="mb-1" href="JigDashboard.html"><i class="fa fa-bar-chart mr-2"></i>Jig Dashboard</a><a class="mb-1" href="Jig.html"><i class="fa fa-list-alt mr-2"></i>Jig Overview</a><a class="mb-1" href="JigCreation.html"><i class="fas fa-screwdriver mr-2"></i>Jig Creation</a><a class="mb-1" href="JigRepairRequestment.html"><i class="fa fa-exclamation-circle mr-2"></i>Repair Overview</a><a class="mb-1" href="JigSparePartStorage.html"><i class="fa fa-cubes mr-2"></i>Spare Part</a><a class="mb-1" href="JigInjPrepare.html"><i class="fa fa-cog mr-2"></i>Jig Prepare</a><span class="text-black-50">Setting</span><a class="mb-1" href="JigSetting.html"><i class="fa fa-wrench mr-2"></i>Jig Setting</a></div>
+        </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="assets/js/Chart_Dashboard.js"></script>
+    <script src="assets/js/Chart_Machine.js"></script>
+    <script src="assets/js/Datepicker.js"></script>
+    <script src="assets/js/DateTime.js"></script>
+    <script src="assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="assets/js/Imgpreview.js"></script>
+    <script src="assets/js/InjectionProduction_btn.js"></script>
+    <script src="assets/js/SidePanel.js"></script>
+    <script src="assets/js/sortTable.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/uploadBtn.js"></script>
+    <script src="assets/js/Button.js"></script>
+    <script src="assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="assets/js/new_js_jig.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="../assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="../assets/js/Chart_Dashboard.js"></script>
+    <script src="../assets/js/Chart_Machine.js"></script>
+    <script src="../assets/js/Datepicker.js"></script>
+    <script src="../assets/js/DateTime.js"></script>
+    <script src="../assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="../assets/js/Imgpreview.js"></script>
+    <script src="../assets/js/InjectionProduction_btn.js"></script>
+    <script src="../assets/js/SidePanel.js"></script>
+    <script src="../assets/js/sortTable.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/new_js_jig.js"></script>
+    <script src="../assets/js/uploadBtn.js"></script>
+    <script src="../assets/js/AddImageRepairIssue.js"></script>
+    <script src="../assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="../assets/js/MoldFunction.js"></script>
+    <script src="../assets/js/tooltip.js"></script>
+</body>
+
+</html>

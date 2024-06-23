@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SmartFactory</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/new_css_jig.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/collapse.css">
+    <link rel="stylesheet" href="../assets/css/DcPlanStyle.css">
+    <link rel="stylesheet" href="../assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="../assets/css/fontSize.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="../assets/css/injPlanStyle.css">
+    <link rel="stylesheet" href="../assets/css/NavCustomStyle.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../assets/css/new_css_mold.css">
+    <link rel="stylesheet" href="../assets/css/qc.css">
+    <link rel="stylesheet" href="../assets/css/ScrollBar.css">
+    <link rel="stylesheet" href="../assets/css/SidePanel.css">
+    <link rel="stylesheet" href="../assets/css/Stats-icons.css">
+    <link rel="stylesheet" href="../assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+</head>
+
+<body id="page-top" style="font-family:Exo, sans-serif;"><nav class="navbar navbar-light navbar-expand-xl mb-3 shadow nav-bar-top">
+        <div class="container-fluid"><div class="collapse navbar-collapse d-xl-flex justify-content-lg-end justify-content-xl-end p-1" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-xl-flex align-items-xl-center"><a class="nav-link nav-link" href="../index.html"><i class="fa fa-home" style="font-size: 1.5em;color: lightcyan;"></i></a></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">BOM</span></a>
+                        <div class="dropdown-menu text-light shadow dropdown-menu-right animated--grow-in" style="background: rgb(123, 214, 187);"><a class="dropdown-item" href="BOMMain.html">&nbsp;BOM</a><a class="dropdown-item" href="BOMMaster.html">&nbsp;BOM Master Setting</a><a class="dropdown-item" href="AXMaster.html">AX Master Setting</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">PLAN</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionPlanning.html">Injection Planning</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="../InjectionZoneSelect.html"><span class="d-inline mr-2">INJECTION</span></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="../InjectionZoneSelect.html">Injection Zone</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item dropdown d-xl-flex align-items-xl-center no-arrow m-0"><a class="dropdown-toggle nav-link text-light nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">Name Surname</span><img class="border rounded-circle imgprofile" src="assets/img/201-user.svg"></a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="../index.html"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Home</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="Login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                </ul><input type="text" id="currentDateTime" readonly="" disabled="" style="text-align: center;margin-top: 0px;width: auto;">
+            </div>
+        </div>
+    </nav>
+    <div id="contentWrapper">
+        <div id="content">
+            <div class="container-fluid">
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalDeleteConfirm">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Confirm Delete</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p>Are you sure to delete?</p>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalPartList">
+                    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">New Part</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-2"><span class="d-block mb-1">List</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="text"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Quantity</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="number"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Order</span>
+                                        <div class="d-flex justify-content-start align-items-center px-2">
+                                            <div class="form-check mr-3"><input class="form-check-input" type="radio" id="formCheck-22"><label class="form-check-label" for="formCheck-22">สั่งซื้อ</label></div>
+                                            <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-23"><label class="form-check-label" for="formCheck-23">ไม่สั่งซื้อ</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Remark</span>
+                                        <div class="px-2"><textarea class="form-control form-control-sm mb-2 w-100"></textarea></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalResponsible">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">New Responsible</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-2"><span class="d-block mb-1">Responsible</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="text"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalFix">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Fix</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-2"><span class="d-block mb-1">Employee Code</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="text"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalWorkList">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Work List</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-2"><span class="d-block mb-1">Type</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="text"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Start Time</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="datetime-local"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Finish Time</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="datetime-local"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Detail</span>
+                                        <div class="px-2"><textarea class="form-control form-control-sm"></textarea></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Responsible</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="text"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Remark</span>
+                                        <div class="px-2"><textarea class="form-control form-control-sm"></textarea></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalProject">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">New Project</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-2"><span class="d-block mb-1">Project Name</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="text"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Start Time</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="datetime-local"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Finish Time</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="datetime-local"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Responsible</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="text"></div>
+                                    </div>
+                                    <div class="mb-2"><span class="d-block mb-1">Cost</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="number"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalComment">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">New Comment</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-2"><span class="d-block mb-1">Comment</span>
+                                        <div class="px-2"><input class="form-control form-control-sm mb-2 w-100" type="text"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-primary" type="button">Save</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" role="dialog" tabindex="-1" id="Issue">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form>
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Jig Creation Request</h4><button class="close" type="button" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="form-row p-0 m-0">
+                                            <div class="col-12 mb-2" style="font-size: 13px;">
+                                                <div>
+                                                    <h6 class="font-weight-bold">Requestment</h6>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Customer</span><select class="form-control form-control form-control-sm w-25">
+                                                        <optgroup label="This is a group">
+                                                            <option value="12" selected="">-</option>
+                                                            <option value="13">This is item 2</option>
+                                                            <option value="14">This is item 3</option>
+                                                        </optgroup>
+                                                    </select><span class="pl-2 pr-1 w-25">Jig Type</span><select class="form-control form-control form-control-sm w-25">
+                                                        <optgroup label="This is a group">
+                                                            <option value="12" selected="">-</option>
+                                                            <option value="13">This is item 2</option>
+                                                            <option value="14">This is item 3</option>
+                                                        </optgroup>
+                                                    </select></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Part Code</span><input class="form-control form-control form-control-sm w-25" type="text"><span class="pl-2 pr-1 w-25">Part Name</span><input class="form-control form-control form-control-sm w-25" type="text"></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Required Date</span><input class="form-control form-control form-control-sm w-25" type="date"><span class="pl-2 pr-1 w-25">Quantity</span><input class="form-control form-control form-control-sm w-25" type="text"></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Request Time</span><input class="form-control form-control form-control-sm w-25" type="datetime-local"><span class="pl-2 pr-1 w-25">Section</span><select class="form-control form-control form-control-sm w-25">
+                                                        <optgroup label="This is a group">
+                                                            <option value="12" selected="">Engineer</option>
+                                                            <option value="13">This is item 2</option>
+                                                            <option value="14">This is item 3</option>
+                                                        </optgroup>
+                                                    </select></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Request Type</span>
+                                                    <div class="d-flex justify-content-between align-items-center w-75">
+                                                        <div class="form-check form-check-inline mr-1"><input class="form-check-input" type="radio" id="formCheck-2" name="request-type"><label class="form-check-label" for="formCheck-2">New Model</label></div>
+                                                        <div class="form-check form-check-inline mr-1"><input class="form-check-input" type="radio" id="formCheck-3" name="request-type"><label class="form-check-label" for="formCheck-3">Improvement</label></div>
+                                                        <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-13" name="request-type"><label class="form-check-label" for="formCheck-13">Modify</label></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-2" style="font-size: 13px;">
+                                                <div>
+                                                    <h6 class="font-weight-bold">Information</h6>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Production Date</span><input class="form-control form-control form-control-sm w-25" type="date"><span class="pl-2 pr-1 w-25">Budget</span><input class="form-control form-control form-control-sm" type="text" style="width: 15%;"></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Customer Budget</span>
+                                                    <div class="d-flex flex-column justify-content-center align-items-start w-75">
+                                                        <div class="form-check form-check-inline mr-1 mb-1"><input class="form-check-input" type="radio" id="formCheck-14"><label class="form-check-label d-flex justify-content-start align-items-center" for="formCheck-14">เก็บเงินจากลูกค้าได้<input class="form-control form-control form-control-sm ml-2" type="text" style="width: 35%;"><span class="text-right" style="width: 15%;">Baht</span></label></div>
+                                                        <div class="form-check form-check-inline mr-1 mb-1"><input class="form-check-input" type="radio" id="formCheck-15"><label class="form-check-label" for="formCheck-15">เก็บเงินจากลูกค้าไม่ได้</label></div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">FG Quantity</span><input class="form-control form-control form-control-sm" type="text" style="width: 20%;"><span class="text-right px-2" style="width: 28%;">Pcs/Month</span><input class="form-control form-control form-control-sm" type="text" style="width: 20%;"><span class="text-right" style="width: 22%;">Pcs/Year</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Used In</span><select class="form-control form-control form-control-sm w-50">
+                                                        <optgroup label="This is a group">
+                                                            <option value="12" selected="">Engineer</option>
+                                                            <option value="13">This is item 2</option>
+                                                            <option value="14">This is item 3</option>
+                                                        </optgroup>
+                                                    </select></div>
+                                                <div class="d-flex justify-content-start align-items-start mb-2"><span class="pr-1 w-25">Requirement &amp; Detail</span><textarea class="form-control form-control form-control-sm w-50 mr-3"></textarea></div>
+                                                <div class="d-flex justify-content-center align-items-start mb-2"><img class="w-75" src="assets/img/201-image.svg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Submit</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="text-center py-2">Jig Creation<button class="btn btn-info btn-sm float-left m-0 openbtn" type="button" onclick="openNav()" data-target="#qcsidepanel"><i class="fa fa-navicon mr-1"></i><span class="d-none d-lg-inline d-xl-inline">Jig Menu</span></button></h4>
+                <div class="row">
+                    <div class="col">
+                        <div class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="true" aria-controls="collapseJigCreateList" href="#collapseJigCreateList" role="button">Jig Create List</a>
+                            <div class="collapse show" id="collapseJigCreateList">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col d-flex justify-content-between align-items-center mb-3">
+                                                <h5 class="m-0">Please Select Requestment</h5>
+                                                <div class="d-flex justify-content-end align-items-center"><span class="form-control-sm text-nowrap mr-2">Section</span><select class="form-control form-control-sm mr-3">
+                                                        <optgroup label="This is a group">
+                                                            <option value="12" selected="">All</option>
+                                                            <option value="13">This is item 2</option>
+                                                            <option value="14">This is item 3</option>
+                                                        </optgroup>
+                                                    </select><span class="form-control-sm text-nowrap mr-2">Show Status</span><select class="form-control form-control-sm mr-3">
+                                                        <optgroup label="This is a group">
+                                                            <option value="12" selected="">All</option>
+                                                            <option value="13">This is item 2</option>
+                                                            <option value="14">This is item 3</option>
+                                                        </optgroup>
+                                                    </select><button class="btn btn-info btn-sm" type="button" data-target="#Issue" data-toggle="modal">Issue</button></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive text-nowrap table mt-2 qc" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>JL No</th>
+                                                                <th>Customer</th>
+                                                                <th>Part Code</th>
+                                                                <th>Part Name</th>
+                                                                <th>Section</th>
+                                                                <th>Request<br>Date</th>
+                                                                <th>Required<br>Date</th>
+                                                                <th>Qty</th>
+                                                                <th>Type</th>
+                                                                <th>Jig Type</th>
+                                                                <th>Budget</th>
+                                                                <th>เก็บเงิน</th>
+                                                                <th>Finish<br>Date</th>
+                                                                <th>Jig Request</th>
+                                                                <th>Part List</th>
+                                                                <th>Trial Count</th>
+                                                                <th>Evaluation</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>Case</td>
+                                                                <td>Engineer</td>
+                                                                <td>2023-10-16</td>
+                                                                <td>2023-10-30</td>
+                                                                <td>1</td>
+                                                                <td>New</td>
+                                                                <td>Robot</td>
+                                                                <td>114,647.28</td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center align-items-center"><span class="text-light bg-primary alert-icon"><i class="fas fa-check" style="font-size: 14px;"></i></span></div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-start align-items-center"><span class="status status-secondary">ISSUE</span></div>
+                                                                </td>
+                                                                <td>-</td>
+                                                                <td>0</td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>Case</td>
+                                                                <td>Engineer</td>
+                                                                <td>2023-10-16</td>
+                                                                <td>2023-10-30</td>
+                                                                <td>1</td>
+                                                                <td>New</td>
+                                                                <td>Robot</td>
+                                                                <td>114,647.28</td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center align-items-center"><span class="alert-icon-danger alert-icon"><i class="fas fa-times" style="font-size: 14px;"></i></span></div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-start align-items-center"><span class="status status-success mr-1">ACCEPT</span><span class="alert-icon-warning alert-icon ml-1"><i class="fas fa-exclamation"></i></span></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-start align-items-center"><span class="status-secondary status text-nowrap w-100">ISSUE</span></div>
+                                                                </td>
+                                                                <td>0</td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>Case</td>
+                                                                <td>Engineer</td>
+                                                                <td>2023-10-16</td>
+                                                                <td>2023-10-30</td>
+                                                                <td>1</td>
+                                                                <td>New</td>
+                                                                <td>Robot</td>
+                                                                <td>114,647.28</td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center align-items-center"><span class="alert-icon-danger alert-icon"><i class="fas fa-times" style="font-size: 14px;"></i></span></div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-start align-items-center"><span class="status status-danger mr-1">REJECT</span></div>
+                                                                </td>
+                                                                <td>-</td>
+                                                                <td>0</td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>Case</td>
+                                                                <td>Engineer</td>
+                                                                <td>2023-10-16</td>
+                                                                <td>2023-10-30</td>
+                                                                <td>1</td>
+                                                                <td>New</td>
+                                                                <td>Robot</td>
+                                                                <td>114,647.28</td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center align-items-center"><span class="alert-icon-danger alert-icon"><i class="fas fa-times" style="font-size: 14px;"></i></span></div>
+                                                                </td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-start align-items-center"><span class="status status-success mr-1">ACCEPT</span><span class="alert-icon-warning alert-icon ml-1"><i class="fas fa-exclamation"></i></span></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-start align-items-center"><span class="status-warning status text-nowrap w-100">WAIT APPROVE</span></div>
+                                                                </td>
+                                                                <td>0</td>
+                                                                <td>-</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>Case</td>
+                                                                <td>Engineer</td>
+                                                                <td>2023-10-16</td>
+                                                                <td>2023-10-30</td>
+                                                                <td>1</td>
+                                                                <td>New</td>
+                                                                <td>Robot</td>
+                                                                <td>114,647.28</td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center align-items-center"><span class="text-light bg-primary alert-icon"><i class="fas fa-check" style="font-size: 14px;"></i></span></div>
+                                                                </td>
+                                                                <td>2023-10-28</td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-start align-items-center"><span class="status status-success mr-1">ACCEPT</span></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-start align-items-center"><span class="status-success status text-nowrap w-100">COMPLETE</span></div>
+                                                                </td>
+                                                                <td>2</td>
+                                                                <td><span class="status status-success w-100">PASS</span></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="false" aria-controls="collapseRequestJig" href="#collapseRequestJig" role="button">Request Jig</a>
+                            <div class="collapse" id="collapseRequestJig">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col d-flex justify-content-end align-items-center mb-2">
+                                                <div class="d-flex justify-content-end align-items-center"><span class="form-control-sm text-nowrap mr-2">JL No</span><input type="text" class="form-control form-control-sm mr-3" disabled=""><button class="btn btn-info btn-sm" type="button">Save</button></div>
+                                            </div>
+                                        </div>
+                                        <div class="row m-0">
+                                            <div class="col-12 col-xl-4 p-0 mb-2">
+                                                <div class="row p-0 m-0">
+                                                    <div class="col-12 mb-2" style="font-size: 13px;">
+                                                        <div>
+                                                            <h6 class="font-weight-bold">Requestment</h6>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Customer</span><select class="form-control form-control-sm w-25" disabled="">
+                                                                <optgroup label="This is a group">
+                                                                    <option value="12" selected="">-</option>
+                                                                    <option value="13">This is item 2</option>
+                                                                    <option value="14">This is item 3</option>
+                                                                </optgroup>
+                                                            </select><span class="pl-2 pr-1 w-25">Jig Type</span><select class="form-control form-control-sm w-25" disabled="">
+                                                                <optgroup label="This is a group">
+                                                                    <option value="12" selected="">-</option>
+                                                                    <option value="13">This is item 2</option>
+                                                                    <option value="14">This is item 3</option>
+                                                                </optgroup>
+                                                            </select></div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Part Code</span><input type="text" class="form-control form-control-sm w-25" disabled=""><span class="pl-2 pr-1 w-25">Part Name</span><input type="text" class="form-control form-control-sm w-25" disabled=""></div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Required Date</span><input class="form-control form-control-sm w-25" type="date" disabled=""><span class="pl-2 pr-1 w-25">Quantity</span><input type="text" class="form-control form-control-sm w-25" disabled=""></div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Request Time</span><input class="form-control form-control-sm w-25" type="datetime-local" disabled=""><span class="pl-2 pr-1 w-25">Section</span><select class="form-control form-control-sm w-25" disabled="">
+                                                                <optgroup label="This is a group">
+                                                                    <option value="12" selected="">Engineer</option>
+                                                                    <option value="13">This is item 2</option>
+                                                                    <option value="14">This is item 3</option>
+                                                                </optgroup>
+                                                            </select></div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Request Type</span>
+                                                            <div class="d-flex justify-content-between align-items-center w-75">
+                                                                <div class="form-check form-check-inline mr-1"><input class="form-check-input" type="radio" id="formCheck-1" name="request-type" disabled=""><label class="form-check-label" for="formCheck-1">New Model</label></div>
+                                                                <div class="form-check form-check-inline mr-1"><input class="form-check-input" type="radio" id="formCheck-5" name="request-type" disabled=""><label class="form-check-label" for="formCheck-5">Improvement</label></div>
+                                                                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-4" name="request-type" disabled=""><label class="form-check-label" for="formCheck-4">Modify</label></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 mb-2" style="font-size: 13px;">
+                                                        <div>
+                                                            <h6 class="font-weight-bold">Information</h6>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Production Date</span><input class="form-control form-control-sm w-25" type="date" disabled=""><span class="pl-2 pr-1 w-25">Budget</span><input type="text" class="form-control form-control-sm" style="width: 15%;" disabled=""></div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Customer Budget</span>
+                                                            <div class="d-flex flex-column justify-content-center align-items-start w-75">
+                                                                <div class="form-check form-check-inline mr-1 mb-1"><input class="form-check-input" type="radio" id="formCheck-9" disabled=""><label class="form-check-label d-flex justify-content-start align-items-center" for="formCheck-9">เก็บเงินจากลูกค้าได้<input type="text" class="form-control form-control-sm ml-2" style="width: 35%;" disabled=""><span class="text-right" style="width: 15%;">Baht</span></label></div>
+                                                                <div class="form-check form-check-inline mr-1 mb-1"><input class="form-check-input" type="radio" id="formCheck-10" disabled=""><label class="form-check-label" for="formCheck-10">เก็บเงินจากลูกค้าไม่ได้</label></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">FG Quantity</span><input type="text" class="form-control form-control-sm" style="width: 20%;" disabled=""><span class="text-right px-2" style="width: 28%;">Pcs/Month</span><input type="text" class="form-control form-control-sm" style="width: 20%;" disabled=""><span class="text-right" style="width: 22%;">Pcs/Year</span></div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Used In</span><select class="form-control form-control-sm w-50" disabled="">
+                                                                <optgroup label="This is a group">
+                                                                    <option value="12" selected="">Engineer</option>
+                                                                    <option value="13">This is item 2</option>
+                                                                    <option value="14">This is item 3</option>
+                                                                </optgroup>
+                                                            </select></div>
+                                                        <div class="d-flex justify-content-start align-items-start mb-2"><span class="pr-1 w-25">Requirement &amp; Detail</span><textarea class="form-control form-control-sm w-50 mr-3" disabled=""></textarea></div>
+                                                        <div class="d-flex justify-content-center align-items-start mb-2"><img class="w-75" src="assets/img/201-image.svg"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-xl-4 p-0 mb-2">
+                                                <div class="row p-0 m-0">
+                                                    <div class="col-12 mb-2" style="font-size: 13px;">
+                                                        <div>
+                                                            <h6 class="font-weight-bold">Jig Confirm Target Date</h6>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2">
+                                                            <div class="d-flex flex-column justify-content-center align-items-start w-100">
+                                                                <div class="form-check form-check-inline mr-1 mb-1"><input class="form-check-input" type="radio" id="formCheck-12"><label class="form-check-label" for="formCheck-12">สามารถทำตามวันที่ต้องการได้</label></div>
+                                                                <div class="text-center d-flex justify-content-start align-items-center"><input type="radio"><span class="text-left px-1">ไม่สามารถทำตามวันที่ต้องการได้</span><span class="mx-2">Target</span><input class="form-control form-control-sm" style="width: 25%;" type="datetime-local"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Responsible</span>
+                                                            <div class="d-flex justify-content-center align-items-center w-75 pl-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                        <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-start mb-2"><span class="pr-1 w-25">Request By</span>
+                                                            <div class="d-flex flex-column w-75">
+                                                                <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                    <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                        <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                            <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                            <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center w-75 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-start mb-2"><span class="pr-1 w-25">Checked By</span>
+                                                            <div class="d-flex flex-column w-75">
+                                                                <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                    <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                        <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                            <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                            <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center w-75 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-start mb-2"><span class="pr-1 w-25">Approve By</span>
+                                                            <div class="d-flex flex-column w-75">
+                                                                <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                    <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                        <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                            <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                            <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center w-75 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-xl-4 p-0 mb-2">
+                                                <div class="row p-0 m-0">
+                                                    <div class="col-12 mb-2" style="font-size: 13px;">
+                                                        <div>
+                                                            <h6 class="font-weight-bold">Jig &amp; Tooling</h6>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-center mb-2"><span class="pr-1 w-25">Examine Result</span>
+                                                            <div class="d-flex justify-content-start align-items-center w-75 pl-2">
+                                                                <div class="form-check form-check-inline mr-3"><input class="form-check-input" type="radio" id="formCheck-7" name="request-type"><label class="form-check-label" for="formCheck-7">อนุมัติ</label></div>
+                                                                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" id="formCheck-8" name="request-type"><label class="form-check-label" for="formCheck-8">ไม่อนุมัติ</label></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-start mb-2"><span class="pr-1 w-25">Reason</span><textarea class="form-control form-control-sm w-75 ml-2"></textarea></div>
+                                                        <div class="d-flex justify-content-end align-items-center mb-2"><button class="btn btn-success btn-sm" type="button" data-target="#modalProject" data-toggle="modal">Add</button></div>
+                                                        <div class="table-responsive text-nowrap table my-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                            <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                                <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                    <tr>
+                                                                        <th>Project Name</th>
+                                                                        <th>Start</th>
+                                                                        <th>Finish</th>
+                                                                        <th>Responsible</th>
+                                                                        <th>Cost</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="text-center">
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary d-flex justify-content-center align-items-center p-2 mr-1" type="button" style="width: 30px;"><i class="fas fa-edit" style="font-size: 14px;"></i></button><button class="btn btn-danger d-flex justify-content-center align-items-center p-2" type="button" style="width: 30px;"><i class="fas fa-times" style="font-size: 14px;"></i></button></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary d-flex justify-content-center align-items-center p-2 mr-1" type="button" style="width: 30px;"><i class="fas fa-edit" style="font-size: 14px;"></i></button><button class="btn btn-danger d-flex justify-content-center align-items-center p-2" type="button" style="width: 30px;"><i class="fas fa-times" style="font-size: 14px;"></i></button></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="d-flex justify-content-end align-items-center mb-2">
+                                                            <div class="d-flex justify-content-center align-items-center"><span class="form-control-sm text-nowrap mr-2">Total Cost</span><input type="text" class="form-control form-control-sm" disabled=""></div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-start mb-2"><span class="pr-1 w-25">Request By</span>
+                                                            <div class="d-flex flex-column w-75">
+                                                                <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                    <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                        <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                            <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                            <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center w-75 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-start mb-2"><span class="pr-1 w-25">Checked By</span>
+                                                            <div class="d-flex flex-column w-75">
+                                                                <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                    <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                        <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                            <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                            <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center w-75 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-start mb-2"><span class="pr-1 w-25">Approve By</span>
+                                                            <div class="d-flex flex-column w-75">
+                                                                <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                    <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                        <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                            <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                            <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center w-75 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="false" aria-controls="collapsePartList" href="#collapsePartList" role="button">Part List</a>
+                            <div class="collapse" id="collapsePartList">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Customer</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Code</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Name</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-lg d-flex justify-content-end align-items-center mb-2"><button class="btn btn-success btn-sm" type="button" data-target="#modalPartList" data-toggle="modal">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive text-nowrap table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Item</th>
+                                                                <th>Received</th>
+                                                                <th>List</th>
+                                                                <th>Ax Code</th>
+                                                                <th>Qty</th>
+                                                                <th>Unit Price</th>
+                                                                <th>Amount (Baht)</th>
+                                                                <th>Order</th>
+                                                                <th>Remark</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td><input type="checkbox"></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;" data-target="#modalPreventiveM" data-toggle="modal"><i class="fa fa-times"></i></button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td><input type="checkbox"></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;" data-target="#modalPreventiveM" data-toggle="modal"><i class="fa fa-times"></i></button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col d-flex justify-content-start align-items-start">
+                                                <div class="d-flex justify-content-start align-items-start mb-2" style="width: 400px;"><span class="pr-1 w-25 text-nowrap">Approve By</span>
+                                                    <div class="d-flex flex-column w-75">
+                                                        <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-1"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                            <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                    <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                    <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="false" aria-controls="collapseWorkList" href="#collapseWorkList" role="button">Work List</a>
+                            <div class="collapse" id="collapseWorkList">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Customer</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Code</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Name</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-lg d-flex justify-content-end align-items-center mb-2"><button class="btn btn-success btn-sm" type="button" data-target="#modalWorkList" data-toggle="modal">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive text-nowrap table mt-2 qc" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Item</th>
+                                                                <th>Type</th>
+                                                                <th>Start Time</th>
+                                                                <th>Finish Time</th>
+                                                                <th>Detail</th>
+                                                                <th>Responsible</th>
+                                                                <th>Remark</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>ออกแบบ</td>
+                                                                <td>2023-09-10 10:00</td>
+                                                                <td>2023-09-10 10:00</td>
+                                                                <td>เขียนแบบ Jig Robot</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary d-flex justify-content-center align-items-center p-2 mr-1" type="button" style="width: 30px;" data-target="#modalWorkList" data-toggle="modal"><i class="fas fa-edit" style="font-size: 14px;"></i></button><button class="btn btn-danger d-flex justify-content-center align-items-center p-2" type="button" style="width: 30px;"><i class="fas fa-times" style="font-size: 14px;"></i></button></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>ออกแบบ</td>
+                                                                <td>2023-09-10 10:00</td>
+                                                                <td>2023-09-10 10:00</td>
+                                                                <td>เขียนแบบ Jig Robot</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary d-flex justify-content-center align-items-center p-2 mr-1" type="button" style="width: 30px;" data-target="#modalWorkList" data-toggle="modal"><i class="fas fa-edit" style="font-size: 14px;"></i></button><button class="btn btn-danger d-flex justify-content-center align-items-center p-2" type="button" style="width: 30px;"><i class="fas fa-times" style="font-size: 14px;"></i></button></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3</td>
+                                                                <td>ออกแบบ</td>
+                                                                <td>2023-09-10 10:00</td>
+                                                                <td>2023-09-10 10:00</td>
+                                                                <td>เขียนแบบ Jig Robot</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <div class="btn-group btn-group-sm" role="group"><button class="btn btn-primary d-flex justify-content-center align-items-center p-2 mr-1" type="button" style="width: 30px;" data-target="#modalWorkList" data-toggle="modal"><i class="fas fa-edit" style="font-size: 14px;"></i></button><button class="btn btn-danger d-flex justify-content-center align-items-center p-2" type="button" style="width: 30px;"><i class="fas fa-times" style="font-size: 14px;"></i></button></div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="false" aria-controls="collapseModifyJig" href="#collapseModifyJig" role="button">Modify Jig</a>
+                            <div class="collapse" id="collapseModifyJig">
+                                <div class="card shadow">
+                                    <div class="card-body" style="font-size: 14px;">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Customer</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Code</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Name</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-lg d-flex justify-content-end align-items-center mb-2"><button class="btn btn-success btn-sm" type="button">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive text-nowrap table mt-2 qc" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Modify</th>
+                                                                <th>Date</th>
+                                                                <th>Customer Budget</th>
+                                                                <th>Responsible</th>
+                                                                <th>สภาพปัญหา</th>
+                                                                <th>วิธีการแก้ไข</th>
+                                                                <th>Detail</th>
+                                                                <th>ประโยชน์ที่ได้รับ</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>2023-09-10</td>
+                                                                <td>-</td>
+                                                                <td>Mr.A<br>Mr.B</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card shadow" style="border-radius: 5px;">
+                                                    <div class="card-body bg-white py-3 p-2" style="border-radius: 5px;font-size: 13px;">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-12 d-flex justify-content-end align-items-center px-2 mb-2"><button class="btn btn-info btn-sm" type="button">Save</button></div>
+                                                            <div class="col-lg-6 col-xl-3 px-2 mb-2">
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-1 w-50">Modify</span><input type="text" class="form-control form-control-sm w-50 ml-2"></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-1 w-50">Date</span><input class="form-control form-control-sm w-50 ml-2" type="datetime-local"></div>
+                                                                <div class="d-flex justify-content-start align-items-start mb-2"><span class="text-right pr-1 w-50">Customer Budget</span>
+                                                                    <div class="d-flex flex-column justify-content-center align-items-start w-50 ml-2">
+                                                                        <div class="form-check form-check-inline mr-1 mb-1"><input class="form-check-input" type="radio" id="formCheck-6"><label class="form-check-label d-flex justify-content-start align-items-center" for="formCheck-6">-</label></div>
+                                                                        <div class="form-check form-check-inline mr-1 mb-1"><input class="form-check-input" type="radio" id="formCheck-11"><label class="form-check-label" for="formCheck-11">ลูกค้า Support</label></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-end align-items-center mb-2"><button class="btn btn-success btn-sm" type="button" data-target="#modalResponsible" data-toggle="modal">Add</button></div>
+                                                                <div class="table-responsive text-nowrap table my-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                    <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                            <tr>
+                                                                                <th>Responsible</th>
+                                                                                <th>Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody class="text-center">
+                                                                            <tr>
+                                                                                <td>Mr. A</td>
+                                                                                <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;" data-target="#modalPreventiveM" data-toggle="modal"><i class="fa fa-times"></i></button></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Mr. B</td>
+                                                                                <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;" data-target="#modalPreventiveM" data-toggle="modal"><i class="fa fa-times"></i></button></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-xl-5 px-2 mb-2">
+                                                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                                                    <div class="d-flex justify-content-start align-items-start mb-2 w-50"><span class="text-right pr-1 w-50">Before</span><img class="ml-2 w-50" src="assets/img/201-image.svg"></div>
+                                                                    <div class="d-flex justify-content-start align-items-start ml-2 mb-2 w-50"><span class="text-right pr-1 w-50">After</span><img class="ml-2 w-50" src="assets/img/201-image.svg"></div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                                                    <div class="d-flex justify-content-start align-items-start mb-2 w-50"><span class="text-right pr-1 w-50">สภาพปัญหา</span><textarea class="form-control form-control-sm ml-2 w-50"></textarea></div>
+                                                                    <div class="d-flex justify-content-start align-items-start ml-2 mb-2 w-50"><span class="text-right pr-1 w-50">วิธีการแก้ไข</span><textarea class="form-control form-control-sm ml-2 w-50"></textarea></div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-1 w-25">Detail</span><textarea class="form-control form-control-sm ml-2 w-75"></textarea></div>
+                                                            </div>
+                                                            <div class="col-xl-4 px-2 mb-2">
+                                                                <div class="d-flex justify-content-end align-items-center mb-2"><span class="text-right pr-1" style="width: 35%;"><br><span style="color: rgb(113, 116, 115);">ประโยชน์ที่ได้รับ</span><br><br></span><textarea class="form-control form-control-sm ml-2" style="width: 63%;"></textarea></div>
+                                                                <div class="d-flex justify-content-end align-items-center mb-2"><span class="text-right pr-1" style="width: 35%;"><br>รายละเอียดของค่าใช้จ่าย<br>(ค่าวัสดุ/ค่าใช้จ่ายอื่น)</span><textarea class="form-control form-control-sm ml-2" style="width: 63%;"></textarea></div>
+                                                            </div>
+                                                            <div class="col-12 px-2">
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="form-control-sm text-nowrap">รายละเอียดของค่าใช้จ่าย (ค่าวัสดุ/ค่าใช้จ่ายอื่น)</span></div>
+                                                                <div class="table-responsive text-nowrap table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                    <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                            <tr>
+                                                                                <th>Item</th>
+                                                                                <th>Received</th>
+                                                                                <th>List</th>
+                                                                                <th>Ax Code</th>
+                                                                                <th>Qty</th>
+                                                                                <th>Unit Price</th>
+                                                                                <th>Amount (Baht)</th>
+                                                                                <th>Order</th>
+                                                                                <th>Remark</th>
+                                                                                <th>Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody class="text-center">
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td><input type="checkbox"></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;" data-target="#modalPreventiveM" data-toggle="modal"><i class="fa fa-times"></i></button></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2</td>
+                                                                                <td><input type="checkbox"></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td><button class="btn btn-danger btn-sm" type="button" style="font-size: 14px;" data-target="#modalPreventiveM" data-toggle="modal"><i class="fa fa-times"></i></button></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="d-flex justify-content-end align-items-center"><span class="form-control-sm text-nowrap">Total Costs</span><input type="text" class="form-control form-control-sm" style="width: 150px;" disabled=""></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="false" aria-controls="collapseTrial" href="#collapseTrial" role="button">Trial</a>
+                            <div class="collapse" id="collapseTrial">
+                                <div class="card shadow">
+                                    <div class="card-body" style="font-size: 14px;">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Customer</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Code</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Name</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-lg d-flex justify-content-end align-items-center mb-2"><button class="btn btn-success btn-sm" type="button">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive text-nowrap table mt-2 qc" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Attempt</th>
+                                                                <th>Test Date</th>
+                                                                <th>FG Qty</th>
+                                                                <th>Plan Start</th>
+                                                                <th>Plan Finish</th>
+                                                                <th>Plan Time (hr.)</th>
+                                                                <th>Actual Start</th>
+                                                                <th>Actual Finish</th>
+                                                                <th>Actual Time(hr.)</th>
+                                                                <th>Problem</th>
+                                                                <th>Reason</th>
+                                                                <th>Fix Detail</th>
+                                                                <th>Remark</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>2023-09-10</td>
+                                                                <td>30</td>
+                                                                <td>13:00</td>
+                                                                <td>15:00</td>
+                                                                <td>2</td>
+                                                                <td>13:00</td>
+                                                                <td>15:00</td>
+                                                                <td>2</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card shadow" style="border-radius: 5px;">
+                                                    <div class="card-body bg-white py-3 p-2" style="border-radius: 5px;font-size: 13px;">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-12 d-flex justify-content-end align-items-center px-2 mb-2"><button class="btn btn-info btn-sm" type="button">Save</button></div>
+                                                            <div class="col-12 col-xl-6 px-2 mb-2">
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-2 w-25">Plan Time</span><input type="text" class="form-control form-control-sm w-25"></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-2 w-25">Plan Start</span><input class="form-control form-control-sm w-25" type="datetime-local"><span class="text-right pr-2 w-25">Plan Finish</span><input class="form-control form-control-sm w-25" type="datetime-local"></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-2 w-25">Actual Time</span><input type="text" class="form-control form-control-sm w-25"></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-2 w-25">Actual Start</span><input class="form-control form-control-sm w-25" type="datetime-local"><span class="text-right pr-2 w-25">Actual Finish</span><input class="form-control form-control-sm w-25" type="datetime-local"></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-2 w-25">Quantity</span><input type="text" class="form-control form-control-sm w-25"></div>
+                                                            </div>
+                                                            <div class="col-12 col-xl-6 px-2 mb-2">
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-2 w-25">Problem</span><input type="text" class="form-control form-control-sm w-75"></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-2 w-25">Reason</span><input type="text" class="form-control form-control-sm w-75"></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-2 w-25">Fix Detail</span><input type="text" class="form-control form-control-sm w-75"></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-2 w-25">Remark</span><input type="text" class="form-control form-control-sm w-75"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="false" aria-controls="collapseEvaluation" href="#collapseEvaluation" role="button">Evaluation</a>
+                            <div class="collapse" id="collapseEvaluation">
+                                <div class="card shadow">
+                                    <div class="card-body" style="font-size: 14px;">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Customer</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Code</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-sm-6 col-lg-3 col-xl-2 d-flex justify-content-start align-items-center p-0 mb-2"><span class="form-control-sm text-nowrap" style="width: 120px;">Part Name</span><input type="text" class="form-control form-control-sm ml-2 ml-sm-3 ml-md-2" disabled=""></div>
+                                            <div class="col-12 col-lg d-flex justify-content-end align-items-center mb-2"><button class="btn btn-success btn-sm" type="button">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive text-nowrap table mt-2 qc" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Attempt</th>
+                                                                <th>Evaluation Date</th>
+                                                                <th>Type</th>
+                                                                <th>TS Evaluation Result</th>
+                                                                <th>Customer Evaluation Result</th>
+                                                                <th>Jig Evaluation</th>
+                                                                <th>EN Evaluation</th>
+                                                                <th>QA Evaluation</th>
+                                                                <th>PD Evaluation</th>
+                                                                <th>PE Evaluation</th>
+                                                                <th>Customer Evaluation</th>
+                                                                <th>Problem</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>2023-09-10</td>
+                                                                <td>1</td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center align-items-center"><span class="alert-icon-danger alert-icon"><i class="fas fa-times" style="font-size: 14px;"></i></span></div>
+                                                                </td>
+                                                                <td>-</td>
+                                                                <td>Evaluator<br>Approver</td>
+                                                                <td>Evaluator<br>Approver</td>
+                                                                <td>Evaluator<br>Approver</td>
+                                                                <td>Evaluator<br>Approver</td>
+                                                                <td>Evaluator<br>Approver</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card shadow" style="border-radius: 5px;">
+                                                    <div class="card-body bg-white py-3 p-2" style="border-radius: 5px;font-size: 13px;">
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-12 d-flex justify-content-end align-items-center px-2 mb-2"><button class="btn btn-info btn-sm" type="button">Save</button></div>
+                                                            <div class="col-12">
+                                                                <div class="row px-2">
+                                                                    <div class="col-12 col-xl-9 p-0 m-0">
+                                                                        <div class="row m-0 p-0">
+                                                                            <div class="col-1 px-2 mb-2">
+                                                                                <div></div>
+                                                                            </div>
+                                                                            <div class="col-4 d-flex px-0 mb-2">
+                                                                                <div class="d-flex justify-content-start align-items-center w-100">
+                                                                                    <div class="form-check form-check-inline mr-1"><input class="form-check-input" type="radio" id="formCheck-17" name="request-type"><label class="form-check-label" for="formCheck-17">-</label></div>
+                                                                                    <div class="form-check form-check-inline ml-3"><input class="form-check-input" type="radio" id="formCheck-18" name="request-type"><label class="form-check-label" for="formCheck-18">ลูกค้า Support</label></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-7 d-flex justify-content-start align-items-center px-0 mb-2">
+                                                                                <div class="d-flex justify-content-start align-items-center w-100"><span class="text-right">TS Evaluation Result</span>
+                                                                                    <div class="form-check form-check-inline ml-2"><input class="form-check-input" type="radio" id="formCheck-19" name="request-type"><label class="form-check-label" for="formCheck-19">ผ่าน</label></div>
+                                                                                    <div class="form-check form-check-inline ml-3"><input class="form-check-input" type="radio" id="formCheck-20" name="request-type"><label class="form-check-label" for="formCheck-20">ไม่ผ่าน</label></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row m-0 p-0">
+                                                                            <div class="col-1 px-2 mb-2">
+                                                                                <div></div>
+                                                                            </div>
+                                                                            <div class="col-4 d-flex px-0 mb-2">
+                                                                                <div class="d-flex justify-content-center align-items-center w-50"><span class="text-right">JIG</span></div>
+                                                                                <div class="d-flex justify-content-center align-items-center w-50"><span class="text-right">EN</span></div>
+                                                                            </div>
+                                                                            <div class="col-7 d-flex justify-content-start align-items-center px-0 mb-2">
+                                                                                <div class="d-flex justify-content-center align-items-center" style="width: 33%;"><span class="text-right">QA</span></div>
+                                                                                <div class="d-flex justify-content-center align-items-center" style="width: 33%;"><span class="text-right">PD</span></div>
+                                                                                <div class="d-flex justify-content-center align-items-center" style="width: 33%;"><span class="text-right">PE</span></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row m-0 p-0">
+                                                                            <div class="col-1 px-2 mb-2"><span class="text-right">Evaluator</span></div>
+                                                                            <div class="col-4 d-flex px-0 mb-2">
+                                                                                <div class="d-flex flex-column w-50">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                                <div class="d-flex flex-column w-50">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-7 d-flex justify-content-start align-items-center px-0 mb-2">
+                                                                                <div class="d-flex flex-column" style="width: 33%;">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                                <div class="d-flex flex-column" style="width: 33%;">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                                <div class="d-flex flex-column" style="width: 33%;">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="username"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row m-0 p-0">
+                                                                            <div class="col-1 px-2 mb-2"><span class="text-right">Approver</span></div>
+                                                                            <div class="col-4 d-flex px-0 mb-2">
+                                                                                <div class="d-flex flex-column w-50">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                                <div class="d-flex flex-column w-50">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-7 d-flex justify-content-start align-items-center px-0 mb-2">
+                                                                                <div class="d-flex flex-column" style="width: 33%;">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                                <div class="d-flex flex-column" style="width: 33%;">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                                <div class="d-flex flex-column" style="width: 33%;">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-11 col-xl-3 ml-auto p-0 m-0">
+                                                                        <div class="row m-0 p-0">
+                                                                            <div class="col-12 d-flex px-0 mb-2">
+                                                                                <div class="d-flex justify-content-start align-items-center w-100"><span class="text-right">Customer Evaluation Result</span>
+                                                                                    <div class="form-check form-check-inline ml-2"><input class="form-check-input" type="radio" id="formCheck-27" name="request-type"><label class="form-check-label" for="formCheck-27">ผ่าน</label></div>
+                                                                                    <div class="form-check form-check-inline ml-3"><input class="form-check-input" type="radio" id="formCheck-28" name="request-type"><label class="form-check-label" for="formCheck-28">ไม่ผ่าน</label></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row m-0 p-0">
+                                                                            <div class="col-12 d-flex px-0 mb-2">
+                                                                                <div class="d-flex justify-content-center align-items-center w-50"><span class="text-right">Customer</span></div>
+                                                                                <div class="d-flex justify-content-center align-items-center w-50"><span class="text-right">Customer</span></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row m-0 p-0">
+                                                                            <div class="col-12 d-flex px-0 mb-2">
+                                                                                <div class="d-flex flex-column w-50">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                                <div class="d-flex flex-column w-50">
+                                                                                    <div class="d-flex justify-content-center align-items-center w-100 pl-2 mb-2"><input type="text" class="form-control form-control-sm w-75" disabled="">
+                                                                                        <div class="dropdown w-25"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" type="button" style="font-size: 12px;">Sign</button>
+                                                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                                                <div class="w-100"><input type="text" class="p-1 mb-2" style="font-size: 12px;" placeholder="EmployeeId"></div>
+                                                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" type="button" style="font-size: 11px;">Cancel</button><button class="btn btn-primary btn-sm" type="button" style="font-size: 11px;">Sign In</button></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-start align-items-center w-100 pl-2 mb-2"><input class="form-control form-control-sm" type="datetime-local" disabled=""></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-0 p-0">
+                                                            <div class="col-12 px-2 mb-2">
+                                                                <div class="table-responsive text-nowrap my-2" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                                    <table class="table table-striped table-hover table-bordered my-0 display" id="tablePart">
+                                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                                            <tr>
+                                                                                <th>Control Topic</th>
+                                                                                <th>Detail</th>
+                                                                                <th>Criteria</th>
+                                                                                <th>ประเมิน</th>
+                                                                                <th>ดี</th>
+                                                                                <th>ปรับปรุง</th>
+                                                                                <th>แก้ไข</th>
+                                                                                <th>ไม่มี</th>
+                                                                                <th>การพิจารณา</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody class="text-left">
+                                                                            <tr>
+                                                                                <td rowspan="12">สมรรถนะของอุปกรณ์ / เครื่องมือในการทำงานและตรวจสอบสิ่งผิดปกติขณะปฏิบัติงาน</td>
+                                                                                <td rowspan="3">1. การสวมใส่ผลิตภัณท์เข้ากับ JIG ประกอบ</td>
+                                                                                <td>ต้องไม่ฝืดหรือใช้แรงกดมากในการสวมใส่</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ต้องไม่แน่นหรือใช้แรงดึงมาก ในขณะนำผลิตภัณท์ออก</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ต้องไม่เกิดตำหนิ ฉีก, ขาด, เป็นรอย กับผลิตภัณท์ที่ประกอบเสร็จ</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td rowspan="3">2. การเคลื่อนที่ของชุด Slide หรือคันโยก</td>
+                                                                                <td>ต้องมีความคล่องตัวในขณะเคลื่อนที่ขึ้น - ลง</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ต้องมีความคล่องตัวในขณะเคลื่อนที่เข้า - ออก</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ต้องมีความคล่องตัวในขณะเคลื่อนที่เปิด - ปิด</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td rowspan="3">3. ตำแหน่งหรือระยะในการประกอบผลิตภัณท์ที่มองเห็นได้ด้วยตาเปล่าจาก<br>อุปกรณ์และเครื่องมือ</td>
+                                                                                <td>ต้องมี STOPPER บ่งบอกตำแหน่งที่ประกอบสุด</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ต้องมีแถบสีเขียวบริเวณปลายผลิตภัณท์ที่ประกอบสุด ขณะที่ผลิตภัณท์ประกอบ<br>ไม่ครบหรือประกอบเกินปลายของผลิ</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ต้องมีความคล่องตัวในขณะเคลื่อนที่เปิด - ปิด</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td rowspan="2">4. ขั้นตอนการประกอบ</td>
+                                                                                <td>ต้องประกอบผลิตภัณท์ได้ถูกต้อง และอยู่ในค่า SPEC, ตาม Drawing ที่กำหนด</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ต้องมีขั้นตอนการประกอบไม่ซ้ำซ้อนกัน</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>5. การป้องกันหรือตรวจสอบการประกอบด้วย CHECKER</td>
+                                                                                <td>ต้องตรวจจับผลิตภัณท์ประกอบไม่ครบได้</td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="checkbox"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex justify-content-center"><input type="radio"></div>
+                                                                                </td>
+                                                                                <td></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-xl-6 px-2 mb-2">
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-3 w-25">Problem</span><input type="text" class="form-control form-control-sm w-75" disabled=""></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                                                    <div class="d-flex justify-content-start align-items-start mb-2 w-50"><span class="text-right pr-1 w-50"></span><img class="ml-2 w-50" src="assets/img/201-image.svg"></div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                                                    <div class="d-flex justify-content-start align-items-start mb-2 w-50"><span class="text-right pr-1 w-50">Before</span><img class="ml-2 w-50" src="assets/img/201-image.svg"></div>
+                                                                    <div class="d-flex justify-content-start align-items-start ml-2 mb-2 w-50"><span class="text-right pr-1 w-50">After</span><img class="ml-2 w-50" src="assets/img/201-image.svg"></div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-3 w-25">Detail Modify</span><input type="text" class="form-control form-control-sm w-75" disabled=""></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                                                    <div class="d-flex justify-content-start align-items-start mb-2 w-50"><span class="text-right pr-1 w-50"></span><img class="ml-2 w-50" src="assets/img/201-image.svg"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 col-xl-6 px-2 mb-2">
+                                                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="text-right pr-3 w-25">Solution</span><input type="text" class="form-control form-control-sm w-75" disabled=""></div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                                                    <div class="d-flex justify-content-start align-items-start mb-2 w-50"><span class="text-right pr-1 w-50"></span><img class="ml-2 w-50" src="assets/img/201-image.svg"></div>
+                                                                </div>
+                                                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                                                    <div class="d-flex justify-content-start align-items-start mb-2 w-50"><span class="text-right pr-1 w-50">Jig</span><img class="ml-2 w-50" src="assets/img/201-image.svg"></div>
+                                                                    <div class="d-flex justify-content-start align-items-start ml-2 mb-2 w-50"><span class="text-right pr-1 w-50">Part List</span><img class="ml-2 w-50" src="assets/img/201-image.svg"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="my-2" style="background: rgba(32,201,166,0.7);padding: 5px;border-radius: 9px;"><a class="btn btn-info" data-toggle="collapse" aria-expanded="false" aria-controls="collapseComment" href="#collapseComment" role="button">Comment</a>
+                            <div class="collapse" id="collapseComment">
+                                <div class="card shadow">
+                                    <div class="card-body" style="font-size: 14px;">
+                                        <div class="row">
+                                            <div class="col-12 d-flex justify-content-end align-items-center mb-2"><button class="btn btn-success btn-sm" type="button" data-target="#modalComment" data-toggle="modal">Add</button></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="table-responsive text-nowrap table mt-2 qc" role="grid" aria-describedby="dataTable_info" style="font-size: 13px;">
+                                                    <table class="table table-striped table-hover table-bordered my-0 display qc" id="tablePart">
+                                                        <thead class="text-center" style="background: rgb(226,252,255);">
+                                                            <tr>
+                                                                <th>Index</th>
+                                                                <th>Comment</th>
+                                                                <th>Fixed</th>
+                                                                <th>Fixed By</th>
+                                                                <th>Fixed Date</th>
+                                                                <th>Remark</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>รายการคอมเม้น</td>
+                                                                <td>
+                                                                    <div class="d-flex justify-content-center align-items-center"><span class="text-light bg-primary alert-icon"><i class="fas fa-check" style="font-size: 14px;"></i></span></div>
+                                                                </td>
+                                                                <td>Mr. A</td>
+                                                                <td>2023-11-10 10:30</td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>รายการคอมเม้น 2</td>
+                                                                <td><button class="btn btn-dark btn-sm" type="button" style="font-size: 14px;" data-target="#modalFix" data-toggle="modal">Fix</button></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer mt-2">
+            <div class="container my-auto">
+            </div>
+        </footer>
+        <div class="sidehide sidepanel rounded shadow-lg" id="jigsidepanel"><button class="btn btn-link float-right p-0 closebtn" type="button" onclick="closeNav()"><i class="fa fa-close"></i></button>
+            <h6 class="m-3">Jig Menu</h6>
+            <div class="container"><a class="mb-1" href="JigDashboard.html"><i class="fa fa-bar-chart mr-2"></i>Jig Dashboard</a><a class="mb-1" href="Jig.html"><i class="fa fa-list-alt mr-2"></i>Jig Overview</a><a class="mb-1" href="JigCreation.html"><i class="fas fa-screwdriver mr-2"></i>Jig Creation</a><a class="mb-1" href="JigRepairRequestment.html"><i class="fa fa-exclamation-circle mr-2"></i>Repair Overview</a><a class="mb-1" href="JigSparePartStorage.html"><i class="fa fa-cubes mr-2"></i>Spare Part</a><a class="mb-1" href="JigInjPrepare.html"><i class="fa fa-cog mr-2"></i>Jig Prepare</a><span class="text-black-50">Setting</span><a class="mb-1" href="JigSetting.html"><i class="fa fa-wrench mr-2"></i>Jig Setting</a></div>
+        </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="assets/js/Chart_Dashboard.js"></script>
+    <script src="assets/js/Chart_Machine.js"></script>
+    <script src="assets/js/Datepicker.js"></script>
+    <script src="assets/js/DateTime.js"></script>
+    <script src="assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="assets/js/Imgpreview.js"></script>
+    <script src="assets/js/InjectionProduction_btn.js"></script>
+    <script src="assets/js/SidePanel.js"></script>
+    <script src="assets/js/sortTable.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/uploadBtn.js"></script>
+    <script src="assets/js/Button.js"></script>
+    <script src="assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="assets/js/new_js_jig.js"></script>
+    <script src="assets/js/tooltip.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="../assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="../assets/js/Chart_Dashboard.js"></script>
+    <script src="../assets/js/Chart_Machine.js"></script>
+    <script src="../assets/js/Datepicker.js"></script>
+    <script src="../assets/js/DateTime.js"></script>
+    <script src="../assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="../assets/js/Imgpreview.js"></script>
+    <script src="../assets/js/InjectionProduction_btn.js"></script>
+    <script src="../assets/js/SidePanel.js"></script>
+    <script src="../assets/js/sortTable.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/new_js_jig.js"></script>
+    <script src="../assets/js/uploadBtn.js"></script>
+    <script src="../assets/js/AddImageRepairIssue.js"></script>
+    <script src="../assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="../assets/js/MoldFunction.js"></script>
+    <script src="../assets/js/tooltip.js"></script>
+</body>
+
+</html>

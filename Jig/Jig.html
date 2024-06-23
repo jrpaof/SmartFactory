@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SmartFactory</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/new_css_jig.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/collapse.css">
+    <link rel="stylesheet" href="../assets/css/DcPlanStyle.css">
+    <link rel="stylesheet" href="../assets/css/Features-Boxed.css">
+    <link rel="stylesheet" href="../assets/css/fontSize.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="../assets/css/injPlanStyle.css">
+    <link rel="stylesheet" href="../assets/css/NavCustomStyle.css">
+    <link rel="stylesheet" href="../assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="../assets/css/new_css_mold.css">
+    <link rel="stylesheet" href="../assets/css/qc.css">
+    <link rel="stylesheet" href="../assets/css/ScrollBar.css">
+    <link rel="stylesheet" href="../assets/css/SidePanel.css">
+    <link rel="stylesheet" href="../assets/css/Stats-icons.css">
+    <link rel="stylesheet" href="../assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+</head>
+
+<body id="page-top" style="font-family:Exo, sans-serif;">
+    <nav class="navbar navbar-light navbar-expand-xl shadow mb-3 nav-bar-top">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse d-xl-flex justify-content-lg-end justify-content-xl-end p-1" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-xl-flex align-items-xl-center"><a class="nav-link nav-link" href="../index.html"><i class="fas fa-home" style="font-size:1.5em;color:lightcyan;"></i></a></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center dropdown m-0"><a class="nav-link text-light dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">BOM</span></a>
+                        <div class="text-light shadow dropdown-menu dropdown-menu-right animated--grow-in" style="background:rgb(123, 214, 187);"><a class="dropdown-item" href="BOMMain.html">&nbsp;BOM</a><a class="dropdown-item" href="BOMMaster.html">&nbsp;BOM Master Setting</a><a class="dropdown-item" href="AXMaster.html">AX Master Setting</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center dropdown m-0"><a class="nav-link text-light dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">PLAN</span></a>
+                        <div class="shadow dropdown-menu dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="InjectionPlanning.html">Injection Planning</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center dropdown m-0"><a class="nav-link text-light dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="../InjectionZoneSelect.html"><span class="d-inline mr-2">INJECTION</span></a>
+                        <div class="shadow dropdown-menu dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="../InjectionZoneSelect.html">Injection Zone</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                    <li class="nav-item d-xl-flex align-items-xl-center dropdown no-arrow m-0"><a class="nav-link text-light dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="d-inline mr-2">Name Surname</span><img class="rounded-circle border imgprofile" src="assets/img/201-user.svg"></a>
+                        <div class="shadow dropdown-menu dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="../index.html"><i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Home</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="Login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-xl-flex align-items-xl-center mx-3 border-right"></li>
+                </ul><input type="text" disabled="" id="currentDateTime" readonly="" style="text-align:center;margin-top:0px;width:auto;">
+            </div>
+        </div>
+    </nav>
+    <div id="contentWrapper">
+        <div id="content">
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalDeleteConfirm">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Confirm Delete</h4><button class="close" aria-label="Close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p>Are you sure to delete?</p>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalPredictive">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <div class="d-lg-flex justify-content-start align-items-center">
+                                    <h4 class="text-nowrap modal-title mr-2">PM</h4>
+                                </div><button class="close" aria-label="Close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body d-flex justify-content-center align-items-center py-5 fs-px-15">
+                                <div><button class="btn btn-primary btn-lg mr-4" data-target="#modalPredictiveCheckSheet" data-toggle="modal" style="width:155px;" type="button">Start PM</button><button class="btn btn-primary btn-lg" data-target="#modalPredictiveCheckSheet" data-toggle="modal" style="width:155px;" type="button">View History</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalPredictiveCheckSheet">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <div class="d-lg-flex justify-content-start align-items-center">
+                                    <h4 class="text-nowrap modal-title mr-2">Jig Preventive Maintenance</h4>
+                                </div><button class="close" aria-label="Close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body modal-scroll" style="font-size:15px;">
+                                <div class="card mb-3">
+                                    <div class="card-body bg-transparent" style="font-size:15px;">
+                                        <h5 class="font-weight-bold card-title">Jig Detail</h5>
+                                        <div class="form-row m-0 p-0 mb-1">
+                                            <div class="col-3"><input type="text" class="w-100 border-0 px-0" value="-"></div>
+                                            <div class="col-3"><input type="text" class="w-100 border-0 px-0" value="-"></div>
+                                            <div class="col-3"><input type="text" class="w-100 border-0 px-0" value="-"></div>
+                                            <div class="col-3"><input type="text" class="w-100 border-0 px-0" value="-"></div>
+                                        </div>
+                                        <div class="font-weight-bold form-row m-0 p-0 mb-2">
+                                            <div class="col-3 mb-2"><span>M/C No.</span></div>
+                                            <div class="col-3 mb-2"><span>Jig No</span></div>
+                                            <div class="col-3 mb-2"><span>Part Code</span></div>
+                                            <div class="col-3 mb-2"><span>Jig Type</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="d-flex justify-content-start align-items-center mr-3">
+                                        <h5 class="text-center m-0 mr-2">Predictive Detail</h5><button class="btn btn-primary btn-sm btn-repair-report" data-target="#modalRequestmentEdit" data-toggle="modal" type="button">Repair Report</button>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center"><span class="mr-2">History</span><select class="form-control form-control-sm form-control form-control" style="width:160px;">
+                                            <option value="12" selected="">2023-05-05 16:30</option>
+                                        </select></div>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-2"><span class="mr-3">Jig Status</span>
+                                    <div class="form-check mr-3"><input type="radio" class="form-check-input" id="formCheck-1"><label class="form-check-label" for="formCheck-1">เครื่องจักรผลิตงาน</label></div>
+                                    <div class="form-check mr-3"><input type="radio" class="form-check-input" id="formCheck-3"><label class="form-check-label" for="formCheck-3">เครื่องจักรไม่ผลิตงาน</label></div>
+                                    <div class="form-check"><input type="radio" class="form-check-input" id="formCheck-2"><label class="form-check-label" for="formCheck-2">เครื่องจักรไม่ทำงานอยู่ในพื้นที่จัดเก็บ</label></div>
+                                </div>
+                                <div class="table-responsive text-nowrap table mt-2" aria-describedby="dataTable_info" role="grid" style="font-size:13px;">
+                                    <table class="table table-hover table-bordered my-0 display" id="tablePart">
+                                        <thead class="text-center" style="background:rgb(226,252,255);">
+                                            <tr>
+                                                <th>O</th>
+                                                <th>X</th>
+                                                <th>Topic</th>
+                                                <th>Std</th>
+                                                <th>Act</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-left">
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>1. แรงดันลม (Mpa.)</td>
+                                                <td><input class="form-control form-control-sm form-control" type="text"></td>
+                                                <td><input class="form-control form-control-sm form-control" type="text"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>2. ความสะอาดของตัวเครื่อง</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>3. สภาพของสายไฟ, สายลมต้องไม่ขาด, รั่ว</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>4. สภาพของ Jig ต้องไม่หลุด, หลวม, โยก</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>5. ตรวจสอบจุด MARK สีของชิ้นส่วนต่างๆ</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>6. สภาพขอบปาก Jig ต้องไม่แตก, หักเสียหาย</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>7. การทำงานของ Solenoid Value อยู่ในสภาพปกติ</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="radio"></td>
+                                                <td><input type="radio"></td>
+                                                <td>8. Leed switch อยู่ในตำแหน่งที่กำหนด</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="input-group input-group-sm mb-2">
+                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:200px;"><span class="input-group-text input-group-text bg-transparent border-0">Remark</span></div><input class="form-control form-control mr-5" type="text">
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:200px;"><span class="input-group-text input-group-text bg-transparent border-0">Inspect By</span></div><input class="form-control form-control" type="text">
+                                        <div class="input-group-append">
+                                            <div class="dropdown btn-group btn-group m-0 mr-3" role="group"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" style="border-radius:3.2px;" type="button">Sign</button>
+                                                <div class="dropdown-menu dropdown-menu-right p-1">
+                                                    <div class="w-100"><input type="text" class="p-1 mb-2" placeholder="Employee ID" style="font-size:12px;"></div>
+                                                    <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" style="font-size:11px;" type="button">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:11px;" type="button">Sign</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group input-group-sm" style="width:35%;">
+                                        <div class="input-group-prepend"><span class="input-group-text input-group-text bg-transparent border-0">Date</span></div><input class="form-control form-control mr-5" type="datetime-local" value="2023-05-12 16:30">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-2">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:200px;"><span class="input-group-text input-group-text bg-transparent border-0">Confirm By</span></div><input class="form-control form-control" type="text">
+                                        <div class="input-group-append">
+                                            <div class="dropdown btn-group btn-group m-0 mr-3" role="group"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" style="border-radius:3.2px;" type="button">Sign</button>
+                                                <div class="dropdown-menu dropdown-menu-right p-1">
+                                                    <div class="w-100"><input type="text" class="p-1 mb-2" placeholder="Employee ID" style="font-size:12px;"></div>
+                                                    <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" style="font-size:11px;" type="button">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:11px;" type="button">Sign</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group input-group-sm" style="width:35%;">
+                                        <div class="input-group-prepend"><span class="input-group-text input-group-text bg-transparent border-0">Date</span></div><input class="form-control form-control mr-5" type="datetime-local" value="2023-05-12 16:30">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-3">
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:200px;"><span class="input-group-text input-group-text bg-transparent border-0">Approve By</span></div><input class="form-control form-control" type="text">
+                                        <div class="input-group-append">
+                                            <div class="dropdown btn-group btn-group m-0 mr-3" role="group"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" style="border-radius:3.2px;" type="button">Sign</button>
+                                                <div class="dropdown-menu dropdown-menu-right p-1">
+                                                    <div class="w-100"><input type="text" class="p-1 mb-2" placeholder="Employee ID" style="font-size:12px;"></div>
+                                                    <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" style="font-size:11px;" type="button">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:11px;" type="button">Sign</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group input-group-sm" style="width:35%;">
+                                        <div class="input-group-prepend"><span class="input-group-text input-group-text bg-transparent border-0">Date</span></div><input class="form-control form-control mr-5" type="datetime-local" value="2023-05-12 16:30">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end align-items-center mb-2"><span class="mr-3">-</span></div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-danger" type="button">Close</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalAddService">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <div class="d-lg-flex justify-content-start align-items-center">
+                                    <h4 class="text-nowrap modal-title mr-2">Service / Parts Cost</h4>
+                                </div><button class="close" aria-label="Close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body" style="font-size:15px;">
+                                <div class="input-group input-group-sm mb-2">
+                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:200px;"><span class="input-group-text input-group-text bg-transparent border-0">Description</span></div><input class="form-control form-control mr-5 border-radius" type="text">
+                                </div>
+                                <div class="input-group input-group-sm mb-2">
+                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:200px;"><span class="input-group-text input-group-text bg-transparent border-0">Qty</span></div><input class="form-control form-control mr-5 border-radius" type="text">
+                                </div>
+                                <div class="input-group input-group-sm mb-2">
+                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:200px;"><span class="input-group-text input-group-text bg-transparent border-0">Unit Price</span></div><input class="form-control form-control mr-5 border-radius" type="text">
+                                </div>
+                                <div class="input-group input-group-sm mb-2">
+                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:200px;"><span class="input-group-text input-group-text bg-transparent border-0">Amount (Baht)</span></div><input class="form-control form-control mr-5 border-radius" type="text">
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-danger" type="button">Close</button><button class="btn btn-primary" type="button">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalRequestmentEdit">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <h4 class="modal-title mr-2">Requestment Repair Report</h4>
+                                    <div class="input-group input-group-sm" style="width:150px;">
+                                        <div class="input-group-prepend"><span class="input-group-text input-group-text">NO</span></div><input class="form-control form-control" type="text" value="230512001">
+                                    </div>
+                                </div><button class="close" aria-label="Close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body modal-scroll" style="font-size:14px;">
+                                <div class="form-row m-0 mb-2">
+                                    <div class="col-12 m-0">
+                                        <h5 class="font-weight-bold m-0">Requestment</h5>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Customer</span></div><select class="form-control form-control border-radius">
+                                                <option value="12" selected="">Injection</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Jig No</span></div><select class="form-control form-control border-radius">
+                                                <option value="12" selected="">I-1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:100px;"><span class="input-group-text input-group-text bg-transparent border-0">Jig Type</span></div><input class="form-control form-control border-radius" type="text" value="Terminal">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Part No</span></div><input class="form-control form-control border-radius" type="text" value="QNV3051-AN">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:100px;"><span class="input-group-text input-group-text bg-transparent border-0">Lot No</span></div><input class="form-control form-control border-radius" type="text" value="231024">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Problem Type</span></div><select class="form-control form-control border-radius">
+                                                <option value="12" selected="">Slide</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:100px;"><span class="input-group-text input-group-text bg-transparent border-0">Problem</span></div><select class="form-control form-control border-radius">
+                                                <option value="12" selected="">Slide ไหม้</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Feature of complaint</span></div><input class="form-control form-control-sm form-control border-radius" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 col-lg-5 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Requested By</span></div><input class="form-control form-control border-radius" type="text" value="นายสมพร สมศักดิ๋">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-4 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:100px;"><span class="input-group-text input-group-text bg-transparent border-0">Time</span></div><input class="form-control form-control border-radius" type="datetime-local">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-3 m-0 mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:60px;"><span class="input-group-text input-group-text bg-transparent border-0">Section</span></div><select class="form-control form-control border-radius">
+                                                <option value="Injection" selected="">Injection</option>
+                                                <option value="DC">DC</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0" style="font-size:14px;">
+                                    <div class="col-12 d-flex m-0 mb-2">
+                                        <div class="text-right" style="width:150px;padding:4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color:rgb(73,80,87);">Type</span></div>
+                                        <div class="d-flex justify-content-start align-items-center px-1">
+                                            <div class="form-check mr-2"><input type="radio" class="form-check-input" id="formCheck-7" name="repairType"><label class="form-check-label" for="formCheck-7">PM</label></div>
+                                            <div class="form-check"><input type="radio" class="form-check-input" id="formCheck-8" name="repairType"><label class="form-check-label" for="formCheck-8">Service</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0 mb-2" style="font-size:14px;">
+                                    <div class="col-12 d-flex justify-content-end m-0"><span class="input-group-text-sm bg-transparent border-0" style="color:rgb(73,80,87);">TS-FM-EM-030-03</span></div>
+                                </div>
+                                <div class="form-row m-0 mb-2 py-2 border-top border-bottom">
+                                    <div class="col-12 d-flex justify-content-between align-items-center m-0 mb-2">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <h5 class="font-weight-bold m-0 mr-3">Detail of Repair</h5><button class="btn btn-primary btn-sm mr-1" type="button">Start</button>
+                                            <div class="dropright m-0"><button class="btn btn-dark btn-sm" aria-expanded="false" data-toggle="dropdown" style="border-radius:3.2px;" type="button">Technician</button>
+                                                <div class="dropdown-menu dropdown-menu-right text-nowrap p-2">
+                                                    <div class="text-nowrap d-flex justify-content-between align-items-center w-100 mb-2"><input class="form-control form-control-sm form-control mr-1 form-control" type="text" placeholder="Employee ID" style="font-size:12px;"><button class="btn btn-primary btn-sm" style="font-size:11px;" type="button">Sign</button></div>
+                                                    <div class="bg-white">
+                                                        <div class="table-responsive text-nowrap table" aria-describedby="dataTable_info" role="grid" style="font-size:12px;">
+                                                            <table class="table table-hover table-bordered my-0" id="tablePart">
+                                                                <thead class="text-center" style="background:rgb(226,252,255);">
+                                                                    <tr>
+                                                                        <th>index</th>
+                                                                        <th>Technician</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="text-center">
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>User 1</td>
+                                                                        <td><button class="btn btn-danger btn-sm" style="font-size:11px;" type="button"><i class="fas fa-times"></i></button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td>User 2</td>
+                                                                        <td><button class="btn btn-danger btn-sm" style="font-size:11px;" type="button"><i class="fas fa-times"></i></button></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><button class="btn btn-info btn-sm" type="button"><i class="fas fa-save"></i></button>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-row m-0">
+                                            <div class="col-12 m-0 mb-2">
+                                                <div class="input-group input-group-sm w-100">
+                                                    <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Detail of Repair</span></div><input class="form-control form-control border-radius" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row m-0">
+                                            <div class="col-12 m-0 mb-2">
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend text-right d-flex justify-content-end align-items-center" style="width:140px;"><span class="input-group-text input-group-text bg-transparent border-0">Start Time</span></div><input class="form-control form-control border-radius" type="datetime-local">
+                                                </div>
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend text-right d-flex justify-content-end align-items-center" style="width:140px;"><span class="input-group-text input-group-text bg-transparent border-0">End Time</span></div><input class="form-control form-control border-radius" type="datetime-local">
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-start mb-2">
+                                                    <div class="text-right" style="width:140px;padding:4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color:rgb(73,80,87);">Result of Repair</span></div>
+                                                    <div class="d-flex flex-column justify-content-center align-items-start px-1 mr-1">
+                                                        <div class="form-check mr-2 mb-1"><input type="radio" class="form-check-input" id="formCheck-9" name="repairResult"><label class="form-check-label" for="formCheck-9">OK</label></div>
+                                                        <div class="d-flex justify-content-start align-items-center form-check"><input type="radio" class="form-check-input" id="formCheck-10" name="repairResult"><label class="d-flex justify-content-start align-items-center form-check-label" for="formCheck-10">รออะไหล่&nbsp;&nbsp;<input class="form-control form-control-sm form-control border-radius" style="font-size:14px;width:130px;" type="date">่</label></div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-start mb-2">
+                                                    <div class="text-right" style="width:140px;padding:4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color:rgb(73,80,87);">Repair By</span></div>
+                                                    <div class="d-flex justify-content-center align-items-start px-1 mr-1"><input class="form-control form-control-sm form-control border-radius" type="text">
+                                                        <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" style="border-radius:3.2px;" type="button">Sign</button>
+                                                            <div class="dropdown-menu dropdown-menu-right p-1">
+                                                                <div class="w-100"><input type="text" class="p-1 mb-2" placeholder="username" style="font-size:12px;"><input type="text" class="p-1 mb-2" placeholder="password" style="font-size:12px;"></div>
+                                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" style="font-size:11px;" type="button">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:11px;" type="button">Sign In</button></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0 mb-2">
+                                    <div class="col-12 d-flex justify-content-between align-items-center m-0">
+                                        <h5 class="font-weight-bold m-0">Service / Parts Cost</h5>
+                                        <div class="dropleft m-0"><button class="btn btn-success btn-sm" aria-expanded="false" data-toggle="dropdown" style="border-radius:3.2px;" type="button"><i class="fas fa-plus"></i></button>
+                                            <div class="dropdown-menu dropdown-menu-right p-2">
+                                                <div class="bg-white p-2 mb-2" style="width:30vw;">
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Description</span></div><select class="form-control form-control mr-3">
+                                                            <optgroup label="This is a group">
+                                                                <option value="12" selected="">This is item 1</option>
+                                                                <option value="13">This is item 2</option>
+                                                                <option value="14">This is item 3</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Qty</span></div><input class="form-control form-control mr-3 border-radius" type="text">
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Unit Price</span></div><input class="form-control form-control mr-3 border-radius" type="text" disabled="">
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-2">
+                                                        <div class="input-group-prepend d-flex justify-content-end align-items-center" style="width:150px;"><span class="input-group-text input-group-text bg-transparent border-0">Amount (Baht)</span></div><input class="form-control form-control mr-3 border-radius" type="text" disabled="">
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" style="font-size:11px;" type="button">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:11px;" type="button">Submit</button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 mb-2">
+                                        <div class="table-responsive text-nowrap table" aria-describedby="dataTable_info" role="grid" style="font-size:13px;">
+                                            <table class="table table-hover table-bordered my-0 display" id="tablePart">
+                                                <thead class="text-center" style="background:rgb(226,252,255);">
+                                                    <tr>
+                                                        <th>Item</th>
+                                                        <th>Description</th>
+                                                        <th>Qty</th>
+                                                        <th>Unit Price</th>
+                                                        <th>Amount (Baht)</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-center">
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><button class="btn btn-danger btn-sm" style="font-size:14px;width:30px;height:30px;" type="button"><i class="fas fa-times"></i></button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td><button class="btn btn-danger btn-sm" style="font-size:14px;width:30px;height:30px;" type="button"><i class="fas fa-times"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-8 col-sm-5 col-lg-3 ml-auto mb-2">
+                                        <div class="input-group input-group-sm w-100">
+                                            <div class="input-group-prepend d-flex justify-content-end align-items-center"><span class="input-group-text input-group-text bg-transparent border-0">Total Costs</span></div><input class="form-control form-control border-radius" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row m-0">
+                                    <div class="col-12 mb-2">
+                                        <h6 class="font-weight-bold m-0">Certified the Job</h6>
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <div class="d-flex justify-content-end align-items-center mb-2">
+                                            <div class="text-right" style="width:140px;padding:4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color:rgb(73,80,87);">Request Signature</span></div>
+                                            <div class="d-flex justify-content-center align-items-start"><input class="form-control form-control-sm form-control border-radius" type="text">
+                                                <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" style="border-radius:3.2px;" type="button">Sign</button>
+                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                        <div class="w-100"><input type="text" class="p-1 mb-2" placeholder="username" style="font-size:12px;"><input type="text" class="p-1 mb-2" placeholder="password" style="font-size:12px;"></div>
+                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" style="font-size:11px;" type="button">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:11px;" type="button">Sign In</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <div class="d-flex justify-content-end align-items-center mb-2">
+                                            <div class="text-right" style="width:140px;padding:4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color:rgb(73,80,87);">Repair Checker</span></div>
+                                            <div class="d-flex justify-content-center align-items-start"><input class="form-control form-control-sm form-control border-radius" type="text">
+                                                <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" style="border-radius:3.2px;" type="button">Sign</button>
+                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                        <div class="w-100"><input type="text" class="p-1 mb-2" placeholder="username" style="font-size:12px;"><input type="text" class="p-1 mb-2" placeholder="password" style="font-size:12px;"></div>
+                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" style="font-size:11px;" type="button">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:11px;" type="button">Sign In</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ml-auto mb-2">
+                                        <div class="d-flex justify-content-end align-items-center mb-2">
+                                            <div class="text-right" style="width:140px;padding:4px 8px;"><span class="input-group-text-sm bg-transparent border-0" style="color:rgb(73,80,87);">Repair Approver</span></div>
+                                            <div class="d-flex justify-content-center align-items-start"><input class="form-control form-control-sm form-control border-radius" type="text">
+                                                <div class="dropdown m-0"><button class="btn btn-dark btn-sm ml-1" aria-expanded="false" data-toggle="dropdown" style="border-radius:3.2px;" type="button">Sign</button>
+                                                    <div class="dropdown-menu dropdown-menu-right p-1">
+                                                        <div class="w-100"><input type="text" class="p-1 mb-2" placeholder="username" style="font-size:12px;"><input type="text" class="p-1 mb-2" placeholder="password" style="font-size:12px;"></div>
+                                                        <div class="d-flex justify-content-end text-end"><button class="btn btn-danger btn-sm mr-1" style="font-size:11px;" type="button">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:11px;" type="button">Sign In</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-danger" type="button">Close</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="d-flex justify-content-between align-items-center"><button class="btn btn-info btn-sm float-left m-0 openbtn" type="button" data-target="#jigsidepanel"><i class="fa fa-navicon mr-1"></i><span class="d-none d-lg-inline d-xl-inline">Jig Menu</span></button>
+                    <h4 class="text-center py-2">Jig</h4><button class="btn btn-dark" type="button">Report</button>
+                </div>
+                <section id="Master" class="mt-2">
+                    <div class="row">
+                        <div class="col-xl-9 mb-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-start align-items-center mb-2">
+                                        <h5 class="text-center m-0 mr-1">Jig</h5><select class="form-control-sm form-control mr-3" style="width:160px;">
+                                            <option value="" selected="">All Type</option>
+                                        </select><span class="mr-1">Section :</span><select class="form-control-sm form-control mr-3" style="width:160px;">
+                                            <option value="" selected="">All Section</option>
+                                        </select><span class="mr-1">Plan:</span><select class="form-control-sm form-control" style="width:160px;">
+                                            <option value="" selected="">All Plan</option>
+                                        </select>
+                                    </div>
+                                    <div class="table-responsive text-nowrap table mt-2" role="grid" aria-describedby="dataTable_info" style="font-size:13px;">
+                                        <table class="table table-hover table-bordered my-0 display" id="tablePart">
+                                            <thead class="text-center" style="background:rgb(226,252,255);">
+                                                <tr>
+                                                    <th>Jig No</th>
+                                                    <th>Type</th>
+                                                    <th>Section</th>
+                                                    <th>Customer</th>
+                                                    <th>Location</th>
+                                                    <th>Status</th>
+                                                    <th>PM Plan</th>
+                                                    <th>PM Result</th>
+                                                    <th>PM</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-center">
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>In Use</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-secondary btn-sm" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>Jig Store</td>
+                                                    <td>Repair</td>
+                                                    <td>2023-05-16</td>
+                                                    <td>2023-05-16</td>
+                                                    <td><button class="btn btn-success btn-sm" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>PM</td>
+                                                    <td>2023-05-16</td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-warning btn-sm text-light" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>Jig Store</td>
+                                                    <td>Repair</td>
+                                                    <td>2023-05-16</td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-danger btn-sm" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>In Use</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-secondary btn-sm" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>Jig Store</td>
+                                                    <td>Repair</td>
+                                                    <td>2023-05-16</td>
+                                                    <td>2023-05-16</td>
+                                                    <td><button class="btn btn-success btn-sm" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>PM</td>
+                                                    <td>2023-05-16</td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-warning btn-sm text-light" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>Jig Store</td>
+                                                    <td>Repair</td>
+                                                    <td>2023-05-16</td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-danger btn-sm" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>In Use</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-secondary btn-sm" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>Jig Store</td>
+                                                    <td>Repair</td>
+                                                    <td>2023-05-16</td>
+                                                    <td>2023-05-16</td>
+                                                    <td><button class="btn btn-success btn-sm" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>PM</td>
+                                                    <td>2023-05-16</td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-warning btn-sm text-light" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a class="btn btn-dark btn-sm" role="button" href="JigMachine.html" style="font-size:14px;">Jig-Part</a></td>
+                                                    <td>-</td>
+                                                    <td>Injection</td>
+                                                    <td>-</td>
+                                                    <td>Jig Store</td>
+                                                    <td>Repair</td>
+                                                    <td>2023-05-16</td>
+                                                    <td></td>
+                                                    <td><button class="btn btn-danger btn-sm" data-target="#modalPredictive" data-toggle="modal" style="font-size:14px;" type="button"><i class="fas fa-search"></i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 mb-2 pl-xl-0"><a class="btn btn-primary w-100 mb-3" role="button" href="JigInjPrepare.html">Jig Prepare</a>
+                            <div class="card" style="font-size:12px;">
+                                <div class="card-body p-0">
+                                    <div class="d-flex flex-column justify-content-center align-items-start p-3" style="border-bottom:1px solid rgba(0,0,0,0.125);">
+                                        <h5 class="font-weight-bold text-center m-0 mb-2">Technician</h5>
+                                        <div>
+                                            <div class="d-flex justify-content-end align-items-center mb-1"><span class="font-weight-bold" style="width:55px;">Month</span><span style="width:57px;">PM: 24</span><span style="width:75px;">Service: 9</span></div>
+                                            <div class="d-flex justify-content-end align-items-center"><span class="font-weight-bold" style="width:55px;">Year</span><span style="width:57px;">PM: 100</span><span style="width:75px;">Service: 45</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white w-100 p-3">
+                                        <div class="row mb-2 p-2 m-0 jig-technician-card">
+                                            <div class="col d-flex flex-column justify-content-between p-0 pr-2"><img class="w-100 mb-2" src="../assets/img/201-user.svg">
+                                                <div class="text-center"><span>Skill</span>
+                                                    <div class="progress mt-1" style="height:25px;">
+                                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">100%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8 p-0">
+                                                <div class="d-flex justify-content-start align-items-center mb-1"><span>นายจารึก ศรีหนองห้าง</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1"><span>Staff</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">Month</span><span style="width:57px;">PM: 15</span><span style="width:75px;">Service: 5</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">Year</span><span style="width:57px;">PM: 40</span><span style="width:75px;">Service: 26</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">PM</span>
+                                                    <div class="progress" style="width:130px;">
+                                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%;">40%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">Service</span>
+                                                    <div class="progress" style="width:130px;">
+                                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;">50%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 p-2 m-0 jig-technician-card">
+                                            <div class="col d-flex flex-column justify-content-between p-0 pr-2"><img class="w-100 mb-2" src="assets/img/201-user.svg">
+                                                <div class="text-center"><span>Skill</span>
+                                                    <div class="progress mt-1" style="height:25px;">
+                                                        <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%;">70%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8 p-0">
+                                                <div class="d-flex justify-content-start align-items-center mb-1"><span>นายจารึก ศรีหนองห้าง</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1"><span>Staff</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">Month</span><span style="width:57px;">PM: 15</span><span style="width:75px;">Service: 5</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">Year</span><span style="width:57px;">PM: 40</span><span style="width:75px;">Service: 26</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">PM</span>
+                                                    <div class="progress" style="width:130px;">
+                                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%;">40%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">Service</span>
+                                                    <div class="progress" style="width:130px;">
+                                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;">50%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row p-2 m-0 jig-technician-card">
+                                            <div class="col d-flex flex-column justify-content-between p-0 pr-2"><img class="w-100 mb-2" src="assets/img/201-user.svg">
+                                                <div class="text-center"><span>Skill</span>
+                                                    <div class="progress" style="height:25px;">
+                                                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%;">25%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8 p-0">
+                                                <div class="d-flex justify-content-start align-items-center mb-1"><span>นายจารึก ศรีหนองห้าง</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1"><span>Staff</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">Month</span><span style="width:57px;">PM: 15</span><span style="width:75px;">Service: 5</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">Year</span><span style="width:57px;">PM: 40</span><span style="width:75px;">Service: 26</span></div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">PM</span>
+                                                    <div class="progress" style="width:130px;">
+                                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%;">40%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center mb-1 w-100"><span class="font-weight-bold" style="width:55px;">Service</span>
+                                                    <div class="progress" style="width:130px;">
+                                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;">50%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer mt-2">
+            <div class="container my-auto">
+            </div>
+        </footer>
+        <div class="shadow-lg sidehide sidepanel rounded" id="jigsidepanel"><button class="btn btn-link float-right p-0 closebtn" type="button"><i class="fa fa-close"></i></button>
+            <h6 class="m-3">Jig Menu</h6>
+            <div class="container"><a class="mb-1" href="JigDashboard.html"><i class="fa fa-bar-chart mr-2"></i>Jig Dashboard</a><a class="mb-1" href="Jig.html"><i class="fas fa-list-alt mr-2"></i>Jig Overview</a><a class="mb-1" href="JigCreation.html"><i class="fas fa-screwdriver mr-2"></i>Jig Creation</a><a class="mb-1" href="JigRepairRequestment.html"><i class="fas fa-exclamation-circle mr-2"></i>Repair Overview</a><a class="mb-1" href="JigSparePartStorage.html"><i class="fas fa-cubes mr-2"></i>Spare Part</a><a class="mb-1" href="JigInjPrepare.html"><i class="fas fa-cog mr-2"></i>Jig Prepare</a><span class="text-black-50">Setting</span><a class="mb-1" href="JigSetting.html"><i class="fas fa-wrench mr-2"></i>Jig Setting</a></div>
+        </div>
+    </div><a class="d-inline border rounded scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="../assets/js/chartjs-plugin-datalabels.min.js"></script>
+    <script src="../assets/js/Chart_Dashboard.js"></script>
+    <script src="../assets/js/Chart_Machine.js"></script>
+    <script src="../assets/js/Datepicker.js"></script>
+    <script src="../assets/js/DateTime.js"></script>
+    <script src="../assets/js/dropdownBtn.js"></script>
+    <script src="https://jspreadsheet.com/v8/jspreadsheet.js"></script>
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <script src="../assets/js/Imgpreview.js"></script>
+    <script src="../assets/js/InjectionProduction_btn.js"></script>
+    <script src="../assets/js/SidePanel.js"></script>
+    <script src="../assets/js/sortTable.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/new_js_jig.js"></script>
+    <script src="../assets/js/uploadBtn.js"></script>
+    <script src="../assets/js/AddImageRepairIssue.js"></script>
+    <script src="../assets/js/chartjs-plugin-doughnutlabel-rebourne.min.js"></script>
+    <script src="../assets/js/MoldFunction.js"></script>
+    <script src="../assets/js/tooltip.js"></script>
+</body>
+
+</html>
